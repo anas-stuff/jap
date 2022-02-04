@@ -47,11 +47,6 @@ public class Player implements Runnable {
             }
         }
         clip.start();
-        try {
-            clip.wait();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         clip.addLineListener(event -> {
             if (event.getType() == LineEvent.Type.STOP) {
                 try {
