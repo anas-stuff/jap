@@ -7,11 +7,12 @@ import java.io.IOException;
 
 public class Player implements Runnable {
     private final PlayList playlist;
-    private AudioInputStream audioInputStream;
     private final Clip clip;
+    private AudioInputStream audioInputStream;
     private boolean isLooping;
     private float soundLevel;
     private boolean isMuted;
+    private boolean paused;
 
     public Player(PlayList playlist) throws LineUnavailableException {
         this.playlist = playlist;
@@ -19,6 +20,7 @@ public class Player implements Runnable {
         isLooping = false;
         soundLevel = 2.0f;
         isMuted = false;
+        paused = false;
     }
 
     public void play() throws LineUnavailableException, IOException {
@@ -28,9 +30,22 @@ public class Player implements Runnable {
             e.printStackTrace();
         }
         if (!clip.isOpen()) {
-            clip.open(audioInputStream);
+            try {
+                clip.open(audioInputStream);
+            } catch (IllegalStateException e) {
+                System.err.println("Clip is already open");
+            }
         }
         clip.start();
+        clip.addLineListener(event -> {
+            if (event.getType() == LineEvent.Type.STOP) {
+                try {
+                    next();
+                } catch (LineUnavailableException | IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         playlist.played();
     }
 
@@ -48,18 +63,19 @@ public class Player implements Runnable {
     }
 
     public void pause() {
-        if (clip.isRunning()) {
+        if (!paused) {
             clip.stop();
         } else {
             clip.start();
         }
+        paused = !paused;
     }
 
     public void resume() {
         clip.start();
     }
 
-    public void loop()  {
+    public void loop() {
         if (isLooping) {
             clip.loop(0); // stop looping
             isLooping = false;
@@ -91,16 +107,6 @@ public class Player implements Runnable {
         play();
     }
 
-    public void setVolume(float volume) {
-        if (volume < 0 || volume > 6.02f) {
-            System.out.println("Volume must be between 0 and 6.02, volume = " + volume);
-            return;
-        }
-        FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-        gainControl.setValue(volume);
-        soundLevel = gainControl.getValue();
-    }
-
     public void mute() {
         FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
         if (isMuted) {
@@ -118,6 +124,16 @@ public class Player implements Runnable {
 
     public float getVolume() {
         return soundLevel;
+    }
+
+    public void setVolume(float volume) {
+        if (volume < 0 || volume > 6.02f) {
+            System.out.println("Volume must be between 0 and 6.02, volume = " + volume);
+            return;
+        }
+        FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+        gainControl.setValue(volume);
+        soundLevel = gainControl.getValue();
     }
 
     public void exit() {

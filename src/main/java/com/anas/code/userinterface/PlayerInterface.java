@@ -93,7 +93,10 @@ public class PlayerInterface {
     }
 
     private void rePrintPayer() {
-        printPlayList(player.getPlayList().getCurrentIndex());
+        try {
+            printPlayList(player.getPlayList().getCurrentIndex());
+            printPlayingTrack(player.getPlayList().getCurrentIndex());
+        } catch (IndexOutOfBoundsException ignored) {}
         printTheOptions();
         tackAction(takeInput());
     }
@@ -130,9 +133,15 @@ public class PlayerInterface {
         // Print the first 10 elements of the playlist from the current index
         for (int i = currentIndex; i < currentIndex + 10; i++) {
             if (i < player.getPlayList().getItems().length) {
-                System.out.println(i + ": " + player.getPlayList().getItems()[i]);
+                System.out.println(i + ": " + player.getPlayList().getItems()[i].getFileName());
             }
         }
+    }
+
+    private void printPlayingTrack(int currentIndex) {
+        System.out.println("------------------------------------------------------");
+        System.out.println("Playing: " + player.getPlayList().getItems()[currentIndex].toString());
+        System.out.println("------------------------------------------------------");
     }
 
     public void setScanner(Scanner scanner) {

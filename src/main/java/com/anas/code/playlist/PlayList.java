@@ -172,7 +172,7 @@ public class PlayList {
         if (shuffling) {
             shuffle();
         }
-        return list[currentIndex++].getFile();
+        return list[currentIndex].getFile();
     }
 
     public void setShuffling(boolean shuffling) {

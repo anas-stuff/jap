@@ -51,6 +51,6 @@ public class ListItem {
 
     @Override
     public String toString() {
-        return file.getName();
+        return index + "| " + file.getName() + " - " + (file.getUsableSpace() / 1024 / 1024) + " MB";
     }
 }

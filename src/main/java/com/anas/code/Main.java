@@ -12,7 +12,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         CLIManager cliManager = new CLIManager(scanner);
         PlayList playList = new PlayList();
-        playList.addAll(cliManager.openFileBrowser(null));
+        playList.addAll(cliManager.openFileBrowser("D:\\Music"));
         Player player = null;
         try {
             player = new Player(playList);
