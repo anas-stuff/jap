@@ -1,6 +1,6 @@
 # JConsoleAudioPlayer
 
-### About: JConsoleAudioPlayer is a simple audio player for Java <br>
+### About: JConsoleAudioPlayer is a simple audio player using Java for Linux and windows and macOS <br>
 ### It is support the following audio format: <br>
 ### - Wave (24000 HZ - 16 bit) <br>
 
