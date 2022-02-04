@@ -6,10 +6,18 @@ import java.util.List;
 import java.util.Objects;
 
 public class FileManger {
+    /**
+     * Get the root files of the system
+     * @return - an array of root files
+     */
     public static File[] getRootFiles() {
         return File.listRoots();
     }
 
+    /**
+     * Get the files of the system
+     * @return - an array of files
+     */
     public static File[] getFiles(File directory) {
         return directory.listFiles();
     }
@@ -39,17 +47,12 @@ public class FileManger {
         return files.toArray(new File[0]);
     }
 
-    public static void main(String[] args) {
-        var file = new File("D:\\Music\\FLAC");
-        System.out.println("file.isDirectory() = " + file.isDirectory());
-        var files = getAbsoluteFiles(file, ".wav");
-        for (var filea : files) {
-            System.out.println(filea.getName());
-        }
-        // print total number of files
-        System.out.println("Total number of files: " + files.length);
-    }
-
+    /**
+     * Get the parent directory of the given file if the file is not the root directory
+     * return the root list if the file is the root directory
+     * @param path - the path of the file
+     * @return - the parent directory of the given file
+     */
     public static File[] back(String path) {
         File f = null;
         if (path != null) {
@@ -61,6 +64,11 @@ public class FileManger {
         return f.listFiles();
     }
 
+    /**
+     *  Used to leran is root directory
+     * @param file - the file to check
+     * @return - true if the file is the root directory
+     */
     public static boolean isRootDir(File file) {
         return file.getParentFile() == null; // if the parent file is null, then it is the root directory
     }

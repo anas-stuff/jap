@@ -12,7 +12,7 @@ public class Player implements Runnable {
     private boolean isLooping;
     private float soundLevel;
     private boolean isMuted;
-    private boolean paused;
+    private final boolean paused;
 
     public Player(PlayList playlist) throws LineUnavailableException {
         this.playlist = playlist;
@@ -37,6 +37,11 @@ public class Player implements Runnable {
             }
         }
         clip.start();
+        try {
+            clip.wait();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         clip.addLineListener(event -> {
             if (event.getType() == LineEvent.Type.STOP) {
                 try {
@@ -63,12 +68,7 @@ public class Player implements Runnable {
     }
 
     public void pause() {
-        if (!paused) {
-            clip.stop();
-        } else {
-            clip.start();
-        }
-        paused = !paused;
+        clip.start();
     }
 
     public void resume() {

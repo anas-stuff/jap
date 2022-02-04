@@ -39,6 +39,7 @@ public class PlayerInterface {
             switch (takeInput) {
                 case PLAY -> player.play();
                 case PAUSE -> player.pause();
+                case RESUME -> player.resume();
                 case STOP -> player.stop();
                 case NEXT -> player.next();
                 case PREVIOUS -> player.previous();
@@ -106,6 +107,7 @@ public class PlayerInterface {
         switch (input) {
             case "p" -> action = Actions.PLAY;
             case "pu" -> action = Actions.PAUSE;
+            case "re" -> action = Actions.RESUME;
             case "s" -> action = Actions.STOP;
             case "n" -> action = Actions.NEXT;
             case "pr" -> action = Actions.PREVIOUS;
@@ -123,7 +125,7 @@ public class PlayerInterface {
     }
 
     private void printTheOptions() {
-        System.out.println("(p)lay, (pu)se, (s)top, (n)ext, (pr)ivos, (l)oop, (lp)loop play list, (sh)uffle\n" +
+        System.out.println("(p)lay, (pu)se, (re)sume, (s)top, (n)ext, (pr)ivos, (l)oop, (lp)loop play list, (sh)uffle\n" +
                 "(m)ute, (vl) show volume level, (vu) volume up(+10), (vd)volume down(-10)" +
                 ", (:) Search, (q)uit");
         System.out.print("> ");
