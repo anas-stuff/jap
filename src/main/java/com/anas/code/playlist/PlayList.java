@@ -1,13 +1,22 @@
 package com.anas.code.playlist;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.File;
+import java.io.IOException;
+
 public class PlayList {
     private ListItem[] list;
     private int currentIndex;
-    private boolean looping;
+    private boolean looping, shuffling;
 
 
     public PlayList() {
         list = new ListItem[0];
+        currentIndex = 0;
+        looping = false;
+        shuffling = false;
     }
 
     public void add(ListItem item) {
@@ -87,18 +96,20 @@ public class PlayList {
         return list.length;
     }
 
-    public ListItem getNextItem() {
+    public void next() {
         if (currentIndex == list.length - 1) {
             currentIndex = 0;
+        } else {
+            currentIndex++;
         }
-        return list[currentIndex++];
     }
 
-    public ListItem getPreviousItem() {
+    public void previous() {
         if (currentIndex == 0) {
             currentIndex = list.length - 1;
+        } else {
+            currentIndex--;
         }
-        return list[currentIndex--];
     }
 
     public PlayList shuffle() {
@@ -151,5 +162,24 @@ public class PlayList {
         for (ListItem listItem : list) {
             System.out.println((listItem.getIndex() + 1) + ": " + listItem.getFileName());
         }
+    }
+
+    public AudioInputStream getAudioInputStream() throws UnsupportedAudioFileException, IOException {
+        return AudioSystem.getAudioInputStream(play());
+    }
+
+    private File play() {
+        if (shuffling) {
+            shuffle();
+        }
+        return list[currentIndex++].getFile();
+    }
+
+    public void setShuffling(boolean shuffling) {
+        this.shuffling = shuffling;
+    }
+
+    public boolean isShuffling() {
+        return shuffling;
     }
 }
