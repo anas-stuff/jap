@@ -34,7 +34,7 @@ public class FileBrowser {
         do {
             if (files != null) {
                 for (int i = 0; i < files.length; i++) {
-                    System.out.println((i + 1) + ": " + files[i].getName());
+                    System.out.println((i + 1) + ": " + (FileManger.isRootDir(files[i]) ? files[i].getPath() : files[i].getName()));
                 }
             } else {
                 System.out.println("No files found");

@@ -51,10 +51,17 @@ public class FileManger {
     }
 
     public static File[] back(String path) {
-        var f = new File(path).getParentFile();
+        File f = null;
+        if (path != null) {
+            f = new File(path).getParentFile();
+        }
         if (f == null) {
             return getRootFiles();
         }
         return f.listFiles();
+    }
+
+    public static boolean isRootDir(File file) {
+        return file.getParentFile() == null; // if the parent file is null, then it is the root directory
     }
 }
