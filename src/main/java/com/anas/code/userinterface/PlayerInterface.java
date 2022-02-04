@@ -50,7 +50,10 @@ public class PlayerInterface {
                 case SHOW_VOLUME_LEVEL -> showVolumeLevel(player.getVolume());
                 case VOLUME_UP -> player.setVolume(player.getVolume() + 1.01f);
                 case VOLUME_DOWN -> player.setVolume(player.getVolume() - 1.01f);
-                case EXIT -> player.exit();
+                case EXIT -> {
+                    player.exit();
+                    System.exit(0);
+                }
                 default -> System.out.println("Invalid input");
             }
         } catch (LineUnavailableException | IOException e) {
