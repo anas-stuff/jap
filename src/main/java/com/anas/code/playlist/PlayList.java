@@ -182,4 +182,22 @@ public class PlayList {
     public boolean isShuffling() {
         return shuffling;
     }
+
+    public int search(String name){
+        for (int i = 0; i < list.length; i++) {
+            if (list[i].getFileName().equalsIgnoreCase(name)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int getCurrentIndex() {
+        return currentIndex;
+    }
+
+    public ListItem[] getItems() {
+        return list;
+    }
+
 }

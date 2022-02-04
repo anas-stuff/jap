@@ -17,7 +17,7 @@ public class Player implements Runnable {
         this.playlist = playlist;
         clip = AudioSystem.getClip();
         isLooping = false;
-        soundLevel = 50;
+        soundLevel = 2.0f;
         isMuted = false;
     }
 
@@ -27,7 +27,9 @@ public class Player implements Runnable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        clip.open(audioInputStream);
+        if (!clip.isOpen()) {
+            clip.open(audioInputStream);
+        }
         clip.start();
         playlist.played();
     }
@@ -46,7 +48,11 @@ public class Player implements Runnable {
     }
 
     public void pause() {
-        clip.stop();
+        if (clip.isRunning()) {
+            clip.stop();
+        } else {
+            clip.start();
+        }
     }
 
     public void resume() {
@@ -86,6 +92,10 @@ public class Player implements Runnable {
     }
 
     public void setVolume(float volume) {
+        if (volume < 0 || volume > 6.02f) {
+            System.out.println("Volume must be between 0 and 6.02, volume = " + volume);
+            return;
+        }
         FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
         gainControl.setValue(volume);
         soundLevel = gainControl.getValue();
@@ -100,5 +110,18 @@ public class Player implements Runnable {
             gainControl.setValue(0);
             isMuted = true;
         }
+    }
+
+    public PlayList getPlayList() {
+        return playlist;
+    }
+
+    public float getVolume() {
+        return soundLevel;
+    }
+
+    public void exit() {
+        stop();
+        clip.close();
     }
 }

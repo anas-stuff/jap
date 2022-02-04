@@ -9,13 +9,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class FileBrowser {
-    private final Scanner input;
+    private Scanner scanner;
 
     // Singleton pattern
     private static FileBrowser instance;
 
     private FileBrowser() {
-        input = new Scanner(System.in);
     }
 
     protected static FileBrowser getInstance() {
@@ -49,7 +48,6 @@ public class FileBrowser {
             files = tackeAction(path, files, list, userInput, userInputArray);
             path = files[0].getParent();
         } while (!userInput.equalsIgnoreCase("q"));
-
         return list.toArray(new ListItem[0]);
     }
 
@@ -99,7 +97,7 @@ public class FileBrowser {
     private String getUserInput() {
         String userInput;
         System.out.print("> ");
-        userInput = input.nextLine();
+        userInput = scanner.nextLine();
         userInput = userInput.toUpperCase();
         return userInput;
     }
@@ -112,4 +110,7 @@ public class FileBrowser {
         }
     }
 
+    public void setScanner(Scanner scanner) {
+        this.scanner = scanner;
+    }
 }
