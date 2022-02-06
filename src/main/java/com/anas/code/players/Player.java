@@ -11,7 +11,7 @@ public class Player implements Runnable {
     private Clip clip;
     private AudioInputStream audioInputStream;
     private boolean isLooping, isMuted, paused, userStopped, running;
-    private float soundLevel;
+    private double soundLevel;
 
     /**
      * Constructor for Player
@@ -21,7 +21,7 @@ public class Player implements Runnable {
     public Player(PlayList playlist) {
         this.playlist = playlist;
         isLooping = false;
-        soundLevel = 2.0f;
+        soundLevel = 0.500;
         isMuted = false;
         paused = false;
         userStopped = false;
@@ -46,6 +46,9 @@ public class Player implements Runnable {
 
             userStopped = false;
 
+            // Set the volume
+            setVolume(soundLevel);
+
             clip.start();
             playlist.getItems()[playlist.getCurrentIndex()].setPlaying(true);
             clip.addLineListener(event -> {
@@ -53,7 +56,7 @@ public class Player implements Runnable {
                     playlist.played();
                     playlist.getItems()[playlist.getCurrentIndex()].setPlaying(false);
 
-                    if (!userStopped || !paused || !running) {
+                    if (!userStopped && !paused && !running || clip.getMicrosecondPosition() >= clip.getMicrosecondLength()) {
                         try {
                             next();
                             PlayerInterface.getInstance().rePrint();
@@ -160,14 +163,14 @@ public class Player implements Runnable {
      * Mute and unmute the song
      */
     public void mute() {
-        FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
         if (isMuted) {
-            gainControl.setValue(soundLevel);
+            setVolume(soundLevel);
             isMuted = false;
         } else {
-            gainControl.setValue(0);
+            setVolume(0.0);
             isMuted = true;
         }
+        clip.start();
     }
 
     /**
@@ -184,7 +187,7 @@ public class Player implements Runnable {
      *
      * @return the volume
      */
-    public float getVolume() {
+    public double getVolume() {
         return soundLevel;
     }
 
@@ -193,14 +196,20 @@ public class Player implements Runnable {
      *
      * @param volume the volume of the song
      */
-    public void setVolume(float volume) {
-        if (volume < 0 || volume > 6.02f) {
-            System.out.println("Volume must be between 0 and 6.02, volume = " + volume);
+    public void setVolume(double volume) {
+        if (volume < 0.0 || volume > 1.0) {
+            System.out.println("Volume must be between 0 and 1, volume = " + volume);
             return;
         }
+        userStopped = true;
+        if (!paused)
+            clip.stop();
         FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-        gainControl.setValue(volume);
-        soundLevel = gainControl.getValue();
+        float db = (float) (Math.log(volume) / Math.log(10.0) * 20.0);
+        gainControl.setValue(db);
+        soundLevel = volume;
+        if (!paused)
+            clip.start();
     }
 
     /**

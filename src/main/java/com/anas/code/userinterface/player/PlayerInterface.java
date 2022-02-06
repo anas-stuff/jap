@@ -48,9 +48,10 @@ public class PlayerInterface extends Screen {
                 case LOOP_ON_PLAY_LIST -> player.loopOfPlayList();
                 case SHUFFLE -> player.shuffle();
                 case MUTE -> player.mute();
-                case SHOW_VOLUME_LEVEL -> showVolumeLevel(player.getVolume());
-                case VOLUME_UP -> player.setVolume(player.getVolume() + 1.01f);
-                case VOLUME_DOWN -> player.setVolume(player.getVolume() - 1.01f);
+                case SHOW_VOLUME_LEVEL -> showVolumeLevel((float) player.getVolume());
+                case SET_VOLUME -> player.setVolume(takeNewVolume());
+                case VOLUME_UP -> player.setVolume(player.getVolume() + 0.1);
+                case VOLUME_DOWN -> player.setVolume(player.getVolume() - 0.1);
                 case OPEN_FILE_BROWSER -> super.getMainController().openFileBrowser();
                 case EXIT -> {
                     player.exit();
@@ -65,8 +66,17 @@ public class PlayerInterface extends Screen {
             rePrintPayer(true);
     }
 
+    private double takeNewVolume() {
+        double volume = -1;
+        do {
+            System.out.println("Enter the new volume level: ");
+            volume = super.getScanner().nextDouble();
+        } while (volume < 0 || volume > 100);
+        return volume / 100.0;
+    }
+
     private void showVolumeLevel(float volume) {
-        System.out.println("Volume level is " + volume);
+        System.out.println("Volume level is " + (volume * 100) + "%");
     }
 
     private Action takeInput() {
@@ -127,6 +137,7 @@ public class PlayerInterface extends Screen {
             case "sh" -> Action.SHUFFLE;
             case "m" -> Action.MUTE;
             case "vl" -> Action.SHOW_VOLUME_LEVEL;
+            case "v:" -> Action.SET_VOLUME;
             case "v+" -> Action.VOLUME_UP;
             case "v-" -> Action.VOLUME_DOWN;
             case "open" -> Action.OPEN_FILE_BROWSER;
@@ -137,8 +148,8 @@ public class PlayerInterface extends Screen {
 
     private void printTheOptions() {
         System.out.println("(p)lay, (pu)se, (re)sume, (s)top, (n)ext, (pr)ivos, (l)oop, (lp)loop play list, (sh)uffle\n" +
-                "(m)ute, (vl) show volume level, (v+) volume up(+10), (v-)volume down(-10)" +
-                ", (open) Open file browser, (:) Search, (q)uit\n");
+                "(m)ute, (vl) show volume level,(v:) set volume, (v+) volume up(+10), (v-)volume down(-10)" +
+                ", (open) Open file browser, (:) Search, (q)uit");
         System.out.print("> ");
     }
 
