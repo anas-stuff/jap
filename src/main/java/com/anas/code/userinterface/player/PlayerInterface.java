@@ -28,6 +28,10 @@ public class PlayerInterface extends Screen {
 
     public void start(Player player) {
         setPlayer(player);
+        print();
+    }
+
+    private void print() {
         rePrintPayer(true);
     }
 
