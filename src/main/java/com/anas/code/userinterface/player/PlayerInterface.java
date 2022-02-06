@@ -28,7 +28,7 @@ public class PlayerInterface extends Screen {
 
     public void start(Player player) {
         setPlayer(player);
-        tackAction(takeInput(), true);
+        rePrintPayer(true);
     }
 
     private void tackAction(Action takeInput, boolean rePrint) {
