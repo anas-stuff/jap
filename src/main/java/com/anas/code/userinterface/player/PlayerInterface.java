@@ -104,6 +104,7 @@ public class PlayerInterface extends Screen {
     }
 
     private void rePrintPayer(boolean rePrintAffterAction) {
+        System.out.println();
         try {
             super.getMainController().getPlayList().print();
             printPlayingTrack(super.getMainController().getPlayList().getCurrentIndex());
@@ -142,10 +143,12 @@ public class PlayerInterface extends Screen {
     }
 
     private void printPlayingTrack(int currentIndex) {
-        System.out.println("------------------------------------------------------");
-        System.out.println("Playing: " +
+        String p = "Playing: " +
                 (currentIndex != -1 ? super.getMainController().getPlayList().getItems()[currentIndex].toString() :
-                        "null"));
-        System.out.println("------------------------------------------------------");
+                        "null");
+        String s = "-".repeat(p.length());
+        System.out.println(s);
+        System.out.println(p);
+        System.out.println(s);
     }
 }

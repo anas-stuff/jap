@@ -6,11 +6,13 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Formatter;
 
 public class PlayList {
     private ListItem[] list;
     private int currentIndex;
     private boolean looping, shuffling;
+    private int longFileNameLength;
 
 
     public PlayList() {
@@ -18,6 +20,7 @@ public class PlayList {
         currentIndex = 0;
         looping = false;
         shuffling = false;
+        setLongFileNameLength(0);
     }
 
     public void add(ListItem item) {
@@ -48,7 +51,22 @@ public class PlayList {
             System.arraycopy(list, 0, newList, 0, list.length);
             System.arraycopy(items, 0, newList, list.length, items.length);
             list = newList;
+            setLongFileNameLength(updateLongFileNameLength(newList));
         }
+    }
+
+    private int updateLongFileNameLength(ListItem[] newList) {
+        int longLength = longFileNameLength;
+        for (ListItem item : newList) {
+            if (item.getFileName().length() > longLength) {
+                longLength = item.getFileName().length();
+            }
+        }
+        return longLength;
+    }
+
+    private void setLongFileNameLength(int longFileNameLength) {
+        this.longFileNameLength = longFileNameLength;
     }
 
     private void setUpItems(ListItem[] newList) {
@@ -167,16 +185,44 @@ public class PlayList {
         if (from == -1) // Print the play list from current index
             from = currentIndex;
         if (list.length > 0) {
-            // Print the first 10 elements of the playlist from the current index
-            for (int i = from; i < from + 10; i++) {
-                ListItem item = getItems()[i];
-                if (i < getItems().length) {
-                    System.out.println((item.isPlaying()? "> " : "") + i + ": " + (item.isPlayed()? "[Played] " : "") + item.getFileName());
-                }
-            }
+            printPlayList(from);
         } else {
             System.out.println("Empty play list");
         }
+    }
+
+    private void printPlayList(int from) {
+        String lineSplat = null;
+        if (getItems().length > from + 10) {
+            // Print the first 10 elements of the playlist from the current index
+            for (int i = from; i < from + 10; i++) {
+                lineSplat = printItem(lineSplat, i);
+            }
+        } else {
+            printLastItems();
+        }
+    }
+
+    private void printLastItems() {
+        String lineSplat = null;
+        for (int i = list.length - 10; i < list.length; i++) {
+            lineSplat = printItem(lineSplat, i);
+        }
+    }
+
+    private String printItem(String lineSplat, int i) {
+        ListItem item = getItems()[i];
+        Formatter formatter = new Formatter();
+        formatter.format("| %2s%-3d | %" + -(longFileNameLength + "[Played] ".length()) + "s |\n",
+                (item.isPlaying() ? "> " : ""), i, (item.isPlayed() ? "[Played] " : "") + item.getFileName());
+        if (lineSplat == null)
+            lineSplat = createLineSplat(formatter);
+        System.out.print(formatter + lineSplat);
+        return lineSplat;
+    }
+
+    private String createLineSplat(Formatter formatter) {
+        return "+" + "-".repeat(formatter.toString().length() - 3) + "+" + "\n";
     }
 
     public AudioInputStream getAudioInputStream() throws UnsupportedAudioFileException, IOException {
@@ -190,15 +236,15 @@ public class PlayList {
         return list[currentIndex].getFile();
     }
 
-    public void setShuffling(boolean shuffling) {
-        this.shuffling = shuffling;
-    }
-
     public boolean isShuffling() {
         return shuffling;
     }
 
-    public int search(String name){
+    public void setShuffling(boolean shuffling) {
+        this.shuffling = shuffling;
+    }
+
+    public int search(String name) {
         for (int i = 0; i < list.length; i++) {
             if (list[i].getFileName().equalsIgnoreCase(name)) {
                 return i;
@@ -215,5 +261,9 @@ public class PlayList {
 
     public ListItem[] getItems() {
         return list;
+    }
+
+    public int getLongFileNameLength() {
+        return longFileNameLength;
     }
 }
