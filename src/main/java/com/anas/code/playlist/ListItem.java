@@ -1,20 +1,17 @@
 package com.anas.code.playlist;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.File;
-import java.io.IOException;
 
 public class ListItem {
     private int index;
     private File file;
-    private boolean played;
+    private boolean played, playing;
 
     public ListItem(int index, File file) {
         this.index = index;
         this.file = file;
         played = false;
+        playing = false;
     }
 
     public int getIndex() {
@@ -47,6 +44,14 @@ public class ListItem {
 
     public void setPlayed(boolean played) {
         this.played = played;
+    }
+
+    public boolean isPlaying() {
+        return playing;
+    }
+
+    public void setPlaying(boolean playing) {
+        this.playing = playing;
     }
 
     @Override

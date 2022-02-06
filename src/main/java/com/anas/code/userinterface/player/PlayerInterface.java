@@ -1,16 +1,15 @@
-package com.anas.code.userinterface;
+package com.anas.code.userinterface.player;
 
-import com.anas.code.players.Actions;
+import com.anas.code.players.Action;
 import com.anas.code.players.Player;
+import com.anas.code.userinterface.Screen;
 
 import javax.sound.sampled.LineUnavailableException;
 import java.io.IOException;
-import java.util.Scanner;
 
-public class PlayerInterface {
+public class PlayerInterface extends Screen {
     // Singleton pattern
     private static PlayerInterface instance = null;
-    private Scanner scanner;
     private Player player;
 
     private PlayerInterface() {
@@ -29,12 +28,10 @@ public class PlayerInterface {
 
     public void start(Player player) {
         setPlayer(player);
-        printPlayList(this.player.getPlayList().getCurrentIndex());
-        printTheOptions();
-        tackAction(takeInput());
+        tackAction(takeInput(), true);
     }
 
-    private void tackAction(Actions takeInput) {
+    private void tackAction(Action takeInput, boolean rePrint) {
         try {
             switch (takeInput) {
                 case PLAY -> player.play();
@@ -50,6 +47,7 @@ public class PlayerInterface {
                 case SHOW_VOLUME_LEVEL -> showVolumeLevel(player.getVolume());
                 case VOLUME_UP -> player.setVolume(player.getVolume() + 1.01f);
                 case VOLUME_DOWN -> player.setVolume(player.getVolume() - 1.01f);
+                case OPEN_FILE_BROWSER -> super.getMainController().openFileBrowser();
                 case EXIT -> {
                     player.exit();
                     System.exit(0);
@@ -59,18 +57,19 @@ public class PlayerInterface {
         } catch (LineUnavailableException | IOException e) {
             e.printStackTrace();
         }
-        rePrintPayer();
+        if (rePrint)
+            rePrintPayer(true);
     }
 
     private void showVolumeLevel(float volume) {
         System.out.println("Volume level is " + volume);
-        rePrintPayer();
     }
 
-    private Actions takeInput() {
+    private Action takeInput() {
         String input = "";
-        input = scanner.nextLine();
-        Actions action = Actions.UNKNOWN;
+        Action action = Action.UNKNOWN;
+
+        input = super.getScanner().nextLine();
         // Remove the starting and ending spaces
         input = input.trim();
         if (!input.startsWith(":")) {
@@ -88,68 +87,61 @@ public class PlayerInterface {
         int result = player.getPlayList().search(substring);
         if (result != -1) {
             // Print the playlist from the result
-            printPlayList(result);
+            super.getMainController().getPlayList().print(result);
         } else {
             System.out.println("No result found");
-            rePrintPayer();
+            rePrintPayer(true);
         }
 
     }
 
-    private void rePrintPayer() {
+    public void rePrint() {
+        rePrintPayer(false);
+    }
+
+    private void rePrintPayer(boolean rePrintAffterAction) {
         try {
-            printPlayList(player.getPlayList().getCurrentIndex());
-            printPlayingTrack(player.getPlayList().getCurrentIndex());
-        } catch (IndexOutOfBoundsException ignored) {}
+            super.getMainController().getPlayList().print();
+            printPlayingTrack(super.getMainController().getPlayList().getCurrentIndex());
+        } catch (IndexOutOfBoundsException ignored) {
+        }
         printTheOptions();
-        tackAction(takeInput());
+        tackAction(takeInput(), rePrintAffterAction);
     }
 
-    private Actions getTheStaticAction(String input) {
-        Actions action;
-        switch (input) {
-            case "p" -> action = Actions.PLAY;
-            case "pu" -> action = Actions.PAUSE;
-            case "re" -> action = Actions.RESUME;
-            case "s" -> action = Actions.STOP;
-            case "n" -> action = Actions.NEXT;
-            case "pr" -> action = Actions.PREVIOUS;
-            case "l" -> action = Actions.LOOP_ON_ONE_CLIP;
-            case "lp" -> action = Actions.LOOP_ON_PLAY_LIST;
-            case "sh" -> action = Actions.SHUFFLE;
-            case "m" -> action = Actions.MUTE;
-            case "vl" -> action = Actions.SHOW_VOLUME_LEVEL;
-            case "vu" -> action = Actions.VOLUME_UP;
-            case "vd" -> action = Actions.VOLUME_DOWN;
-            case "q" -> action = Actions.EXIT;
-            default -> action = Actions.UNKNOWN;
-        }
-        return action;
+    private Action getTheStaticAction(String input) {
+        return switch (input) {
+            case "p" -> Action.PLAY;
+            case "pu" -> Action.PAUSE;
+            case "re" -> Action.RESUME;
+            case "s" -> Action.STOP;
+            case "n" -> Action.NEXT;
+            case "pr" -> Action.PREVIOUS;
+            case "l" -> Action.LOOP_ON_ONE_CLIP;
+            case "lp" -> Action.LOOP_ON_PLAY_LIST;
+            case "sh" -> Action.SHUFFLE;
+            case "m" -> Action.MUTE;
+            case "vl" -> Action.SHOW_VOLUME_LEVEL;
+            case "v+" -> Action.VOLUME_UP;
+            case "v-" -> Action.VOLUME_DOWN;
+            case "open" -> Action.OPEN_FILE_BROWSER;
+            case "exit" -> Action.EXIT;
+            default -> Action.UNKNOWN;
+        };
     }
 
     private void printTheOptions() {
         System.out.println("(p)lay, (pu)se, (re)sume, (s)top, (n)ext, (pr)ivos, (l)oop, (lp)loop play list, (sh)uffle\n" +
-                "(m)ute, (vl) show volume level, (vu) volume up(+10), (vd)volume down(-10)" +
-                ", (:) Search, (q)uit");
+                "(m)ute, (vl) show volume level, (v+) volume up(+10), (v-)volume down(-10)" +
+                ", (open) Open file browser, (:) Search, (q)uit");
         System.out.print("> ");
-    }
-
-    private void printPlayList(int currentIndex) {
-        // Print the first 10 elements of the playlist from the current index
-        for (int i = currentIndex; i < currentIndex + 10; i++) {
-            if (i < player.getPlayList().getItems().length) {
-                System.out.println(i + ": " + player.getPlayList().getItems()[i].getFileName());
-            }
-        }
     }
 
     private void printPlayingTrack(int currentIndex) {
         System.out.println("------------------------------------------------------");
-        System.out.println("Playing: " + player.getPlayList().getItems()[currentIndex].toString());
+        System.out.println("Playing: " +
+                (currentIndex != -1 ? super.getMainController().getPlayList().getItems()[currentIndex].toString() :
+                        "null"));
         System.out.println("------------------------------------------------------");
-    }
-
-    public void setScanner(Scanner scanner) {
-        this.scanner = scanner;
     }
 }

@@ -1,6 +1,6 @@
 package com.anas.code.players;
 
-public enum Actions {
+public enum Action {
     PLAY, STOP, PAUSE, RESUME, REST,
     MUTE, UN_MUTE, VOLUME_UP, VOLUME_DOWN, SHOW_VOLUME_LEVEL,
     LOOP_ON_ONE_CLIP, LOOP_ON_PLAY_LIST,

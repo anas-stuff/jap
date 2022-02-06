@@ -1,5 +1,7 @@
 package com.anas.code.files;
 
+import com.anas.code.players.Extension;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,10 +27,10 @@ public class FileManger {
     /**
      * Get all files in the directory and subdirectories with the given extension
      * @param directory - the directory to search
-     * @param extension - the extension to search for
+     * @param extensions - the extensions to search for
      * @return - a list of files with the given extension
      */
-    public static File[] getAbsoluteFiles(File directory, String extension) {
+    public static File[] getAbsoluteFiles(File directory, Extension[] extensions) {
         ArrayList<File> files = new ArrayList<>(List.of(Objects.requireNonNull(directory.listFiles())));
         for (int i = 0; i < files.size(); i++) {
             if (files.get(i).isDirectory()) {
@@ -37,14 +39,23 @@ public class FileManger {
                     files.remove(i); // Remove the empty directory from the list
                 } else {
                     File dir = files.remove(i);
-                    files.addAll(List.of(getAbsoluteFiles(dir, extension)));
+                    files.addAll(List.of(getAbsoluteFiles(dir, extensions)));
                 }
                 i--; // Decrement i to compensate for the removed element
-            } else if (!files.get(i).getName().endsWith(extension)) {
+            } else if (!isSupportedFile(files.get(i), extensions)) {
                 files.remove(i--); // remove file and decrement i to compensate for the removed element
             }
         }
         return files.toArray(new File[0]);
+    }
+
+    public static boolean isSupportedFile(File file, Extension[] extensions) {
+        for (Extension extension : extensions) {
+            if (file.getName().toUpperCase().endsWith(extension.name())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -71,5 +82,19 @@ public class FileManger {
      */
     public static boolean isRootDir(File file) {
         return file.getParentFile() == null; // if the parent file is null, then it is the root directory
+    }
+
+    public static File[] filterFiles(File[] files, Extension[] extensions) {
+        ArrayList<File> filteredFiles = new ArrayList<>();
+        for (File file : files) {
+            if (!file.isDirectory()) {
+                if (isSupportedFile(file, extensions)) {
+                    filteredFiles.add(file);
+                }
+            } else {
+                filteredFiles.add(file);
+            }
+        }
+        return filteredFiles.toArray(new File[0]);
     }
 }

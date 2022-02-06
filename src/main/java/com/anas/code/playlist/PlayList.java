@@ -5,6 +5,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class PlayList {
     private ListItem[] list;
@@ -40,20 +41,21 @@ public class PlayList {
     }
 
     public void addAll(ListItem[] items) {
-        ListItem[] newList = deleteContains(items);
-        newList = setUpItems(newList);
-        newList = new ListItem[list.length + newList.length];
-        System.arraycopy(list, 0, newList, 0, list.length);
-        System.arraycopy(items, 0, newList, list.length, items.length);
-        list = newList;
+        if (items != null && items.length > 0) {
+            ListItem[] newList = deleteContains(items);
+            setUpItems(newList);
+            newList = new ListItem[list.length + newList.length];
+            System.arraycopy(list, 0, newList, 0, list.length);
+            System.arraycopy(items, 0, newList, list.length, items.length);
+            list = newList;
+        }
     }
 
-    private ListItem[] setUpItems(ListItem[] newList) {
+    private void setUpItems(ListItem[] newList) {
         for (int i = 0; i < newList.length; i++) {
             newList[i].setIndex(i + list.length); // Set the index of the item
             newList[i].setPlayed(false); // Set the item as not played
         }
-        return newList;
     }
 
     public void remove(int index) {
@@ -67,19 +69,18 @@ public class PlayList {
     private ListItem[] deleteContains(ListItem[] newItems) {
         ListItem[] newList = new ListItem[1];
         if (list.length > 0) {
-            for (int i = 0; i < newItems.length; i++) {
-                ListItem item = newItems[i];
+            for (ListItem item : newItems) {
                 boolean found = false;
-                for (int j = 0; j < list.length; j++) {
-                    if (list[j].equals(item)) {
+                for (ListItem listItem : list) {
+                    if (listItem.equals(item)) {
                         found = true;
                         break;
                     }
                 }
-                if (!found) { // If not found, add to new list
-                    ListItem[] newList2 = new ListItem[newList.length + 1];
-                    newList2[newList2.length - 1] = item;
-                    System.arraycopy(newList, 0, newList2, 0, newList.length);
+                if (!found) { // If not found, add to current play list
+                    ListItem[] temp = Arrays.copyOf(newList, newList.length + 1);
+                    temp[temp.length - 1] = item;
+                    newList = temp;
                 }
             }
         } else {
@@ -159,8 +160,22 @@ public class PlayList {
     }
 
     public void print() {
-        for (ListItem listItem : list) {
-            System.out.println((listItem.getIndex() + 1) + ": " + listItem.getFileName());
+        print(-1);
+    }
+
+    public void print(int from) {
+        if (from == -1) // Print the play list from current index
+            from = currentIndex;
+        if (list.length > 0) {
+            // Print the first 10 elements of the playlist from the current index
+            for (int i = from; i < from + 10; i++) {
+                ListItem item = getItems()[i];
+                if (i < getItems().length) {
+                    System.out.println((item.isPlaying()? "> " : "") + i + ": " + (item.isPlayed()? "[Played] " : "") + item.getFileName());
+                }
+            }
+        } else {
+            System.out.println("Empty play list");
         }
     }
 
@@ -193,11 +208,12 @@ public class PlayList {
     }
 
     public int getCurrentIndex() {
-        return currentIndex;
+        if (list.length > 0)
+            return currentIndex;
+        return -1;
     }
 
     public ListItem[] getItems() {
         return list;
     }
-
 }

@@ -1,23 +1,24 @@
-package com.anas.code.userinterface;
+package com.anas.code.userinterface.fileBrowser;
 
 import com.anas.code.files.FileManger;
+import com.anas.code.players.Extension;
 import com.anas.code.playlist.ListItem;
+import com.anas.code.userinterface.Screen;
+import com.anas.code.userinterface.Utility;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-public class FileBrowser {
-    private Scanner scanner;
-
+public class FileBrowser extends Screen {
     // Singleton pattern
     private static FileBrowser instance;
+    private Extension[] extensions;
 
     private FileBrowser() {
     }
 
-    protected static FileBrowser getInstance() {
+    public static FileBrowser getInstance() {
         if (instance == null) {
             instance = new FileBrowser();
         }
@@ -31,19 +32,18 @@ public class FileBrowser {
         List<ListItem> list = new ArrayList<>();
         String userInput = "";
         do {
-            if (files != null) {
-                for (int i = 0; i < files.length; i++) {
-                    System.out.println((i + 1) + ": " + (FileManger.isRootDir(files[i]) ? files[i].getPath() : files[i].getName()));
-                }
-            } else {
-                System.out.println("No files found");
-            }
-            System.out.println("0: Back, +: Add to list, -: Remove from list, Q: Quit from file browser");
+            files = printFilesList(files);
+            System.out.println("0: Back, >: Go to, +: Add to list, -: Remove from list, Q: Quit from file browser");
             userInput = getUserInput();
             String[] userInputArray = new String[0];
             if (userInput.length() > 1) {
-                userInputArray = Utility.parseInput(userInput);
-                userInput = userInputArray[0]; // first element is the command
+                try {
+                    userInputArray = Utility.parseInput(userInput);
+                    userInput = userInputArray[0]; // first element is the command
+                } catch (Exception e) {
+                    continue;
+                }
+
             }
             files = tackeAction(path, files, list, userInput, userInputArray);
             path = files[0].getParent();
@@ -51,10 +51,22 @@ public class FileBrowser {
         return list.toArray(new ListItem[0]);
     }
 
+    private File[] printFilesList(File[] files) {
+        if (files != null) {
+            files = FileManger.filterFiles(files, extensions);
+            for (int i = 0; i < files.length; i++) {
+                System.out.println((i + 1) + ": " + (FileManger.isRootDir(files[i]) ? files[i].getPath() : files[i].getName()));
+            }
+        } else {
+            System.out.println("No files found");
+        }
+        return files;
+    }
+
     private File[] tackeAction(String path, File[] files, List<ListItem> list, String userInput, String[] userInputArray) {
         switch (userInput) {
             case "0" -> files = FileManger.back(path);
-            case "+" -> add(path, files, list, userInputArray);
+            case "+" -> add(files, list, userInputArray);
             case "-" -> remove(list, userInputArray);
             case ">" -> {
                 if (userInputArray.length == 2) {
@@ -62,9 +74,7 @@ public class FileBrowser {
                     files = FileManger.getFiles(new File(files[Integer.parseInt(userInputArray[1]) - 1].getPath()));
                 }
             }
-            case "Q" -> {
-
-            }
+            case "Q" -> super.getMainController().setResentPath(path);
         }
         return files;
     }
@@ -81,36 +91,32 @@ public class FileBrowser {
         }
     }
 
-    private void add(String path, File[] files, List<ListItem> list, String[] userInputArray) {
-        if (userInputArray.length > 1) {
-            for (int i = 1; i < userInputArray.length; i++) {
-                File[] filesToAdd = FileManger.getAbsoluteFiles(
-                        new File(files[Integer.parseInt(userInputArray[i]) - 1].getPath()),
-                        ".wav");
-                for (File file : filesToAdd) {
-                    list.add(new ListItem(Integer.parseInt(userInputArray[i]) - 1, file));
+    private void add(File[] files, List<ListItem> list, String[] userInputArray) {
+        try {
+            if (userInputArray.length > 1) {
+                for (int i = 1; i < userInputArray.length; i++) {
+                    File[] filesToAdd = FileManger.getAbsoluteFiles(
+                            new File(files[Integer.parseInt(userInputArray[i]) - 1].getPath()),
+                            extensions);
+                    for (File file : filesToAdd) {
+                        list.add(new ListItem(Integer.parseInt(userInputArray[i]) - 1, file));
+                    }
                 }
             }
+        } catch (ArrayIndexOutOfBoundsException ae) {
+            System.err.println("File not found");
         }
     }
 
     private String getUserInput() {
         String userInput;
         System.out.print("> ");
-        userInput = scanner.nextLine();
+        userInput = super.getScanner().nextLine();
         userInput = userInput.toUpperCase();
         return userInput;
     }
 
-    // Test
-    public void main(String[] args) {
-        ListItem[] li = openBrowser(null);
-        for (ListItem listItem : li) {
-            System.out.println(listItem.getIndex() + ": " + listItem.getFile().getName());
-        }
-    }
-
-    public void setScanner(Scanner scanner) {
-        this.scanner = scanner;
+    public void setExtensions(Extension[] extensions) {
+        this.extensions = extensions;
     }
 }

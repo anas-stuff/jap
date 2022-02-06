@@ -1,23 +1,26 @@
 package com.anas.code.userinterface;
 
 
+import com.anas.code.MainController;
 import com.anas.code.players.Player;
 import com.anas.code.playlist.ListItem;
 import com.anas.code.playlist.PlayList;
-
-import java.util.Scanner;
+import com.anas.code.userinterface.fileBrowser.FileBrowser;
+import com.anas.code.userinterface.player.PlayerInterface;
 
 public class CLIManager {
-    private final FileBrowser fileBrowser;
-    private final PlayerInterface playerInterface;
-    private final Scanner scanner;
+    private FileBrowser fileBrowser;
+    private PlayerInterface playerInterface;
 
-    public CLIManager(Scanner scanner) {
+    public CLIManager(MainController mainController) {
+        init();
+        fileBrowser.setMainController(mainController);
+        playerInterface.setMainController(mainController);
+    }
+
+    private void init() {
         this.fileBrowser = FileBrowser.getInstance();
-        fileBrowser.setScanner(scanner);
         this.playerInterface = PlayerInterface.getInstance();
-        playerInterface.setScanner(scanner);
-        this.scanner = scanner;
     }
 
     public ListItem[] openFileBrowser(String startingDirectory) {
@@ -30,5 +33,9 @@ public class CLIManager {
 
     public void showPlayerInterface(Player player) {
         playerInterface.start(player);
+    }
+
+    public FileBrowser getFileBrowser() {
+        return fileBrowser;
     }
 }

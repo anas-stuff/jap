@@ -26,8 +26,8 @@
 | sh         | Shuffle playlist  |
 | m          | Mute              |
 | vl         | Show volume level |
-| vu         | Volume up         |
-| vd         | Volume down       |
+| v+         | Volume up         |
+| v-         | Volume down       |
 | open       | Open file browser |
 
 #### Glopel
