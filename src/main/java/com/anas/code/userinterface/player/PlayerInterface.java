@@ -138,7 +138,7 @@ public class PlayerInterface extends Screen {
     private void printTheOptions() {
         System.out.println("(p)lay, (pu)se, (re)sume, (s)top, (n)ext, (pr)ivos, (l)oop, (lp)loop play list, (sh)uffle\n" +
                 "(m)ute, (vl) show volume level, (v+) volume up(+10), (v-)volume down(-10)" +
-                ", (open) Open file browser, (:) Search, (q)uit");
+                ", (open) Open file browser, (:) Search, (q)uit\n");
         System.out.print("> ");
     }
 
