@@ -6,7 +6,7 @@
 
     <groupId>com.anas.jconsoleaudioplayer</groupId>
     <artifactId>JConsoleAudioPlayer</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1-DEV</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

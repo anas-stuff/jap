@@ -36,6 +36,6 @@
 | exit       | Exit from program |
 | :          | Search            |
 
-#### Version: 1.0.0 - Snapshot
+#### Version: 0.1.0 - Dev
 
 ###### License: MIT
