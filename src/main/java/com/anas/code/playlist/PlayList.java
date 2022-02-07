@@ -9,45 +9,45 @@ import java.util.Arrays;
 import java.util.Formatter;
 
 public class PlayList {
-    private ListItem[] list;
+    private Track[] list;
     private int currentIndex;
     private boolean looping, shuffling;
     private int longFileNameLength;
 
 
     public PlayList() {
-        list = new ListItem[0];
+        list = new Track[0];
         currentIndex = 0;
         looping = false;
         shuffling = false;
         setLongFileNameLength(0);
     }
 
-    public void add(ListItem item) {
+    public void add(Track item) {
         item.setPlayed(false);
         item.setIndex(list.length - 1);
         if (!contains(item)) {
-            ListItem[] newList = new ListItem[list.length + 1];
+            Track[] newList = new Track[list.length + 1];
             System.arraycopy(list, 0, newList, 0, list.length);
             newList[newList.length - 1] = item;
             list = newList;
         }
     }
 
-    private boolean contains(ListItem item) {
-        for (ListItem listItem : list) {
-            if (listItem.equals(item)) {
+    private boolean contains(Track item) {
+        for (Track track : list) {
+            if (track.equals(item)) {
                 return true;
             }
         }
         return false;
     }
 
-    public void addAll(ListItem[] items) {
+    public void addAll(Track[] items) {
         if (items != null && items.length > 0) {
-            ListItem[] newList = deleteContains(items);
+            Track[] newList = deleteContains(items);
             setUpItems(newList);
-            newList = new ListItem[list.length + newList.length];
+            newList = new Track[list.length + newList.length];
             System.arraycopy(list, 0, newList, 0, list.length);
             System.arraycopy(items, 0, newList, list.length, items.length);
             list = newList;
@@ -55,9 +55,9 @@ public class PlayList {
         }
     }
 
-    private int updateLongFileNameLength(ListItem[] newList) {
+    private int updateLongFileNameLength(Track[] newList) {
         int longLength = longFileNameLength;
-        for (ListItem item : newList) {
+        for (Track item : newList) {
             if (item.getFileName().length() > longLength) {
                 longLength = item.getFileName().length();
             }
@@ -65,11 +65,7 @@ public class PlayList {
         return longLength;
     }
 
-    private void setLongFileNameLength(int longFileNameLength) {
-        this.longFileNameLength = longFileNameLength;
-    }
-
-    private void setUpItems(ListItem[] newList) {
+    private void setUpItems(Track[] newList) {
         for (int i = 0; i < newList.length; i++) {
             newList[i].setIndex(i + list.length); // Set the index of the item
             newList[i].setPlayed(false); // Set the item as not played
@@ -78,25 +74,25 @@ public class PlayList {
 
     public void remove(int index) {
         // Remove the item at the specified index
-        ListItem[] newList = new ListItem[list.length - 1];
+        Track[] newList = new Track[list.length - 1];
         System.arraycopy(list, 0, newList, 0, index);
         System.arraycopy(list, index + 1, newList, index, list.length - index - 1);
         list = newList;
     }
 
-    private ListItem[] deleteContains(ListItem[] newItems) {
-        ListItem[] newList = new ListItem[1];
+    private Track[] deleteContains(Track[] newItems) {
+        Track[] newList = new Track[1];
         if (list.length > 0) {
-            for (ListItem item : newItems) {
+            for (Track item : newItems) {
                 boolean found = false;
-                for (ListItem listItem : list) {
-                    if (listItem.equals(item)) {
+                for (Track track : list) {
+                    if (track.equals(item)) {
                         found = true;
                         break;
                     }
                 }
                 if (!found) { // If not found, add to current play list
-                    ListItem[] temp = Arrays.copyOf(newList, newList.length + 1);
+                    Track[] temp = Arrays.copyOf(newList, newList.length + 1);
                     temp[temp.length - 1] = item;
                     newList = temp;
                 }
@@ -107,7 +103,7 @@ public class PlayList {
         return newList;
     }
 
-    public ListItem get(int index) {
+    public Track get(int index) {
         return list[index];
     }
 
@@ -116,18 +112,40 @@ public class PlayList {
     }
 
     public void next() {
-        if (currentIndex == list.length - 1) {
+        if (currentIndex == list.length - 1 && looping && !shuffling) {
             currentIndex = 0;
+        } else if (shuffling) {
+            int index = currentIndex;
+            if (list[currentIndex].getNextTrack() == null) {
+                shuffle(); // Shuffle if the next track is null
+                list[index].setNextTrack(list[currentIndex]); // Set the previous track as the next track
+                list[currentIndex].setPreviousTrack(list[index]); // Set the current track as the previous track
+            } else {
+                currentIndex = list[currentIndex].getNextTrack().getIndex();
+            }
         } else {
             currentIndex++;
+            list[currentIndex - 1].setNextTrack(list[currentIndex]); // Set the previous track as the next track
+            list[currentIndex].setPreviousTrack(list[currentIndex - 1]); // Set the next track as the previous track
         }
     }
 
     public void previous() {
-        if (currentIndex == 0) {
+        if (currentIndex == 0 && looping && !shuffling) {
             currentIndex = list.length - 1;
+        } else if (shuffling) {
+            int index = currentIndex;
+            if (list[currentIndex].getPreviousTrack() == null) {
+                shuffle(); // Shuffle if the previous track is null
+                list[index].setPreviousTrack(list[currentIndex]); // Set the next track as the previous track
+                list[currentIndex].setNextTrack(list[index]); // Set the current track as the next track
+            } else {
+                currentIndex = list[currentIndex].getPreviousTrack().getIndex();
+            }
         } else {
             currentIndex--;
+            list[currentIndex + 1].setPreviousTrack(list[currentIndex]); // Set the next track as the previous track
+            list[currentIndex].setNextTrack(list[currentIndex + 1]); // Set the previous track as the next track
         }
     }
 
@@ -153,14 +171,16 @@ public class PlayList {
     }
 
     public void reset() {
-        for (ListItem item : list) {
+        for (Track item : list) {
             item.setPlayed(false);
+            item.setNextTrack(null);
+            item.setPreviousTrack(null);
         }
     }
 
     public boolean isEnded() {
         boolean ended = true;
-        for (ListItem item : list) {
+        for (Track item : list) {
             if (!item.isPlayed()) {
                 ended = false;
                 break;
@@ -205,16 +225,20 @@ public class PlayList {
 
     private void printLastItems() {
         String lineSplat = null;
-        for (int i = list.length - 10; i < list.length; i++) {
+        int len = 0;
+        if (getItems().length >= 10) {
+            len = getItems().length - 10;
+        }
+        for (int i = len; i < list.length; i++) {
             lineSplat = printItem(lineSplat, i);
         }
     }
 
     private String printItem(String lineSplat, int i) {
-        ListItem item = getItems()[i];
+        Track item = getItems()[i];
         Formatter formatter = new Formatter();
         formatter.format("| %2s%-3d | %" + -(longFileNameLength + "[Played] ".length()) + "s |\n",
-                (item.isPlaying() ? "> " : ""), i, (item.isPlayed() ? "[Played] " : "") + item.getFileName());
+                (item.isPlaying() ? "> " : ""), i + 1, (item.isPlayed() ? "[Played] " : "") + item.getFileName());
         if (lineSplat == null)
             lineSplat = createLineSplat(formatter);
         System.out.print(formatter + lineSplat);
@@ -230,9 +254,6 @@ public class PlayList {
     }
 
     private File play() {
-        if (shuffling) {
-            shuffle();
-        }
         return list[currentIndex].getFile();
     }
 
@@ -259,11 +280,15 @@ public class PlayList {
         return -1;
     }
 
-    public ListItem[] getItems() {
+    public Track[] getItems() {
         return list;
     }
 
     public int getLongFileNameLength() {
         return longFileNameLength;
+    }
+
+    private void setLongFileNameLength(int longFileNameLength) {
+        this.longFileNameLength = longFileNameLength;
     }
 }

@@ -3,7 +3,7 @@ package com.anas.code.userinterface;
 
 import com.anas.code.MainController;
 import com.anas.code.players.Player;
-import com.anas.code.playlist.ListItem;
+import com.anas.code.playlist.Track;
 import com.anas.code.playlist.PlayList;
 import com.anas.code.userinterface.fileBrowser.FileBrowser;
 import com.anas.code.userinterface.player.PlayerInterface;
@@ -23,7 +23,7 @@ public class CLIManager {
         this.playerInterface = PlayerInterface.getInstance();
     }
 
-    public ListItem[] openFileBrowser(String startingDirectory) {
+    public Track[] openFileBrowser(String startingDirectory) {
         return this.fileBrowser.openBrowser(startingDirectory);
     }
 

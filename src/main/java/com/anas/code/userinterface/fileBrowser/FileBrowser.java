@@ -2,7 +2,7 @@ package com.anas.code.userinterface.fileBrowser;
 
 import com.anas.code.files.FileManger;
 import com.anas.code.players.Extension;
-import com.anas.code.playlist.ListItem;
+import com.anas.code.playlist.Track;
 import com.anas.code.userinterface.Screen;
 import com.anas.code.userinterface.Utility;
 
@@ -24,12 +24,12 @@ public class FileBrowser extends Screen {
         }
         return instance;
     }
-    public ListItem[] openBrowser(String path) {
+    public Track[] openBrowser(String path) {
         if (path == null) {
             path = System.getProperty("user.home");
         }
         File[] files = new File(path).listFiles();
-        List<ListItem> list = new ArrayList<>();
+        List<Track> list = new ArrayList<>();
         String userInput = "";
         do {
             files = printFilesList(files);
@@ -48,7 +48,7 @@ public class FileBrowser extends Screen {
             files = tackeAction(path, files, list, userInput, userInputArray);
             path = files[0].getParent();
         } while (!userInput.equalsIgnoreCase("q"));
-        return list.toArray(new ListItem[0]);
+        return list.toArray(new Track[0]);
     }
 
     private File[] printFilesList(File[] files) {
@@ -63,7 +63,7 @@ public class FileBrowser extends Screen {
         return files;
     }
 
-    private File[] tackeAction(String path, File[] files, List<ListItem> list, String userInput, String[] userInputArray) {
+    private File[] tackeAction(String path, File[] files, List<Track> list, String userInput, String[] userInputArray) {
         switch (userInput) {
             case "0" -> files = FileManger.back(path);
             case "+" -> add(files, list, userInputArray);
@@ -79,7 +79,7 @@ public class FileBrowser extends Screen {
         return files;
     }
 
-    private void remove(List<ListItem> list, String[] userInputArray) {
+    private void remove(List<Track> list, String[] userInputArray) {
         if (userInputArray.length > 1) {
             for (int i = 1; i < userInputArray.length; i++) {
                 for (int j = 0; j < list.size(); j++) {
@@ -91,7 +91,7 @@ public class FileBrowser extends Screen {
         }
     }
 
-    private void add(File[] files, List<ListItem> list, String[] userInputArray) {
+    private void add(File[] files, List<Track> list, String[] userInputArray) {
         try {
             if (userInputArray.length > 1) {
                 for (int i = 1; i < userInputArray.length; i++) {
@@ -99,7 +99,7 @@ public class FileBrowser extends Screen {
                             new File(files[Integer.parseInt(userInputArray[i]) - 1].getPath()),
                             extensions);
                     for (File file : filesToAdd) {
-                        list.add(new ListItem(Integer.parseInt(userInputArray[i]) - 1, file));
+                        list.add(new Track(Integer.parseInt(userInputArray[i]) - 1, file));
                     }
                 }
             }

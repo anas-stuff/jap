@@ -2,16 +2,19 @@ package com.anas.code.playlist;
 
 import java.io.File;
 
-public class ListItem {
+public class Track {
     private int index;
     private File file;
     private boolean played, playing;
+    private Track previousTrack, nextTrack;
 
-    public ListItem(int index, File file) {
+    public Track(int index, File file) {
         this.index = index;
         this.file = file;
         played = false;
         playing = false;
+        previousTrack = null;
+        nextTrack = null;
     }
 
     public int getIndex() {
@@ -54,6 +57,21 @@ public class ListItem {
         this.playing = playing;
     }
 
+    public Track getNextTrack() {
+        return nextTrack;
+    }
+
+    public void setNextTrack(Track nextTrack) {
+        this.nextTrack = nextTrack;
+    }
+
+    public Track getPreviousTrack() {
+        return previousTrack;
+    }
+
+    public void setPreviousTrack(Track previousTrack) {
+        this.previousTrack = previousTrack;
+    }
     @Override
     public String toString() {
         return index + "| " + file.getName() + " - " + (file.getUsableSpace() / 1024 / 1024) + " MB";

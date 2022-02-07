@@ -1,7 +1,7 @@
 package com.anas.code.playlist;
 
 public class PlayListLoader {
-    public static ListItem[] load() {
+    public static Track[] load() {
         // TODO implement
         return null;
     }

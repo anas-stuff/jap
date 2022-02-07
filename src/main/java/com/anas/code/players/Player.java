@@ -143,7 +143,8 @@ public class Player implements Runnable {
         clip.close();
         playlist.next();
         running = false;
-        play();
+        if (!paused)
+            play();
     }
 
     /**
@@ -153,10 +154,13 @@ public class Player implements Runnable {
      * @throws IOException              if file is not found
      */
     public void previous() throws LineUnavailableException, IOException {
-        clip.close();
-        playlist.previous();
-        running = false;
-        play();
+        if (clip != null) {
+            clip.close();
+            playlist.previous();
+            running = false;
+            if (!paused)
+                play();
+        }
     }
 
     /**
@@ -170,7 +174,6 @@ public class Player implements Runnable {
             setVolume(0.0);
             isMuted = true;
         }
-        clip.start();
     }
 
     /**
@@ -201,15 +204,17 @@ public class Player implements Runnable {
             System.out.println("Volume must be between 0 and 1, volume = " + volume);
             return;
         }
-        userStopped = true;
-        if (!paused)
-            clip.stop();
-        FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-        float db = (float) (Math.log(volume) / Math.log(10.0) * 20.0);
-        gainControl.setValue(db);
         soundLevel = volume;
-        if (!paused)
-            clip.start();
+        if (clip != null) {
+            userStopped = true;
+            if (!paused)
+                clip.stop();
+            FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+            float db = (float) (Math.log(volume) / Math.log(10.0) * 20.0);
+            gainControl.setValue(db);
+            if (!paused)
+                clip.start();
+        }
     }
 
     /**
