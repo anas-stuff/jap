@@ -11,7 +11,7 @@ public class Player implements Runnable {
     private Clip clip;
     private AudioInputStream audioInputStream;
     private boolean isLooping, isMuted, paused, userStopped, running;
-    private double soundLevel;
+    private double soundLevel, soundLevelBeforeMute;
 
     /**
      * Constructor for Player
@@ -170,9 +170,10 @@ public class Player implements Runnable {
      */
     public void mute() {
         if (isMuted) {
-            setVolume(soundLevel);
+            setVolume(soundLevelBeforeMute);
             isMuted = false;
         } else {
+            soundLevelBeforeMute = soundLevel;
             setVolume(0.0);
             isMuted = true;
         }
