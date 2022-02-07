@@ -1,4 +1,4 @@
-package com.anas.code.playlist;
+package com.anas.jconsoleaudioplayer.playlist;
 
 public class PlayListLoader {
     public static Track[] load() {

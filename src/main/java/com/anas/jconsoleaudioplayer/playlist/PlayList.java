@@ -1,4 +1,4 @@
-package com.anas.code.playlist;
+package com.anas.jconsoleaudioplayer.playlist;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;

@@ -1,12 +1,12 @@
-package com.anas.code.userinterface;
+package com.anas.jconsoleaudioplayer.userinterface;
 
 
-import com.anas.code.MainController;
-import com.anas.code.players.Player;
-import com.anas.code.playlist.Track;
-import com.anas.code.playlist.PlayList;
-import com.anas.code.userinterface.fileBrowser.FileBrowser;
-import com.anas.code.userinterface.player.PlayerInterface;
+import com.anas.jconsoleaudioplayer.MainController;
+import com.anas.jconsoleaudioplayer.players.Player;
+import com.anas.jconsoleaudioplayer.playlist.Track;
+import com.anas.jconsoleaudioplayer.playlist.PlayList;
+import com.anas.jconsoleaudioplayer.userinterface.fileBrowser.FileBrowser;
+import com.anas.jconsoleaudioplayer.userinterface.player.PlayerInterface;
 
 public class CLIManager {
     private FileBrowser fileBrowser;

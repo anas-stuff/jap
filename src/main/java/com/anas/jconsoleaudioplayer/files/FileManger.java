@@ -1,6 +1,6 @@
-package com.anas.code.files;
+package com.anas.jconsoleaudioplayer.files;
 
-import com.anas.code.players.Extension;
+import com.anas.jconsoleaudioplayer.players.Extension;
 
 import java.io.File;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.anas.code.userinterface;
+package com.anas.jconsoleaudioplayer.userinterface;
 
 public class Utility {
     public static String[] parseInput(String input) {

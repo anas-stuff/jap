@@ -1,7 +1,7 @@
-package com.anas.code.players;
+package com.anas.jconsoleaudioplayer.players;
 
-import com.anas.code.playlist.PlayList;
-import com.anas.code.userinterface.player.PlayerInterface;
+import com.anas.jconsoleaudioplayer.playlist.PlayList;
+import com.anas.jconsoleaudioplayer.userinterface.player.PlayerInterface;
 
 import javax.sound.sampled.*;
 import java.io.IOException;

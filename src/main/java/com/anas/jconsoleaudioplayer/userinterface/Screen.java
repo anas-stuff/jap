@@ -1,6 +1,6 @@
-package com.anas.code.userinterface;
+package com.anas.jconsoleaudioplayer.userinterface;
 
-import com.anas.code.MainController;
+import com.anas.jconsoleaudioplayer.MainController;
 
 import java.util.Scanner;
 

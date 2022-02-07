@@ -1,4 +1,4 @@
-package com.anas.code.players;
+package com.anas.jconsoleaudioplayer.players;
 
 public enum Extension {
     WAV,

@@ -1,8 +1,8 @@
-package com.anas.code.userinterface.player;
+package com.anas.jconsoleaudioplayer.userinterface.player;
 
-import com.anas.code.players.Action;
-import com.anas.code.players.Player;
-import com.anas.code.userinterface.Screen;
+import com.anas.jconsoleaudioplayer.players.Action;
+import com.anas.jconsoleaudioplayer.players.Player;
+import com.anas.jconsoleaudioplayer.userinterface.Screen;
 
 import javax.sound.sampled.LineUnavailableException;
 import java.io.IOException;

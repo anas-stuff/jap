@@ -1,10 +1,10 @@
-package com.anas.code;
+package com.anas.jconsoleaudioplayer;
 
-import com.anas.code.players.Extension;
-import com.anas.code.players.Player;
-import com.anas.code.playlist.PlayList;
-import com.anas.code.playlist.PlayListLoader;
-import com.anas.code.userinterface.CLIManager;
+import com.anas.jconsoleaudioplayer.players.Extension;
+import com.anas.jconsoleaudioplayer.players.Player;
+import com.anas.jconsoleaudioplayer.playlist.PlayList;
+import com.anas.jconsoleaudioplayer.playlist.PlayListLoader;
+import com.anas.jconsoleaudioplayer.userinterface.CLIManager;
 
 import java.util.Scanner;
 

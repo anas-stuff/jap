@@ -1,10 +1,10 @@
-package com.anas.code.userinterface.fileBrowser;
+package com.anas.jconsoleaudioplayer.userinterface.fileBrowser;
 
-import com.anas.code.files.FileManger;
-import com.anas.code.players.Extension;
-import com.anas.code.playlist.Track;
-import com.anas.code.userinterface.Screen;
-import com.anas.code.userinterface.Utility;
+import com.anas.jconsoleaudioplayer.files.FileManger;
+import com.anas.jconsoleaudioplayer.players.Extension;
+import com.anas.jconsoleaudioplayer.playlist.Track;
+import com.anas.jconsoleaudioplayer.userinterface.Screen;
+import com.anas.jconsoleaudioplayer.userinterface.Utility;
 
 import java.io.File;
 import java.util.ArrayList;
