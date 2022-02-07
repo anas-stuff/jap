@@ -21,4 +21,8 @@ public abstract class Player implements SuPlayer, Runnable {
     public void play() {
 
     }
+
+    protected PlayersAdaptor getPlayersAdaptor() {
+        return adaptor;
+    }
 }

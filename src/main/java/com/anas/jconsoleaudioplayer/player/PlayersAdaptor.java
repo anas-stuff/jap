@@ -4,26 +4,28 @@ import com.anas.jconsoleaudioplayer.playlist.PlayList;
 import com.anas.jconsoleaudioplayer.userinterface.player.PlayerInterface;
 
 import javax.sound.sampled.LineEvent;
-import javax.sound.sampled.LineUnavailableException;
 import java.io.File;
-import java.io.IOException;
 
 public class PlayersAdaptor implements SuPlayer {
     private final Player[] players;
     private Player currentPlayer;
     private PlayList playList;
+    private double soundVolume, soundVolumeBeforeMute;
 
     public PlayersAdaptor(PlayList playList, Player... players) {
         this.playList = playList;
         this.players = players;
+        this.soundVolume = 0.5;
+        this.currentPlayer = players[0];
     }
 
     public void play() {
-        currentPlayer = players[0];
-        for (Player player : players) {
-            if (player.isSupportedFile(playList.getItems()[playList.getCurrentIndex()].getFile())) {
-                currentPlayer = player;
-                break;
+        if (players.length > 1) {
+            for (Player player : players) {
+                if (player.isSupportedFile(playList.getItems()[playList.getCurrentIndex()].getFile())) {
+                    currentPlayer = player;
+                    break;
+                }
             }
         }
         try {
@@ -87,16 +89,19 @@ public class PlayersAdaptor implements SuPlayer {
     @Override
     public void mute() {
         currentPlayer.mute();
+        soundVolumeBeforeMute = soundVolume;
+        soundVolume = 0;
     }
 
     @Override
     public double getVolume() {
-        return 0;
+        return soundVolume;
     }
 
     @Override
     public void setVolume(double volume) {
-        currentPlayer.setVolume(volume);
+        this.soundVolume = volume;
+        currentPlayer.setVolume(soundVolume);
     }
 
     @Deprecated

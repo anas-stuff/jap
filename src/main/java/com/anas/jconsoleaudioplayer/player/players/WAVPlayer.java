@@ -49,12 +49,13 @@ public class WAVPlayer extends Player {
             setVolume(soundLevel);
 
             clip.start();
+            running = true;
             clip.addLineListener(event -> {
-                if (clip.getMicrosecondPosition() >= clip.getMicrosecondLength()) {
+                if (!paused && !userStopped || clip.getFramePosition() == clip.getFrameLength()) {
                     super.sendEvent(event.getType());
+                    running = false;
                 }
             });
-            running = true;
         }
     }
 
@@ -128,7 +129,6 @@ public class WAVPlayer extends Player {
 
     /**
      * Get the current volume of the song
-     *
      * @return the volume
      */
     @Override
@@ -172,5 +172,4 @@ public class WAVPlayer extends Player {
         stop();
         clip.close();
     }
-
 }
