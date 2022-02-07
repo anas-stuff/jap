@@ -26,6 +26,7 @@
 | sh         | Shuffle playlist  |
 | m          | Mute              |
 | vl         | Show volume level |
+| v:         | Set volume        |
 | v+         | Volume up         |
 | v-         | Volume down       |
 | open       | Open file browser |
