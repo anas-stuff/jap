@@ -140,11 +140,13 @@ public class Player implements Runnable {
      * @throws IOException              if file is not found
      */
     public void next() throws LineUnavailableException, IOException {
-        clip.close();
-        playlist.next();
-        running = false;
-        if (!paused)
-            play();
+        if (clip != null) {
+            clip.close();
+            playlist.next();
+            running = false;
+            if (!paused)
+                play();
+        }
     }
 
     /**
