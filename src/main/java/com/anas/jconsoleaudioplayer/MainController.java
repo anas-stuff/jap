@@ -1,7 +1,8 @@
 package com.anas.jconsoleaudioplayer;
 
-import com.anas.jconsoleaudioplayer.players.Extension;
-import com.anas.jconsoleaudioplayer.players.Player;
+import com.anas.jconsoleaudioplayer.player.Extension;
+import com.anas.jconsoleaudioplayer.player.PlayersAdaptor;
+import com.anas.jconsoleaudioplayer.player.players.WAVPlayer;
 import com.anas.jconsoleaudioplayer.playlist.PlayList;
 import com.anas.jconsoleaudioplayer.playlist.PlayListLoader;
 import com.anas.jconsoleaudioplayer.userinterface.CLIManager;
@@ -11,14 +12,14 @@ import java.util.Scanner;
 public class MainController {
     private final CLIManager cliManager;
     private final PlayList playList;
-    private final Player player;
+    private final PlayersAdaptor playersAdaptor;
     private String resentPath;
     private final Scanner scanner;
 
     public MainController() {
         this.cliManager = new CLIManager(this);
         this.playList = new PlayList();
-        this.player = new Player(getPlayList());
+        this.playersAdaptor = new PlayersAdaptor(getPlayList(),  new WAVPlayer(getPlayersAdaptor()));
         this.resentPath = "D:\\Music";
         this.scanner = new Scanner(System.in);
 
@@ -27,7 +28,7 @@ public class MainController {
 
     private void start() {
         playList.addAll(PlayListLoader.load());
-        cliManager.showPlayerInterface(getPlayer());
+        cliManager.showPlayerInterface(getPlayersAdaptor());
     }
 
     public void openFileBrowser() {
@@ -39,8 +40,8 @@ public class MainController {
         return cliManager;
     }
 
-    public Player getPlayer() {
-        return player;
+    public PlayersAdaptor getPlayersAdaptor() {
+        return playersAdaptor;
     }
 
     public PlayList getPlayList() {

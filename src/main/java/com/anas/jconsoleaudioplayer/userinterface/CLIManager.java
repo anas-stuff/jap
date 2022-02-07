@@ -2,7 +2,7 @@ package com.anas.jconsoleaudioplayer.userinterface;
 
 
 import com.anas.jconsoleaudioplayer.MainController;
-import com.anas.jconsoleaudioplayer.players.Player;
+import com.anas.jconsoleaudioplayer.player.PlayersAdaptor;
 import com.anas.jconsoleaudioplayer.playlist.Track;
 import com.anas.jconsoleaudioplayer.playlist.PlayList;
 import com.anas.jconsoleaudioplayer.userinterface.fileBrowser.FileBrowser;
@@ -31,8 +31,8 @@ public class CLIManager {
         playList.print();
     }
 
-    public void showPlayerInterface(Player player) {
-        playerInterface.start(player);
+    public void showPlayerInterface(PlayersAdaptor playersAdaptor) {
+        playerInterface.start(playersAdaptor);
     }
 
     public FileBrowser getFileBrowser() {

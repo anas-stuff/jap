@@ -291,4 +291,8 @@ public class PlayList {
     private void setLongFileNameLength(int longFileNameLength) {
         this.longFileNameLength = longFileNameLength;
     }
+
+    public Track getCurrentTrack() {
+        return list[currentIndex];
+    }
 }

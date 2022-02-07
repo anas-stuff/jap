@@ -1,7 +1,7 @@
 package com.anas.jconsoleaudioplayer.userinterface.fileBrowser;
 
 import com.anas.jconsoleaudioplayer.files.FileManger;
-import com.anas.jconsoleaudioplayer.players.Extension;
+import com.anas.jconsoleaudioplayer.player.Extension;
 import com.anas.jconsoleaudioplayer.playlist.Track;
 import com.anas.jconsoleaudioplayer.userinterface.Screen;
 import com.anas.jconsoleaudioplayer.userinterface.Utility;

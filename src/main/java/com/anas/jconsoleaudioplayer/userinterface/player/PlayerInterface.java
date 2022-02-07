@@ -1,7 +1,7 @@
 package com.anas.jconsoleaudioplayer.userinterface.player;
 
-import com.anas.jconsoleaudioplayer.players.Action;
-import com.anas.jconsoleaudioplayer.players.Player;
+import com.anas.jconsoleaudioplayer.player.Action;
+import com.anas.jconsoleaudioplayer.player.PlayersAdaptor;
 import com.anas.jconsoleaudioplayer.userinterface.Screen;
 
 import javax.sound.sampled.LineUnavailableException;
@@ -10,7 +10,7 @@ import java.io.IOException;
 public class PlayerInterface extends Screen {
     // Singleton pattern
     private static PlayerInterface instance = null;
-    private Player player;
+    private PlayersAdaptor playersAdaptor;
 
     private PlayerInterface() {
     }
@@ -22,12 +22,12 @@ public class PlayerInterface extends Screen {
         return instance;
     }
 
-    public void setPlayer(Player player) {
-        this.player = player;
+    public void setPlayersAdaptor(PlayersAdaptor playersAdaptor) {
+        this.playersAdaptor = playersAdaptor;
     }
 
-    public void start(Player player) {
-        setPlayer(player);
+    public void start(PlayersAdaptor playersAdaptor) {
+        setPlayersAdaptor(playersAdaptor);
         print();
     }
 
@@ -38,28 +38,28 @@ public class PlayerInterface extends Screen {
     private void tackAction(Action takeInput, boolean rePrint) {
         try {
             switch (takeInput) {
-                case PLAY -> player.play();
-                case PAUSE -> player.pause();
-                case RESUME -> player.resume();
-                case STOP -> player.stop();
-                case NEXT -> player.next();
-                case PREVIOUS -> player.previous();
-                case LOOP_ON_ONE_CLIP -> player.loop();
-                case LOOP_ON_PLAY_LIST -> player.loopOfPlayList();
-                case SHUFFLE -> player.shuffle();
-                case MUTE -> player.mute();
-                case SHOW_VOLUME_LEVEL -> showVolumeLevel((float) player.getVolume());
-                case SET_VOLUME -> player.setVolume(takeNewVolume());
-                case VOLUME_UP -> player.setVolume(player.getVolume() + 0.1);
-                case VOLUME_DOWN -> player.setVolume(player.getVolume() - 0.1);
+                case PLAY -> playersAdaptor.play();
+                case PAUSE -> playersAdaptor.pause();
+                case RESUME -> playersAdaptor.resume();
+                case STOP -> playersAdaptor.stop();
+                case NEXT -> playersAdaptor.next();
+                case PREVIOUS -> playersAdaptor.previous();
+                case LOOP_ON_ONE_CLIP -> playersAdaptor.loop();
+                case LOOP_ON_PLAY_LIST -> playersAdaptor.loopOfPlayList();
+                case SHUFFLE -> playersAdaptor.shuffle();
+                case MUTE -> playersAdaptor.mute();
+                case SHOW_VOLUME_LEVEL -> showVolumeLevel((float) playersAdaptor.getVolume());
+                case SET_VOLUME -> playersAdaptor.setVolume(takeNewVolume());
+                case VOLUME_UP -> playersAdaptor.setVolume(playersAdaptor.getVolume() + 0.1);
+                case VOLUME_DOWN -> playersAdaptor.setVolume(playersAdaptor.getVolume() - 0.1);
                 case OPEN_FILE_BROWSER -> super.getMainController().openFileBrowser();
                 case EXIT -> {
-                    player.exit();
+                    playersAdaptor.exit();
                     System.exit(0);
                 }
                 default -> System.out.println("Invalid input");
             }
-        } catch (LineUnavailableException | IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         if (rePrint)
@@ -98,7 +98,7 @@ public class PlayerInterface extends Screen {
 
     private void search(String substring) {
         // Search for the substring in the playlist
-        int result = player.getPlayList().search(substring);
+        int result = playersAdaptor.getPlayList().search(substring);
         if (result != -1) {
             // Print the playlist from the result
             super.getMainController().getPlayList().print(result);

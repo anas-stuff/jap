@@ -1,4 +1,4 @@
-package com.anas.jconsoleaudioplayer.players;
+package com.anas.jconsoleaudioplayer.player;
 
 public enum Action {
     PLAY, STOP, PAUSE, RESUME, REST,
