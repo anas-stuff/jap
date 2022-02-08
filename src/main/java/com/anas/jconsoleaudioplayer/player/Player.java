@@ -30,7 +30,7 @@ public abstract class Player implements SuPlayer, Runnable {
      */
     public boolean isSupportedFile(File file) {
         for (Extension extension : getSupportedExtensions()) {
-            if (file.getName().toUpperCase().endsWith(extension.name())) {
+            if (extension.fileHasThisExtension(file.getName())) {
                 return true;
             }
         }

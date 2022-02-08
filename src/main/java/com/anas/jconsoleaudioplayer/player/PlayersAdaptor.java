@@ -9,26 +9,25 @@ import java.io.File;
 import java.util.Arrays;
 
 public class PlayersAdaptor implements SuPlayer {
+    // Singleton
+    private static PlayersAdaptor playersAdaptor;
     private Player[] players;
     private Player currentPlayer;
     private PlayList playList;
     private double soundVolume, soundVolumeBeforeMute;
-
-    // Singleton
-    private static PlayersAdaptor playersAdaptor;
-
-    public static PlayersAdaptor getInstance() {
-        if (playersAdaptor == null) {
-            playersAdaptor = new PlayersAdaptor();
-        }
-        return playersAdaptor;
-    }
 
     private PlayersAdaptor() {
         players = new Player[0]; // No players
         this.soundVolume = 0.5;
         addPlayers(WAVPlayer.getInstance()); // Add the players here
         currentPlayer = players[0];
+    }
+
+    public static PlayersAdaptor getInstance() {
+        if (playersAdaptor == null) {
+            playersAdaptor = new PlayersAdaptor();
+        }
+        return playersAdaptor;
     }
 
     private void setAdapterOfAllPlayers() {
@@ -38,9 +37,9 @@ public class PlayersAdaptor implements SuPlayer {
     }
 
     public void play() {
-        if (players.length == 0) {
+        if (players.length == 0)
             throw new IllegalStateException("No players");
-        }
+
         if (players.length > 1) { // if there are more than one player
             for (Player player : players) { // Get the supported player for the current file
                 if (player.isSupportedFile(playList.getItems()[playList.getCurrentIndex()].getFile())) {
@@ -49,19 +48,17 @@ public class PlayersAdaptor implements SuPlayer {
                 }
             }
         }
-        try {
-            new Thread(() -> {
-                try {
-                    currentPlayer.play(playList.getCurrentTrack().getFile());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }).start();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        // TODO: Re implement this
+        new Thread(() -> {
+            try {
+                currentPlayer.play(playList.getCurrentTrack().getFile());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 
+    @Override
     public void stop() {
         currentPlayer.stop();
     }
@@ -128,7 +125,8 @@ public class PlayersAdaptor implements SuPlayer {
     @Override
     public void setVolume(double volume) {
         this.soundVolume = volume;
-        currentPlayer.setVolume(soundVolume);
+        if (currentPlayer != null)
+            currentPlayer.setVolume(soundVolume);
     }
 
     @Override
@@ -138,6 +136,7 @@ public class PlayersAdaptor implements SuPlayer {
 
     /**
      * Get the play list
+     *
      * @return PlayList
      */
     public PlayList getPlayList() {
@@ -150,6 +149,7 @@ public class PlayersAdaptor implements SuPlayer {
 
     /**
      * Get the current player
+     *
      * @return Player
      */
     public Player getCurrentPlayer() {
