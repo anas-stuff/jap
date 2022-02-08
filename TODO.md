@@ -1,0 +1,6 @@
+- [ ] Create the system to save the play list in the `playlist.json` .
+- [ ] Crate the cache system to save the last playlist opened and the last location in the file browser and the last sound volume.
+- [ ] Create the search engine to search for a song in the playlist and the file browser.
+- [ ] Handle the exceptions.
+- [ ] Create the UML diagram.
+- [ ] Create the documentation.
