@@ -37,6 +37,6 @@
 | exit       | Exit from program |
 | :          | Search            |
 
-#### Version: 0.1.0 - Dev
+#### Version: 0.2.0 - Dev
 
 ###### License: MIT
