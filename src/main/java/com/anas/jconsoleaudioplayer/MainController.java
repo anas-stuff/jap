@@ -77,6 +77,7 @@ public class MainController {
 
     private void close() {
         playersAdaptor.exit();
+        scanner.close();
     }
 
     private void save() {
