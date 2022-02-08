@@ -12,7 +12,7 @@
 | +          | Add to current playlist      |
 | -          | Remove from current playlist |
  | &gt;       | Go to Directory              |
-| q          | Quite to player              |
+| q          | Quite to the player          |
 #### Player:
 | Controller | Function          |
 |------------|-------------------|
@@ -31,7 +31,7 @@
 | v-         | Volume down       |
 | open       | Open file browser |
 
-#### Glopel
+#### General:
 | Controller | Function          |
 |------------|-------------------|
 | exit       | Exit from program |
