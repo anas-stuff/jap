@@ -19,7 +19,7 @@ public class MainController {
     public MainController() {
         this.cliManager = new CLIManager(this);
         this.playList = new PlayList();
-        this.playersAdaptor = new PlayersAdaptor(getPlayList(),  new WAVPlayer(getPlayersAdaptor()));
+        this.playersAdaptor = new PlayersAdaptor(getPlayList(),  new WAVPlayer());
         this.resentPath = "D:\\Music";
         this.scanner = new Scanner(System.in);
 

@@ -4,6 +4,7 @@ import com.anas.jconsoleaudioplayer.playlist.PlayList;
 import com.anas.jconsoleaudioplayer.userinterface.player.PlayerInterface;
 
 import javax.sound.sampled.LineEvent;
+import javax.sound.sampled.LineListener;
 import java.io.File;
 
 public class PlayersAdaptor implements SuPlayer {
@@ -17,11 +18,18 @@ public class PlayersAdaptor implements SuPlayer {
         this.players = players;
         this.soundVolume = 0.5;
         this.currentPlayer = players[0];
+        setAdapterOfAllPlayers();
+    }
+
+    private void setAdapterOfAllPlayers() {
+        for (Player player : players) {
+            player.setPlayersAdaptor(this);
+        }
     }
 
     public void play() {
-        if (players.length > 1) {
-            for (Player player : players) {
+        if (players.length > 1) { // if there are more than one player
+            for (Player player : players) { // Get the supported player for the current file
                 if (player.isSupportedFile(playList.getItems()[playList.getCurrentIndex()].getFile())) {
                     currentPlayer = player;
                     break;
@@ -29,7 +37,13 @@ public class PlayersAdaptor implements SuPlayer {
             }
         }
         try {
-            currentPlayer.play(playList.getCurrentTrack().getFile());
+            new Thread(() -> {
+                try {
+                    currentPlayer.play(playList.getCurrentTrack().getFile());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }).start();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -117,6 +131,7 @@ public class PlayersAdaptor implements SuPlayer {
 
     /**
      * Get the play list
+     *
      * @return PlayList
      */
     public PlayList getPlayList() {
@@ -136,8 +151,9 @@ public class PlayersAdaptor implements SuPlayer {
         return currentPlayer;
     }
 
-    public void event(LineEvent.Type type) {
-        if (type == LineEvent.Type.STOP) {
+
+    public void event(LineEvent event) {
+        if (event.getType() == LineEvent.Type.STOP) {
             playList.played();
             playList.getItems()[playList.getCurrentIndex()].setPlaying(false);
             next();

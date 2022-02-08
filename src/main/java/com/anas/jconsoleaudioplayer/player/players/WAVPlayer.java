@@ -2,7 +2,6 @@ package com.anas.jconsoleaudioplayer.player.players;
 
 import com.anas.jconsoleaudioplayer.player.Extension;
 import com.anas.jconsoleaudioplayer.player.Player;
-import com.anas.jconsoleaudioplayer.player.PlayersAdaptor;
 
 import javax.sound.sampled.*;
 import java.io.File;
@@ -17,8 +16,8 @@ public class WAVPlayer extends Player {
     /**
      * Constructor for WavePlayer
      */
-    public WAVPlayer(PlayersAdaptor playersAdaptor) {
-        super(playersAdaptor);
+    public WAVPlayer() {
+        super(null);
         isLooping = false;
         soundLevel = 0.500;
         isMuted = false;
@@ -52,7 +51,7 @@ public class WAVPlayer extends Player {
             running = true;
             clip.addLineListener(event -> {
                 if (!paused && !userStopped || clip.getFramePosition() == clip.getFrameLength()) {
-                    super.sendEvent(event.getType());
+                    getPlayersAdaptor().event(event);
                     running = false;
                 }
             });
