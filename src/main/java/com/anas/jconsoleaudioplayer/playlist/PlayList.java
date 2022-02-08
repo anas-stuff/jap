@@ -1,13 +1,12 @@
 package com.anas.jconsoleaudioplayer.playlist;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.UnsupportedAudioFileException;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.io.File;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Formatter;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PlayList {
     private Track[] list;
     private int currentIndex;
@@ -116,17 +115,17 @@ public class PlayList {
             currentIndex = 0;
         } else if (shuffling) {
             int index = currentIndex;
-            if (list[currentIndex].getNextTrack() == null) {
-                shuffle(); // Shuffle if the next track is null
-                list[index].setNextTrack(list[currentIndex]); // Set the previous track as the next track
-                list[currentIndex].setPreviousTrack(list[index]); // Set the current track as the previous track
+            if (list[currentIndex].getNextTrackIndex() == -1) {
+                shuffle(); // Shuffle if the next track index is -1
+                list[index].setNextTrackIndex(currentIndex); // Set the previous track as the next track
+                list[currentIndex].setPreviousTrackIndex(index); // Set the current track as the previous track
             } else {
-                currentIndex = list[currentIndex].getNextTrack().getIndex();
+                currentIndex = list[currentIndex].getNextTrackIndex();
             }
         } else {
             currentIndex++;
-            list[currentIndex - 1].setNextTrack(list[currentIndex]); // Set the previous track as the next track
-            list[currentIndex].setPreviousTrack(list[currentIndex - 1]); // Set the next track as the previous track
+            list[currentIndex - 1].setNextTrackIndex(currentIndex); // Set the previous track as the next track
+            list[currentIndex].setPreviousTrackIndex(currentIndex - 1); // Set the next track as the previous track
         }
     }
 
@@ -135,17 +134,17 @@ public class PlayList {
             currentIndex = list.length - 1;
         } else if (shuffling) {
             int index = currentIndex;
-            if (list[currentIndex].getPreviousTrack() == null) {
+            if (list[currentIndex].getPreviousTrackIndex() == -1) {
                 shuffle(); // Shuffle if the previous track is null
-                list[index].setPreviousTrack(list[currentIndex]); // Set the next track as the previous track
-                list[currentIndex].setNextTrack(list[index]); // Set the current track as the next track
+                list[index].setPreviousTrackIndex(currentIndex); // Set the next track as the previous track
+                list[currentIndex].setNextTrackIndex(index); // Set the current track as the next track
             } else {
-                currentIndex = list[currentIndex].getPreviousTrack().getIndex();
+                currentIndex = list[currentIndex].getPreviousTrackIndex();
             }
         } else {
             currentIndex--;
-            list[currentIndex + 1].setPreviousTrack(list[currentIndex]); // Set the next track as the previous track
-            list[currentIndex].setNextTrack(list[currentIndex + 1]); // Set the previous track as the next track
+            list[currentIndex + 1].setPreviousTrackIndex(currentIndex); // Set the next track as the previous track
+            list[currentIndex].setNextTrackIndex(currentIndex + 1); // Set the previous track as the next track
         }
     }
 
@@ -174,8 +173,8 @@ public class PlayList {
     public void reset() {
         for (Track item : list) {
             item.setPlayed(false);
-            item.setNextTrack(null);
-            item.setPreviousTrack(null);
+            item.setNextTrackIndex(-1);
+            item.setPreviousTrackIndex(-1);
         }
     }
 
@@ -248,10 +247,6 @@ public class PlayList {
 
     private String createLineSplat(Formatter formatter) {
         return "+" + "-".repeat(formatter.toString().length() - 3) + "+" + "\n";
-    }
-
-    public AudioInputStream getAudioInputStream() throws UnsupportedAudioFileException, IOException {
-        return AudioSystem.getAudioInputStream(play());
     }
 
     private File play() {

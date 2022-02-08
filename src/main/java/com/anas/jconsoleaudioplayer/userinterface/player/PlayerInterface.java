@@ -53,10 +53,7 @@ public class PlayerInterface extends Screen {
                 case VOLUME_UP -> playersAdaptor.setVolume(playersAdaptor.getVolume() + 0.1);
                 case VOLUME_DOWN -> playersAdaptor.setVolume(playersAdaptor.getVolume() - 0.1);
                 case OPEN_FILE_BROWSER -> super.getMainController().openFileBrowser();
-                case EXIT -> {
-                    playersAdaptor.exit();
-                    System.exit(0);
-                }
+                case EXIT ->  super.getMainController().exit();
                 default -> System.out.println("Invalid input");
             }
         } catch (Exception e) {
