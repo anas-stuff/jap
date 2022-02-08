@@ -75,6 +75,7 @@ public class FileBrowser extends Screen {
                 }
             }
             case "Q" -> super.getMainController().setResentPath(path);
+            case "exit" -> super.getMainController().exit();
         }
         return files;
     }

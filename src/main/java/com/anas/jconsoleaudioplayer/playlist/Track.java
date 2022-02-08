@@ -1,21 +1,26 @@
 package com.anas.jconsoleaudioplayer.playlist;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.io.File;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Track {
     private int index;
     private File file;
     private boolean played, playing;
-    private Track previousTrack, nextTrack;
+    private int previousTrackIndex, nextTrackIndex;
 
     public Track(int index, File file) {
         this.index = index;
         this.file = file;
         played = false;
         playing = false;
-        previousTrack = null;
-        nextTrack = null;
+        previousTrackIndex = -1;
+        nextTrackIndex = -1;
     }
+
+    public Track() {}
 
     public int getIndex() {
         return index;
@@ -57,20 +62,20 @@ public class Track {
         this.playing = playing;
     }
 
-    public Track getNextTrack() {
-        return nextTrack;
+    public int getNextTrackIndex() {
+        return nextTrackIndex;
     }
 
-    public void setNextTrack(Track nextTrack) {
-        this.nextTrack = nextTrack;
+    public void setNextTrackIndex(int nextTrackIndex) {
+        this.nextTrackIndex = nextTrackIndex;
     }
 
-    public Track getPreviousTrack() {
-        return previousTrack;
+    public int getPreviousTrackIndex() {
+        return previousTrackIndex;
     }
 
-    public void setPreviousTrack(Track previousTrack) {
-        this.previousTrack = previousTrack;
+    public void setPreviousTrackIndex(int previousTrackIndex) {
+        this.previousTrackIndex = previousTrackIndex;
     }
     @Override
     public String toString() {

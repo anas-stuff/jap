@@ -1,5 +1,6 @@
 package com.anas.jconsoleaudioplayer;
 
+import com.anas.jconsoleaudioplayer.cache.CacheManger;
 import com.anas.jconsoleaudioplayer.player.PlayersAdaptor;
 import com.anas.jconsoleaudioplayer.playlist.PlayList;
 import com.anas.jconsoleaudioplayer.playlist.PlayListLoader;
@@ -8,20 +9,28 @@ import com.anas.jconsoleaudioplayer.userinterface.CLIManager;
 import java.util.Scanner;
 
 public class MainController {
-    private final CLIManager cliManager;
-    private final PlayList playList;
-    private final PlayersAdaptor playersAdaptor;
+    private CLIManager cliManager;
+    private CacheManger cacheManger;
+    private PlayList playList;
+    private PlayersAdaptor playersAdaptor;
     private String resentPath;
-    private final Scanner scanner;
+    private Scanner scanner;
 
     public MainController() {
+        init();
+        start();
+    }
+
+    private void init() {
         this.cliManager = new CLIManager(this);
-        this.playList = new PlayList();
+        this.cacheManger = new CacheManger(".");
+        this.playList = cacheManger.getResentPlayList();
         this.playersAdaptor = PlayersAdaptor.getInstance();
-        this.resentPath = null; // TODO: Get from cache
+        this.resentPath = cacheManger.getResentPath();
         this.scanner = new Scanner(System.in);
 
-        start();
+        // set volume
+        playersAdaptor.setVolume(cacheManger.getResentVolumeLevel());
     }
 
     private void start() {
@@ -58,5 +67,22 @@ public class MainController {
 
     public void setResentPath(String resentPath) {
         this.resentPath = resentPath;
+    }
+
+    public void exit() {
+        save();
+        close();
+        System.exit(0);
+    }
+
+    private void close() {
+        playersAdaptor.exit();
+    }
+
+    private void save() {
+        cacheManger.saveResentPath(resentPath);
+        cacheManger.savePlayList(playList);
+        cacheManger.saveCurrentVolumeLevel(playersAdaptor.getVolume());
+        cacheManger.saveCache();
     }
 }
