@@ -13,13 +13,14 @@
 | -          | Remove from current playlist |
  | &gt;       | Go to Directory              |
 | &lt;       | Back                         |
-| q          | Quite to the player          |
+| q          | Quit to the player          |
 #### Player:
 | Controller | Function          |
 |------------|-------------------|
 | p          | Play              |
 | s          | Stop              |
-| r          | Rest              |
+| re          | Resume              |
+ | pa          | Pause              |
  | n          | Next              |
  | pr         | Previous          |
  | l          | Loop              |

@@ -79,6 +79,6 @@ public class Track {
     }
     @Override
     public String toString() {
-        return index + "| " + file.getName() + " - " + (file.getUsableSpace() / 1024 / 1024) + " MB";
+        return index+1 + "| " + file.getName() + " - " + (file.getUsableSpace() / 1024 / 1024) + " MB";
     }
 }

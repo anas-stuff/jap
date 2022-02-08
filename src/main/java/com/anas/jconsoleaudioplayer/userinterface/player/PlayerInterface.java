@@ -124,7 +124,7 @@ public class PlayerInterface extends Screen {
     private Action getTheStaticAction(String input) {
         return switch (input) {
             case "p" -> Action.PLAY;
-            case "pu" -> Action.PAUSE;
+            case "pa" -> Action.PAUSE;
             case "re" -> Action.RESUME;
             case "s" -> Action.STOP;
             case "n" -> Action.NEXT;
@@ -144,9 +144,9 @@ public class PlayerInterface extends Screen {
     }
 
     private void printTheOptions() {
-        System.out.println("(p)lay, (pu)se, (re)sume, (s)top, (n)ext, (pr)ivos, (l)oop, (lp)loop play list, (sh)uffle\n" +
+        System.out.println("(p)lay, (pa)use, (re)sume, (s)top, (n)ext, (pr)evious, (l)oop, (lp)loop play list, (sh)uffle\n" +
                 "(m)ute, (vl) show volume level,(v:) set volume, (v+) volume up(+10), (v-)volume down(-10)" +
-                ", (open) Open file browser, (:) Search, (q)uit");
+                ", (open) Open file browser, (:) Search, (exit) Exit from program");
         System.out.print("> ");
     }
 
