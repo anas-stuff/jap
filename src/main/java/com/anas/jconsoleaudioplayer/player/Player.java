@@ -44,4 +44,6 @@ public abstract class Player implements SuPlayer, Runnable {
     public void setPlayersAdaptor(PlayersAdaptor adaptor) {
         this.adaptor = adaptor;
     }
+
+    public abstract boolean isRunning();
 }

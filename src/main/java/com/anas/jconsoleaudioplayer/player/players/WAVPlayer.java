@@ -173,12 +173,19 @@ public class WAVPlayer extends Player {
         }
     }
 
+    @Override
+    public boolean isRunning() {
+        return running;
+    }
+
     /**
      * Stop and close the player
      */
     @Override
     public void exit() {
-        stop();
-        clip.close();
+        if (clip != null) {
+            stop();
+            clip.close();
+        }
     }
 }

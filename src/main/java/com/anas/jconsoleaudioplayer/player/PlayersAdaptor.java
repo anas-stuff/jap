@@ -5,7 +5,6 @@ import com.anas.jconsoleaudioplayer.playlist.PlayList;
 import com.anas.jconsoleaudioplayer.userinterface.player.PlayerInterface;
 
 import javax.sound.sampled.LineEvent;
-import java.io.File;
 import java.util.Arrays;
 
 public class PlayersAdaptor implements SuPlayer {
@@ -16,6 +15,7 @@ public class PlayersAdaptor implements SuPlayer {
 
     // Singleton
     private static PlayersAdaptor playersAdaptor;
+    private boolean paused;
 
     public static PlayersAdaptor getInstance() {
         if (playersAdaptor == null) {
@@ -68,12 +68,15 @@ public class PlayersAdaptor implements SuPlayer {
 
     @Override
     public void pause() {
-        currentPlayer.pause();
+        if (currentPlayer.isRunning())
+             currentPlayer.pause();
+        paused = !paused;
     }
 
     @Override
     public void resume() {
-        currentPlayer.resume();
+        if (currentPlayer.isRunning())
+            currentPlayer.resume();
     }
 
     @Override
@@ -99,18 +102,26 @@ public class PlayersAdaptor implements SuPlayer {
      * Change to the next song in the playlist
      */
     public void next() {
-        currentPlayer.stop();
+        if (currentPlayer.isRunning())
+            currentPlayer.stop();
         playList.next();
-        this.play();
+        if (!isPaused())
+            this.play();
+    }
+
+    private boolean isPaused() {
+        return paused;
     }
 
     /**
      * Change to the previous song in the playlist
      */
     public void previous() {
-        currentPlayer.stop();
+        if (currentPlayer.isRunning())
+            currentPlayer.stop();
         playList.previous();
-        this.play();
+        if (!isPaused())
+            this.play();
     }
 
     @Override
