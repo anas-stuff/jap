@@ -49,13 +49,6 @@ public interface SuPlayer {
     void setVolume(double volume);
 
     /**
-     * Is supported file by the player
-     * @param file the file to check
-     * @return true if supported
-     */
-    boolean isSupportedFile(File file);
-
-    /**
      * Stop and close the player
      */
     void exit();

@@ -1,24 +1,34 @@
 package com.anas.jconsoleaudioplayer.player;
 
+import com.anas.jconsoleaudioplayer.player.players.WAVPlayer;
 import com.anas.jconsoleaudioplayer.playlist.PlayList;
 import com.anas.jconsoleaudioplayer.userinterface.player.PlayerInterface;
 
 import javax.sound.sampled.LineEvent;
-import javax.sound.sampled.LineListener;
 import java.io.File;
+import java.util.Arrays;
 
 public class PlayersAdaptor implements SuPlayer {
-    private final Player[] players;
+    private Player[] players;
     private Player currentPlayer;
     private PlayList playList;
     private double soundVolume, soundVolumeBeforeMute;
 
-    public PlayersAdaptor(PlayList playList, Player... players) {
-        this.playList = playList;
-        this.players = players;
+    // Singleton
+    private static PlayersAdaptor playersAdaptor;
+
+    public static PlayersAdaptor getInstance() {
+        if (playersAdaptor == null) {
+            playersAdaptor = new PlayersAdaptor();
+        }
+        return playersAdaptor;
+    }
+
+    private PlayersAdaptor() {
+        players = new Player[0]; // No players
         this.soundVolume = 0.5;
-        this.currentPlayer = players[0];
-        setAdapterOfAllPlayers();
+        addPlayers(WAVPlayer.getInstance()); // Add the players here
+        currentPlayer = players[0];
     }
 
     private void setAdapterOfAllPlayers() {
@@ -28,6 +38,9 @@ public class PlayersAdaptor implements SuPlayer {
     }
 
     public void play() {
+        if (players.length == 0) {
+            throw new IllegalStateException("No players");
+        }
         if (players.length > 1) { // if there are more than one player
             for (Player player : players) { // Get the supported player for the current file
                 if (player.isSupportedFile(playList.getItems()[playList.getCurrentIndex()].getFile())) {
@@ -118,12 +131,6 @@ public class PlayersAdaptor implements SuPlayer {
         currentPlayer.setVolume(soundVolume);
     }
 
-    @Deprecated
-    @Override
-    public boolean isSupportedFile(File file) {
-        return false;
-    }
-
     @Override
     public void exit() {
         currentPlayer.exit();
@@ -131,7 +138,6 @@ public class PlayersAdaptor implements SuPlayer {
 
     /**
      * Get the play list
-     *
      * @return PlayList
      */
     public PlayList getPlayList() {
@@ -144,10 +150,9 @@ public class PlayersAdaptor implements SuPlayer {
 
     /**
      * Get the current player
-     *
      * @return Player
      */
-    public SuPlayer getCurrentPlayer() {
+    public Player getCurrentPlayer() {
         return currentPlayer;
     }
 
@@ -159,5 +164,19 @@ public class PlayersAdaptor implements SuPlayer {
             next();
             PlayerInterface.getInstance().rePrint();
         }
+    }
+
+    public final void addPlayers(Player... players) {
+        this.players = players;
+        setAdapterOfAllPlayers();
+    }
+
+    public Extension[] getSupportedExtensions() {
+        Extension[] extensions = new Extension[0];
+        for (Player player : players) {
+            extensions = Arrays.copyOf(extensions, extensions.length + player.getSupportedExtensions().length);
+            System.arraycopy(player.getSupportedExtensions(), 0, extensions, extensions.length - player.getSupportedExtensions().length, player.getSupportedExtensions().length);
+        }
+        return extensions;
     }
 }

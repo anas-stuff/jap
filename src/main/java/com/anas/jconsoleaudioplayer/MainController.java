@@ -19,7 +19,7 @@ public class MainController {
     public MainController() {
         this.cliManager = new CLIManager(this);
         this.playList = new PlayList();
-        this.playersAdaptor = new PlayersAdaptor(getPlayList(),  new WAVPlayer());
+        this.playersAdaptor = PlayersAdaptor.getInstance();
         this.resentPath = null; // TODO: Get from cache
         this.scanner = new Scanner(System.in);
 
@@ -27,12 +27,13 @@ public class MainController {
     }
 
     private void start() {
+        playersAdaptor.setPlayList(playList);
         playList.addAll(PlayListLoader.load());
         cliManager.showPlayerInterface(getPlayersAdaptor());
     }
 
     public void openFileBrowser() {
-        cliManager.getFileBrowser().setExtensions(new Extension[]{Extension.WAV});
+        cliManager.getFileBrowser().setExtensions(playersAdaptor.getSupportedExtensions());
         playList.addAll(cliManager.openFileBrowser(resentPath));
     }
 
