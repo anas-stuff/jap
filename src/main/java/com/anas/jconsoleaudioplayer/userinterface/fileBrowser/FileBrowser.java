@@ -33,7 +33,7 @@ public class FileBrowser extends Screen {
         String userInput = "";
         do {
             files = printFilesList(files);
-            System.out.println("0: Back, >: Go to, +: Add to list, -: Remove from list, Q: Quit from file browser");
+            System.out.println(">: Go to, <: Back, +: Add to list, -: Remove from list, Q: Quit from file browser");
             userInput = getUserInput();
             String[] userInputArray = new String[0];
             if (userInput.length() > 1) {
@@ -65,7 +65,7 @@ public class FileBrowser extends Screen {
 
     private File[] tackeAction(String path, File[] files, List<Track> list, String userInput, String[] userInputArray) {
         switch (userInput) {
-            case "0" -> files = FileManger.back(path);
+            case "<" -> files = FileManger.back(path);
             case "+" -> add(files, list, userInputArray);
             case "-" -> remove(list, userInputArray);
             case ">" -> {

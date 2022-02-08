@@ -12,6 +12,7 @@
 | +          | Add to current playlist      |
 | -          | Remove from current playlist |
  | &gt;       | Go to Directory              |
+| &lt;       | Back                         |
 | q          | Quite to the player          |
 #### Player:
 | Controller | Function          |
