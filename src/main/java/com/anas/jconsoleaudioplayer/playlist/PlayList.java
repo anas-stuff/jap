@@ -149,6 +149,7 @@ public class PlayList {
         }
     }
 
+    // TODO: Re Implement shuffle
     public PlayList shuffle() {
         int randomIndex = currentIndex;
         while (randomIndex == currentIndex) {

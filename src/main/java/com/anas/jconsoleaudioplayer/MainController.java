@@ -20,7 +20,7 @@ public class MainController {
         this.cliManager = new CLIManager(this);
         this.playList = new PlayList();
         this.playersAdaptor = new PlayersAdaptor(getPlayList(),  new WAVPlayer());
-        this.resentPath = "D:\\Music";
+        this.resentPath = null; // TODO: Get from cache
         this.scanner = new Scanner(System.in);
 
         start();
