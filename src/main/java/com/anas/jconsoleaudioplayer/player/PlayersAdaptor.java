@@ -146,7 +146,6 @@ public class PlayersAdaptor implements SuPlayer {
 
     /**
      * Get the play list
-     *
      * @return PlayList
      */
     public PlayList getPlayList() {
@@ -159,7 +158,6 @@ public class PlayersAdaptor implements SuPlayer {
 
     /**
      * Get the current player
-     *
      * @return Player
      */
     public Player getCurrentPlayer() {
