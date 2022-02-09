@@ -66,7 +66,11 @@ public class PlayerInterface extends Screen {
         double volume = -1;
         do {
             System.out.println("Enter the new volume level: ");
-            volume = Double.parseDouble(super.getScanner().nextLine());
+            try {
+                 volume = Double.parseDouble(super.getScanner().nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input, please enter a number");
+            }
         } while (volume < 0 || volume > 100);
         return volume / 100.0;
     }
@@ -145,7 +149,7 @@ public class PlayerInterface extends Screen {
 
     // TODO: Refactor this method to be more readable
     private void printTheOptions() {
-        System.out.println("(p)lay, (pa)use, (re)sume, (s)top, (n)ext, (pr)evious, (loop) loop on current track, (loop1) loop on current track onr time, (lp)loop play list, (sh)uffle\n" +
+        System.out.println("(p)lay, (pa)use, (re)sume, (s)top, (n)ext, (pr)evious, (loop) loop on current track, (loop1) loop on current track one time, (lp)loop play list, (sh)uffle\n" +
                 "(m)ute, (vl) show volume level,(v:) set volume, (v+) volume up(+10), (v-)volume down(-10)" +
                 ", (open) Open file browser, (:) Search, (exit) Exit from program");
         System.out.print("> ");
