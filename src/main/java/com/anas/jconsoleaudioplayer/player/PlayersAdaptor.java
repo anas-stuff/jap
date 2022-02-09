@@ -70,13 +70,14 @@ public class PlayersAdaptor implements SuPlayer {
     public void pause() {
         if (currentPlayer.isRunning())
              currentPlayer.pause();
-        paused = !paused;
+        paused = true;
     }
 
     @Override
     public void resume() {
         if (currentPlayer.isRunning())
             currentPlayer.resume();
+        paused = false;
     }
 
     @Override
@@ -109,7 +110,7 @@ public class PlayersAdaptor implements SuPlayer {
             this.play();
     }
 
-    private boolean isPaused() {
+    public boolean isPaused() {
         return paused;
     }
 
