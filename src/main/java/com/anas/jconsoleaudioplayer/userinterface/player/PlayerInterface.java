@@ -66,7 +66,7 @@ public class PlayerInterface extends Screen {
         double volume = -1;
         do {
             System.out.println("Enter the new volume level: ");
-            volume = super.getScanner().nextDouble();
+            volume = Double.parseDouble(super.getScanner().nextLine());
         } while (volume < 0 || volume > 100);
         return volume / 100.0;
     }
