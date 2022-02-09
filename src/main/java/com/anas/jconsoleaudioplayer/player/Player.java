@@ -9,11 +9,19 @@ import java.io.File;
 public abstract class Player implements SuPlayer, Runnable {
     private PlayersAdaptor adaptor;
 
-    // Constructor
+    /**
+     * The constructor
+     * @param adaptor the players adaptor
+     */
     public Player(PlayersAdaptor adaptor) {
         this.adaptor = adaptor;
     }
 
+    /**
+     *  Play the audio file
+     * @param audioFile the audio file to play
+     * @throws Exception if you can't play the file
+     */
     public abstract void play(File audioFile) throws Exception;
     public abstract Extension[] getSupportedExtensions();
 
@@ -21,6 +29,10 @@ public abstract class Player implements SuPlayer, Runnable {
     @Deprecated
     public final void play() {}
 
+    /**
+     * Send event to the players adaptor to notify that the player is ended playing
+     * @param event the event
+     */
     public void sendEvent(LineEvent event) {
         adaptor.event(event);
     }
@@ -44,6 +56,11 @@ public abstract class Player implements SuPlayer, Runnable {
         return adaptor;
     }
 
+
+    /**
+     * Set the players adaptor
+     * @param adaptor the players adaptor
+     */
     public void setPlayersAdaptor(PlayersAdaptor adaptor) {
         this.adaptor = adaptor;
     }
