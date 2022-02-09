@@ -5,17 +5,18 @@ import com.anas.jconsoleaudioplayer.playlist.PlayList;
 import com.anas.jconsoleaudioplayer.userinterface.player.PlayerInterface;
 
 import javax.sound.sampled.LineEvent;
-import java.io.File;
 import java.util.Arrays;
 
 public class PlayersAdaptor implements SuPlayer {
     private Player[] players;
     private Player currentPlayer;
     private PlayList playList;
+    private Loop loopOnTrack;
     private double soundVolume, soundVolumeBeforeMute;
 
     // Singleton
     private static PlayersAdaptor playersAdaptor;
+    private boolean paused;
 
     public static PlayersAdaptor getInstance() {
         if (playersAdaptor == null) {
@@ -29,6 +30,7 @@ public class PlayersAdaptor implements SuPlayer {
         this.soundVolume = 0.5;
         addPlayers(WAVPlayer.getInstance()); // Add the players here
         currentPlayer = players[0];
+        loopOnTrack = Loop.NO_LOOP;
     }
 
     private void setAdapterOfAllPlayers() {
@@ -68,17 +70,24 @@ public class PlayersAdaptor implements SuPlayer {
 
     @Override
     public void pause() {
-        currentPlayer.pause();
+        if (currentPlayer.isRunning())
+             currentPlayer.pause();
+        paused = true;
     }
 
     @Override
     public void resume() {
-        currentPlayer.resume();
+        if (currentPlayer.isRunning())
+            currentPlayer.resume();
+        paused = false;
     }
 
-    @Override
-    public void loop() {
-        currentPlayer.loop();
+    public void setLoopOnTrack(Loop loopOnTrack) {
+        if (this.loopOnTrack == loopOnTrack) {
+            this.loopOnTrack = Loop.NO_LOOP;
+        } else {
+            this.loopOnTrack = loopOnTrack;
+        }
     }
 
     /**
@@ -99,18 +108,26 @@ public class PlayersAdaptor implements SuPlayer {
      * Change to the next song in the playlist
      */
     public void next() {
-        currentPlayer.stop();
+        if (currentPlayer.isRunning())
+            currentPlayer.stop();
         playList.next();
-        this.play();
+        if (!isPaused())
+            this.play();
+    }
+
+    public boolean isPaused() {
+        return paused;
     }
 
     /**
      * Change to the previous song in the playlist
      */
     public void previous() {
-        currentPlayer.stop();
+        if (currentPlayer.isRunning())
+            currentPlayer.stop();
         playList.previous();
-        this.play();
+        if (!isPaused())
+            this.play();
     }
 
     @Override
@@ -161,8 +178,23 @@ public class PlayersAdaptor implements SuPlayer {
         if (event.getType() == LineEvent.Type.STOP) {
             playList.played();
             playList.getItems()[playList.getCurrentIndex()].setPlaying(false);
-            next();
+            checkLoopOfTrack();
             PlayerInterface.getInstance().rePrint();
+        }
+    }
+
+    private void checkLoopOfTrack() {
+        switch (loopOnTrack) {
+            case LOOP_ONE_TIME -> {
+                this.stop();
+                this.play();
+                loopOnTrack = Loop.NO_LOOP;
+            }
+            case LOOP -> {
+                this.stop();
+                this.play();
+            }
+            case NO_LOOP -> next();
         }
     }
 
@@ -178,5 +210,9 @@ public class PlayersAdaptor implements SuPlayer {
             System.arraycopy(player.getSupportedExtensions(), 0, extensions, extensions.length - player.getSupportedExtensions().length, player.getSupportedExtensions().length);
         }
         return extensions;
+    }
+
+    public Loop getLoopOnTrack() {
+        return loopOnTrack;
     }
 }

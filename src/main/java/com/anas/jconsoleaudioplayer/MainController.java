@@ -28,14 +28,13 @@ public class MainController {
         this.playersAdaptor = PlayersAdaptor.getInstance();
         this.resentPath = cacheManger.getResentPath();
         this.scanner = new Scanner(System.in);
-
-        // set volume
-        playersAdaptor.setVolume(cacheManger.getResentVolumeLevel());
     }
 
     private void start() {
+        // set volume
+        playersAdaptor.setVolume(cacheManger.getResentVolumeLevel());
+        playersAdaptor.setLoopOnTrack(cacheManger.getResentLoopOnTrack());
         playersAdaptor.setPlayList(playList);
-        playList.addAll(PlayListLoader.load());
         cliManager.showPlayerInterface(getPlayersAdaptor());
     }
 
@@ -77,12 +76,14 @@ public class MainController {
 
     private void close() {
         playersAdaptor.exit();
+        scanner.close();
     }
 
     private void save() {
         cacheManger.saveResentPath(resentPath);
         cacheManger.savePlayList(playList);
         cacheManger.saveCurrentVolumeLevel(playersAdaptor.getVolume());
+        cacheManger.saveLoopOnTrack(playersAdaptor.getLoopOnTrack());
         cacheManger.saveCache();
     }
 }

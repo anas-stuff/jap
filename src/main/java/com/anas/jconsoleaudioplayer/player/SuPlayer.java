@@ -27,11 +27,6 @@ public interface SuPlayer {
      void resume();
 
     /**
-     * Enable and disable looping of the song
-     */
-     void loop();
-
-    /**
      * Mute and unmute the song
      */
     void mute();

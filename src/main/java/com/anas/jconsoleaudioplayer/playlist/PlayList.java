@@ -45,12 +45,14 @@ public class PlayList {
     public void addAll(Track[] items) {
         if (items != null && items.length > 0) {
             Track[] newList = deleteContains(items);
-            setUpItems(newList);
-            newList = new Track[list.length + newList.length];
-            System.arraycopy(list, 0, newList, 0, list.length);
-            System.arraycopy(items, 0, newList, list.length, items.length);
-            list = newList;
-            setLongFileNameLength(updateLongFileNameLength(newList));
+            if (newList != null && newList.length > 0) {
+                setUpItems(newList);
+                newList = new Track[list.length + newList.length];
+                System.arraycopy(list, 0, newList, 0, list.length);
+                System.arraycopy(items, 0, newList, list.length, items.length);
+                list = newList;
+                setLongFileNameLength(updateLongFileNameLength(newList));
+            }
         }
     }
 
@@ -80,12 +82,12 @@ public class PlayList {
     }
 
     private Track[] deleteContains(Track[] newItems) {
-        Track[] newList = new Track[1];
+        Track[] newList = new Track[0];
         if (list.length > 0) {
             for (Track item : newItems) {
                 boolean found = false;
                 for (Track track : list) {
-                    if (track.equals(item)) {
+                    if (track.getFile().equals(item.getFile())) {
                         found = true;
                         break;
                     }
@@ -123,9 +125,13 @@ public class PlayList {
                 currentIndex = list[currentIndex].getNextTrackIndex();
             }
         } else {
-            currentIndex++;
-            list[currentIndex - 1].setNextTrackIndex(currentIndex); // Set the previous track as the next track
-            list[currentIndex].setPreviousTrackIndex(currentIndex - 1); // Set the next track as the previous track
+            if (currentIndex < list.length - 1) {
+                currentIndex++;
+            }
+            if (currentIndex - 1 > list.length - 1) {
+                list[currentIndex - 1].setNextTrackIndex(currentIndex); // Set the previous track as the next track
+                list[currentIndex].setPreviousTrackIndex(currentIndex - 1); // Set the next track as the previous track
+            }
         }
     }
 
@@ -142,9 +148,13 @@ public class PlayList {
                 currentIndex = list[currentIndex].getPreviousTrackIndex();
             }
         } else {
-            currentIndex--;
-            list[currentIndex + 1].setPreviousTrackIndex(currentIndex); // Set the next track as the previous track
-            list[currentIndex].setNextTrackIndex(currentIndex + 1); // Set the previous track as the next track
+            if (currentIndex > 0) {
+                currentIndex--;
+            }
+            if (currentIndex + 1 < list.length - 1) {
+                list[currentIndex + 1].setPreviousTrackIndex(currentIndex); // Set the next track as the previous track
+                list[currentIndex].setNextTrackIndex(currentIndex + 1); // Set the previous track as the next track
+            }
         }
     }
 

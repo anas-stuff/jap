@@ -51,7 +51,7 @@ public class FileManger {
 
     public static boolean isSupportedFile(File file, Extension[] extensions) {
         for (Extension extension : extensions) {
-            if (file.getName().toUpperCase().endsWith("."+extension.name())) {
+            if (extension.fileHasThisExtension(file.getName())) {
                 return true;
             }
         }
