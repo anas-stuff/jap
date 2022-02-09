@@ -44,4 +44,10 @@ public abstract class Player implements SuPlayer, Runnable {
     public void setPlayersAdaptor(PlayersAdaptor adaptor) {
         this.adaptor = adaptor;
     }
+
+    /**
+     *  Player is running
+     * @return true if running false otherwise
+     */
+    public abstract boolean isRunning();
 }
