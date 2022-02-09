@@ -27,11 +27,6 @@ public interface SuPlayer {
      void resume();
 
     /**
-     * Mute and unmute the song
-     */
-    void mute();
-
-    /**
      * Get the current volume of the song
      * @return the volume
      */

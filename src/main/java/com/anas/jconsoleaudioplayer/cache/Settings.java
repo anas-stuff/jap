@@ -1,17 +1,14 @@
 package com.anas.jconsoleaudioplayer.cache;
 
 import com.anas.jconsoleaudioplayer.player.Loop;
-import com.anas.jconsoleaudioplayer.playlist.PlayList;
 
-public class Cache {
+public class Settings {
     private String resentPath;
-    private PlayList resentPlayList;
     private double resentVolume;
     private Loop loopOnTrack;
 
-    protected Cache() {
+    protected Settings() {
         this.resentPath = null;
-        this.resentPlayList = null;
         this.resentVolume = -1;
         this.loopOnTrack = Loop.NO_LOOP;
     }
@@ -22,14 +19,6 @@ public class Cache {
 
     protected void setResentPath(String resentPath) {
         this.resentPath = resentPath;
-    }
-
-    protected PlayList getResentPlayList() {
-        return resentPlayList;
-    }
-
-    protected void setResentPlayList(PlayList resentPlayList) {
-        this.resentPlayList = resentPlayList;
     }
 
     protected double getResentVolume() {
