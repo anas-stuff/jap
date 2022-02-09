@@ -39,7 +39,7 @@ public class PlayersAdaptor implements SuPlayer {
     }
 
     public void play() {
-        setTheCurrentPlayersToThePestPlayerForTheCurreentTrack();
+        setTheCurrentPlayersToThePestPlayerForTheCurrentTrack();
         new Thread(() -> {
             try {
                 currentPlayer.play(playList.getCurrentTrack().getFile());
@@ -49,7 +49,7 @@ public class PlayersAdaptor implements SuPlayer {
         }).start();
     }
 
-    private void setTheCurrentPlayersToThePestPlayerForTheCurreentTrack() {
+    private void setTheCurrentPlayersToThePestPlayerForTheCurrentTrack() {
         if (players.length == 0) {
             throw new IllegalStateException("No players");
         }
