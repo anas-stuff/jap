@@ -15,7 +15,7 @@ public class PlayersAdaptor implements SuPlayer {
     private PlayList playList;
     private Loop loopOnTrack;
     private double soundVolume, soundVolumeBeforeMute;
-    private boolean paused;
+    private boolean paused, muted;
 
     private PlayersAdaptor() {
         players = new Player[0]; // No players
@@ -121,11 +121,19 @@ public class PlayersAdaptor implements SuPlayer {
             this.play();
     }
 
-    @Override
+    /**
+     * Mute and unmute the song
+     */
     public void mute() {
-        currentPlayer.mute();
-        soundVolumeBeforeMute = soundVolume;
-        soundVolume = 0;
+        if (!muted) {
+            soundVolumeBeforeMute = soundVolume;
+            soundVolume = 0;
+            muted = true;
+        } else {
+            soundVolume = soundVolumeBeforeMute;
+            muted = false;
+        }
+        setVolume(soundVolume);
     }
 
     @Override
