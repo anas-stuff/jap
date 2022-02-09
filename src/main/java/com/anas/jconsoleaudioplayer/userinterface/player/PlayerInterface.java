@@ -9,6 +9,7 @@ public class PlayerInterface extends Screen {
     // Singleton pattern
     private static PlayerInterface instance = null;
     private PlayersAdaptor playersAdaptor;
+    private Action prevAction = null;
 
     private PlayerInterface() {
     }
@@ -53,13 +54,19 @@ public class PlayerInterface extends Screen {
                 case VOLUME_DOWN -> playersAdaptor.setVolume(playersAdaptor.getVolume() - 0.1);
                 case OPEN_FILE_BROWSER -> super.getMainController().openFileBrowser();
                 case EXIT ->  super.getMainController().exit();
-                default -> System.out.println("Invalid input");
+                default -> {if (!prevAction.equals(Action.SET_VOLUME)) System.out.println("Invalid input");}
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (rePrint)
+        prevAction=takeInput;
+        if (!takeInput.equals(Action.UNKNOWN)) {
             rePrintPayer(true);
+        }
+        else
+        {
+            rePrintPayer(false);
+        }
     }
 
     private double takeNewVolume() {
@@ -106,17 +113,21 @@ public class PlayerInterface extends Screen {
     }
 
     public void rePrint() {
-        rePrintPayer(false);
+        rePrintPayer(true);
     }
 
     private void rePrintPayer(boolean rePrintAffterAction) {
         System.out.println();
         try {
-            super.getMainController().getPlayList().print();
-            printPlayingTrack(super.getMainController().getPlayList().getCurrentIndex());
+            if (rePrintAffterAction)
+            {
+                super.getMainController().getPlayList().print();
+                printPlayingTrack(super.getMainController().getPlayList().getCurrentIndex());
+                printTheOptions();
+            }
+
         } catch (IndexOutOfBoundsException ignored) {
         }
-        printTheOptions();
         tackAction(takeInput(), rePrintAffterAction);
     }
 
