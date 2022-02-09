@@ -23,7 +23,7 @@ public class MainController {
 
     private void init() {
         this.cliManager = new CLIManager(this);
-        this.cacheManger = new CacheManger(".");
+        this.cacheManger = new CacheManger("./.cache");
         this.playList = cacheManger.getResentPlayList();
         this.playersAdaptor = PlayersAdaptor.getInstance();
         this.resentPath = cacheManger.getResentPath();
