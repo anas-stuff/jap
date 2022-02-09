@@ -28,12 +28,11 @@ public class MainController {
         this.playersAdaptor = PlayersAdaptor.getInstance();
         this.resentPath = cacheManger.getResentPath();
         this.scanner = new Scanner(System.in);
-
-        // set volume
-        playersAdaptor.setVolume(cacheManger.getResentVolumeLevel());
     }
 
     private void start() {
+        // set volume
+        playersAdaptor.setVolume(cacheManger.getResentVolumeLevel());
         playersAdaptor.setPlayList(playList);
         playList.addAll(PlayListLoader.load());
         cliManager.showPlayerInterface(getPlayersAdaptor());
