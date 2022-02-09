@@ -3,6 +3,9 @@ package com.anas.jconsoleaudioplayer.player;
 import javax.sound.sampled.LineEvent;
 import java.io.File;
 
+/**
+ * This is the super class for all players.
+ */
 public abstract class Player implements SuPlayer, Runnable {
     private PlayersAdaptor adaptor;
 
