@@ -11,7 +11,7 @@ import java.io.IOException;
 public class WAVPlayer extends Player {
     private Clip clip;
     private AudioInputStream audioInputStream;
-    private boolean isLooping, isMuted, paused, userStopped, running;
+    private boolean isMuted, paused, userStopped, running;
     private double soundLevel, soundLevelBeforeMute;
 
     // Singleton instance
@@ -28,7 +28,6 @@ public class WAVPlayer extends Player {
      */
     private WAVPlayer() {
         super(null);
-        isLooping = false;
         soundLevel = 0.500;
         isMuted = false;
         paused = false;
@@ -110,20 +109,6 @@ public class WAVPlayer extends Player {
     public void resume() {
         clip.start();
         paused = false;
-    }
-
-    /**
-     * Enable and disable looping of the song
-     */
-    @Override
-    public void loop() {
-        if (isLooping) {
-            clip.loop(0); // stop looping
-            isLooping = false;
-        } else {
-            clip.loop(Clip.LOOP_CONTINUOUSLY); // start looping
-            isLooping = true;
-        }
     }
 
     /**

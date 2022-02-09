@@ -1,5 +1,6 @@
 package com.anas.jconsoleaudioplayer.cache;
 
+import com.anas.jconsoleaudioplayer.player.Loop;
 import com.anas.jconsoleaudioplayer.playlist.PlayList;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
@@ -9,7 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class CacheManger {
-    private String basePath;
+    private final String basePath;
     private final ObjectMapper objectMapper;
     private final Cache cache;
 
@@ -80,5 +81,13 @@ public class CacheManger {
 
     public double getResentVolumeLevel() {
         return cache.getResentVolume() == -1 ? 0.5 : cache.getResentVolume();
+    }
+
+    public Loop getResentLoopOnTrack() {
+        return cache.getLoopOnTrack();
+    }
+
+    public void saveLoopOnTrack(Loop loop) {
+        cache.setLoopOnTrack(loop);
     }
 }

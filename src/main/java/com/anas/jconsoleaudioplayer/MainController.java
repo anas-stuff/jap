@@ -33,8 +33,8 @@ public class MainController {
     private void start() {
         // set volume
         playersAdaptor.setVolume(cacheManger.getResentVolumeLevel());
+        playersAdaptor.setLoopOnTrack(cacheManger.getResentLoopOnTrack());
         playersAdaptor.setPlayList(playList);
-        playList.addAll(PlayListLoader.load());
         cliManager.showPlayerInterface(getPlayersAdaptor());
     }
 
@@ -83,6 +83,7 @@ public class MainController {
         cacheManger.saveResentPath(resentPath);
         cacheManger.savePlayList(playList);
         cacheManger.saveCurrentVolumeLevel(playersAdaptor.getVolume());
+        cacheManger.saveLoopOnTrack(playersAdaptor.getLoopOnTrack());
         cacheManger.saveCache();
     }
 }

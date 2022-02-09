@@ -11,6 +11,7 @@ public class PlayersAdaptor implements SuPlayer {
     private Player[] players;
     private Player currentPlayer;
     private PlayList playList;
+    private Loop loopOnTrack;
     private double soundVolume, soundVolumeBeforeMute;
 
     // Singleton
@@ -29,6 +30,7 @@ public class PlayersAdaptor implements SuPlayer {
         this.soundVolume = 0.5;
         addPlayers(WAVPlayer.getInstance()); // Add the players here
         currentPlayer = players[0];
+        loopOnTrack = Loop.NO_LOOP;
     }
 
     private void setAdapterOfAllPlayers() {
@@ -80,9 +82,12 @@ public class PlayersAdaptor implements SuPlayer {
         paused = false;
     }
 
-    @Override
-    public void loop() {
-        currentPlayer.loop();
+    public void setLoopOnTrack(Loop loopOnTrack) {
+        if (this.loopOnTrack == loopOnTrack) {
+            this.loopOnTrack = Loop.NO_LOOP;
+        } else {
+            this.loopOnTrack = loopOnTrack;
+        }
     }
 
     /**
@@ -173,8 +178,23 @@ public class PlayersAdaptor implements SuPlayer {
         if (event.getType() == LineEvent.Type.STOP) {
             playList.played();
             playList.getItems()[playList.getCurrentIndex()].setPlaying(false);
-            next();
+            checkLoopOfTrack();
             PlayerInterface.getInstance().rePrint();
+        }
+    }
+
+    private void checkLoopOfTrack() {
+        switch (loopOnTrack) {
+            case LOOP_ONE_TIME -> {
+                this.stop();
+                this.play();
+                loopOnTrack = Loop.NO_LOOP;
+            }
+            case LOOP -> {
+                this.stop();
+                this.play();
+            }
+            case NO_LOOP -> next();
         }
     }
 
@@ -190,5 +210,9 @@ public class PlayersAdaptor implements SuPlayer {
             System.arraycopy(player.getSupportedExtensions(), 0, extensions, extensions.length - player.getSupportedExtensions().length, player.getSupportedExtensions().length);
         }
         return extensions;
+    }
+
+    public Loop getLoopOnTrack() {
+        return loopOnTrack;
     }
 }

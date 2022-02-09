@@ -1,11 +1,9 @@
 package com.anas.jconsoleaudioplayer.userinterface.player;
 
 import com.anas.jconsoleaudioplayer.player.Action;
+import com.anas.jconsoleaudioplayer.player.Loop;
 import com.anas.jconsoleaudioplayer.player.PlayersAdaptor;
 import com.anas.jconsoleaudioplayer.userinterface.Screen;
-
-import javax.sound.sampled.LineUnavailableException;
-import java.io.IOException;
 
 public class PlayerInterface extends Screen {
     // Singleton pattern
@@ -44,7 +42,8 @@ public class PlayerInterface extends Screen {
                 case STOP -> playersAdaptor.stop();
                 case NEXT -> playersAdaptor.next();
                 case PREVIOUS -> playersAdaptor.previous();
-                case LOOP_ON_ONE_CLIP -> playersAdaptor.loop();
+                case LOOP_ON_ONE_CLIP_ONE_TIME -> playersAdaptor.setLoopOnTrack(Loop.LOOP_ONE_TIME);
+                case LOOP_ON_ONE_CLIP -> playersAdaptor.setLoopOnTrack(Loop.LOOP);
                 case LOOP_ON_PLAY_LIST -> playersAdaptor.loopOfPlayList();
                 case SHUFFLE -> playersAdaptor.shuffle();
                 case MUTE -> playersAdaptor.mute();
@@ -129,7 +128,8 @@ public class PlayerInterface extends Screen {
             case "s" -> Action.STOP;
             case "n" -> Action.NEXT;
             case "pr" -> Action.PREVIOUS;
-            case "l" -> Action.LOOP_ON_ONE_CLIP;
+            case "loop1" -> Action.LOOP_ON_ONE_CLIP_ONE_TIME;
+            case "loop" -> Action.LOOP_ON_ONE_CLIP;
             case "lp" -> Action.LOOP_ON_PLAY_LIST;
             case "sh" -> Action.SHUFFLE;
             case "m" -> Action.MUTE;
@@ -143,8 +143,9 @@ public class PlayerInterface extends Screen {
         };
     }
 
+    // TODO: Refactor this method to be more readable
     private void printTheOptions() {
-        System.out.println("(p)lay, (pa)use, (re)sume, (s)top, (n)ext, (pr)evious, (l)oop, (lp)loop play list, (sh)uffle\n" +
+        System.out.println("(p)lay, (pa)use, (re)sume, (s)top, (n)ext, (pr)evious, (loop) loop on current track, (loop1) loop on current track onr time, (lp)loop play list, (sh)uffle\n" +
                 "(m)ute, (vl) show volume level,(v:) set volume, (v+) volume up(+10), (v-)volume down(-10)" +
                 ", (open) Open file browser, (:) Search, (exit) Exit from program");
         System.out.print("> ");
