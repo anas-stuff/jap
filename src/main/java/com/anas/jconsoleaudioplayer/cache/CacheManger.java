@@ -12,82 +12,118 @@ import java.io.IOException;
 public class CacheManger {
     private final String basePath;
     private final ObjectMapper objectMapper;
-    private final Cache cache;
+    private final Settings settings;
+    private final ResentPlayList resentPlayList;
 
     public CacheManger(String basePath) {
         this.basePath = basePath;
         objectMapper = new ObjectMapper();
         objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-        cache = loadCache();
+        settings = loadSettingsFromCache();
+        resentPlayList = loadResentPlayListFromCache();
     }
 
-    private Cache loadCache() {
-        File file = new File(basePath + "/cache.json");
+    private ResentPlayList loadResentPlayListFromCache() {
+        File file = new File(basePath + "/resent_playlist.json");
         if (file.exists()) {
             try {
-                return objectMapper.readValue(file, Cache.class);
+                return objectMapper.readValue(file, ResentPlayList.class);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        return new Cache();
+        return new ResentPlayList();
+    }
+
+    private Settings loadSettingsFromCache() {
+        File file = new File(basePath + "/settings.json");
+        if (file.exists()) {
+            try {
+                return objectMapper.readValue(file, Settings.class);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return new Settings();
     }
 
     public void saveResentPath(String resentPath) {
-        cache.setResentPath(resentPath);
+        settings.setResentPath(resentPath);
     }
 
     public void savePlayList(PlayList playList) {
-        cache.setResentPlayList(playList);
+        if (playList != null && playList.getItems() != null) {
+            if (playList.getItems().length > 0) {
+                resentPlayList.setRecentPlayList(playList);
+                return;
+            }
+        }
+        resentPlayList.setRecentPlayList(null);
     }
 
-    public void saveCurrentVolumeLevel(double volume) {
-        cache.setResentVolume(volume);
+        public void saveCurrentVolumeLevel(double volume) {
+        settings.setResentVolume(volume);
     }
 
     public void saveCache() {
-        File file = new File(basePath + "/cache.json");
-        if (!file.exists())
-            createCacheFile(file);
-        try {
-            objectMapper.writeValue(file, cache);
-        } catch (IOException e) {
-            e.printStackTrace();
+        File[] files = { new File(basePath + "/settings.json"),
+                        new File(basePath + "/resent_playlist.json") };
+        for (File file : files) {
+            if (!file.exists())
+                createCacheFile(file);
+            try {
+                switch (file.getName()) {
+                    case "settings.json" -> saveSettings(file);
+                    case "resent_playlist.json" -> saveResentPlayList(file);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+    }
+
+    private void saveResentPlayList(File file) throws IOException {
+        objectMapper.writeValue(file, resentPlayList);
+    }
+
+    private void saveSettings(File file) throws IOException {
+        objectMapper.writeValue(file, settings);
     }
 
     private void createCacheFile(File file) {
         try {
-            file.createNewFile();
+            if(!file.getParentFile().exists())
+                file.getParentFile().mkdirs(); // create parent directories if they don't exist
+            file.createNewFile(); // create the file
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public Cache getCache() {
-        return cache;
+    public Settings getCache() {
+        return settings;
     }
 
     public PlayList getResentPlayList() {
-        if (cache.getResentPlayList() != null) {
-            return cache.getResentPlayList();
+        if (resentPlayList.getRecentPlayList() != null) {
+            return resentPlayList.getRecentPlayList();
         }
         return new PlayList();
     }
 
     public String getResentPath() {
-        return cache.getResentPath();
+        return settings.getResentPath();
     }
 
     public double getResentVolumeLevel() {
-        return cache.getResentVolume() == -1 ? 0.5 : cache.getResentVolume();
+        return settings.getResentVolume() == -1 ? 0.5 : settings.getResentVolume();
     }
 
     public Loop getResentLoopOnTrack() {
-        return cache.getLoopOnTrack();
+        return settings.getLoopOnTrack();
     }
 
     public void saveLoopOnTrack(Loop loop) {
-        cache.setLoopOnTrack(loop);
+        settings.setLoopOnTrack(loop);
     }
 }
