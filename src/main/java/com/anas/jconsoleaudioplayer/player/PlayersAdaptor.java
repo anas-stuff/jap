@@ -8,22 +8,14 @@ import javax.sound.sampled.LineEvent;
 import java.util.Arrays;
 
 public class PlayersAdaptor implements SuPlayer {
+    // Singleton
+    private static PlayersAdaptor playersAdaptor;
     private Player[] players;
     private Player currentPlayer;
     private PlayList playList;
     private Loop loopOnTrack;
     private double soundVolume, soundVolumeBeforeMute;
-
-    // Singleton
-    private static PlayersAdaptor playersAdaptor;
     private boolean paused;
-
-    public static PlayersAdaptor getInstance() {
-        if (playersAdaptor == null) {
-            playersAdaptor = new PlayersAdaptor();
-        }
-        return playersAdaptor;
-    }
 
     private PlayersAdaptor() {
         players = new Player[0]; // No players
@@ -33,6 +25,13 @@ public class PlayersAdaptor implements SuPlayer {
         loopOnTrack = Loop.NO_LOOP;
     }
 
+    public static PlayersAdaptor getInstance() {
+        if (playersAdaptor == null) {
+            playersAdaptor = new PlayersAdaptor();
+        }
+        return playersAdaptor;
+    }
+
     private void setAdapterOfAllPlayers() {
         for (Player player : players) {
             player.setPlayersAdaptor(this);
@@ -40,6 +39,17 @@ public class PlayersAdaptor implements SuPlayer {
     }
 
     public void play() {
+        setTheCurrentPlayersToThePestPlayerForTheCurreentTrack();
+        new Thread(() -> {
+            try {
+                currentPlayer.play(playList.getCurrentTrack().getFile());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
+
+    private void setTheCurrentPlayersToThePestPlayerForTheCurreentTrack() {
         if (players.length == 0) {
             throw new IllegalStateException("No players");
         }
@@ -51,17 +61,6 @@ public class PlayersAdaptor implements SuPlayer {
                 }
             }
         }
-        try {
-            new Thread(() -> {
-                try {
-                    currentPlayer.play(playList.getCurrentTrack().getFile());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }).start();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public void stop() {
@@ -71,7 +70,7 @@ public class PlayersAdaptor implements SuPlayer {
     @Override
     public void pause() {
         if (currentPlayer.isRunning())
-             currentPlayer.pause();
+            currentPlayer.pause();
         paused = true;
     }
 
@@ -80,14 +79,6 @@ public class PlayersAdaptor implements SuPlayer {
         if (currentPlayer.isRunning())
             currentPlayer.resume();
         paused = false;
-    }
-
-    public void setLoopOnTrack(Loop loopOnTrack) {
-        if (this.loopOnTrack == loopOnTrack) {
-            this.loopOnTrack = Loop.NO_LOOP;
-        } else {
-            this.loopOnTrack = loopOnTrack;
-        }
     }
 
     /**
@@ -155,6 +146,7 @@ public class PlayersAdaptor implements SuPlayer {
 
     /**
      * Get the play list
+     *
      * @return PlayList
      */
     public PlayList getPlayList() {
@@ -167,12 +159,12 @@ public class PlayersAdaptor implements SuPlayer {
 
     /**
      * Get the current player
+     *
      * @return Player
      */
     public Player getCurrentPlayer() {
         return currentPlayer;
     }
-
 
     public void event(LineEvent event) {
         if (event.getType() == LineEvent.Type.STOP) {
@@ -214,5 +206,13 @@ public class PlayersAdaptor implements SuPlayer {
 
     public Loop getLoopOnTrack() {
         return loopOnTrack;
+    }
+
+    public void setLoopOnTrack(Loop loopOnTrack) {
+        if (this.loopOnTrack == loopOnTrack) {
+            this.loopOnTrack = Loop.NO_LOOP;
+        } else {
+            this.loopOnTrack = loopOnTrack;
+        }
     }
 }
