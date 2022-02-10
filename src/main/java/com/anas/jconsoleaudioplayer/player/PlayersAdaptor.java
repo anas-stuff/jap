@@ -99,17 +99,13 @@ public class PlayersAdaptor implements SuPlayer {
     /**
      * Change to the next song in the playlist
      */
-    public void next() {
+    public void next() throws EndPlayListException {
         if (currentPlayer.isRunning())
             currentPlayer.stop();
         playList.played();
-        try {
-            playList.next();
-            if (!isPaused())
-                this.play();
-        } catch (EndPlayListException e) {
-            System.out.println(e.getMessage());
-        }
+        playList.next();
+        if (!isPaused())
+            this.play();
     }
 
     public boolean isPaused() {
@@ -119,17 +115,13 @@ public class PlayersAdaptor implements SuPlayer {
     /**
      * Change to the previous song in the playlist
      */
-    public void previous() {
+    public void previous() throws EndPlayListException {
         if (currentPlayer.isRunning())
             currentPlayer.stop();
         playList.played();
-        try {
-            playList.previous();
-            if (!isPaused())
-                this.play();
-        } catch (EndPlayListException e) {
-            System.out.println(e.getMessage());
-        }
+        playList.previous();
+        if (!isPaused())
+            this.play();
     }
 
     /**
@@ -165,6 +157,7 @@ public class PlayersAdaptor implements SuPlayer {
 
     /**
      * Get the play list
+     *
      * @return PlayList
      */
     public PlayList getPlayList() {
@@ -177,6 +170,7 @@ public class PlayersAdaptor implements SuPlayer {
 
     /**
      * Get the current player
+     *
      * @return Player
      */
     public Player getCurrentPlayer() {
@@ -203,7 +197,11 @@ public class PlayersAdaptor implements SuPlayer {
                 this.stop();
                 this.play();
             }
-            case NO_LOOP -> next();
+            case NO_LOOP -> {
+                try {
+                    next();
+                } catch (EndPlayListException ignored) {}
+            }
         }
     }
 

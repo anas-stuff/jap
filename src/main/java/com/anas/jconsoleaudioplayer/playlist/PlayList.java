@@ -115,6 +115,7 @@ public class PlayList {
     public void next() throws EndPlayListException {
         if (currentIndex == list.length - 1 && looping && !shuffling) {
             currentIndex = 0;
+            reset(); // Rest the play list
         } else if (shuffling) {
             int index = currentIndex;
             if (list[currentIndex].getNextTrackIndex() == -1) {
@@ -140,6 +141,7 @@ public class PlayList {
     public void previous() throws EndPlayListException {
         if (currentIndex == 0 && looping && !shuffling) {
             currentIndex = list.length - 1;
+            reset(); // Reset the play list
         } else if (shuffling) {
             int index = currentIndex;
             if (list[currentIndex].getPreviousTrackIndex() == -1) {
@@ -193,6 +195,7 @@ public class PlayList {
             item.setNextTrackIndex(-1);
             item.setPreviousTrackIndex(-1);
         }
+        currentIndex = 0;
     }
 
     public boolean isEnded() {

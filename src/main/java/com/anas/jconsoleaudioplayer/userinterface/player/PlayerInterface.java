@@ -3,6 +3,7 @@ package com.anas.jconsoleaudioplayer.userinterface.player;
 import com.anas.jconsoleaudioplayer.player.Action;
 import com.anas.jconsoleaudioplayer.player.Loop;
 import com.anas.jconsoleaudioplayer.player.PlayersAdaptor;
+import com.anas.jconsoleaudioplayer.playlist.EndPlayListException;
 import com.anas.jconsoleaudioplayer.userinterface.Screen;
 
 public class PlayerInterface extends Screen {
@@ -40,8 +41,8 @@ public class PlayerInterface extends Screen {
                 case PAUSE -> playersAdaptor.pause();
                 case RESUME -> playersAdaptor.resume();
                 case STOP -> playersAdaptor.stop();
-                case NEXT -> playersAdaptor.next();
-                case PREVIOUS -> playersAdaptor.previous();
+                case NEXT -> nextAndPrevious(Action.NEXT);
+                case PREVIOUS -> nextAndPrevious(Action.PREVIOUS);
                 case LOOP_ON_ONE_CLIP_ONE_TIME -> playersAdaptor.setLoopOnTrack(Loop.LOOP_ONE_TIME);
                 case LOOP_ON_ONE_CLIP -> playersAdaptor.setLoopOnTrack(Loop.LOOP);
                 case LOOP_ON_PLAY_LIST -> playersAdaptor.loopOfPlayList();
@@ -60,6 +61,21 @@ public class PlayerInterface extends Screen {
         }
         if (rePrint)
             rePrintPayer(true);
+    }
+
+    private void nextAndPrevious(Action action) {
+        try {
+            switch (action) {
+                case NEXT -> playersAdaptor.next();
+                case PREVIOUS -> playersAdaptor.previous();
+            }
+        } catch (EndPlayListException e) {
+            System.out.println(e.getMessage());
+            if (askForRestartPlayList()) {
+                super.getMainController().getPlayList().reset();
+                playersAdaptor.play();
+            }
+        }
     }
 
     private double takeNewVolume() {
@@ -169,5 +185,10 @@ public class PlayerInterface extends Screen {
         System.out.println(s);
         System.out.println(p);
         System.out.println(s);
+    }
+
+    public boolean askForRestartPlayList() {
+        System.out.println("Do you want to restart the play list? (y/n)");
+        return super.getScanner().nextLine().equalsIgnoreCase("y");
     }
 }
