@@ -126,7 +126,7 @@ public class PlayerInterface extends Screen {
 
     private String getModes() {
         return ((super.getMainController().getPlayList().isShuffling() ? "S " : "") +
-                (super.getMainController().getPlayList().isLooping() ? "lp" : "") +
+                (super.getMainController().getPlayList().isLooping() ? "lp " : "") +
                 super.getMainController().getPlayersAdaptor().getLoopOnTrack().name().toLowerCase());
     }
 
