@@ -2,7 +2,6 @@ package com.anas.jconsoleaudioplayer.player.players;
 
 import com.anas.jconsoleaudioplayer.player.Extension;
 import com.anas.jconsoleaudioplayer.player.Player;
-import com.anas.jconsoleaudioplayer.player.PlayersAdaptor;
 
 import javax.sound.sampled.*;
 import java.io.File;
@@ -11,8 +10,8 @@ import java.io.IOException;
 public class WAVPlayer extends Player {
     private Clip clip;
     private AudioInputStream audioInputStream;
-    private boolean isLooping, isMuted, paused, userStopped, running;
-    private double soundLevel, soundLevelBeforeMute;
+    private boolean paused, userStopped, running;
+    private double soundLevel;
 
     // Singleton instance
     private static WAVPlayer instance;
@@ -28,9 +27,7 @@ public class WAVPlayer extends Player {
      */
     private WAVPlayer() {
         super(null);
-        isLooping = false;
         soundLevel = 0.500;
-        isMuted = false;
         paused = false;
         userStopped = false;
         running = false;
@@ -110,35 +107,6 @@ public class WAVPlayer extends Player {
     public void resume() {
         clip.start();
         paused = false;
-    }
-
-    /**
-     * Enable and disable looping of the song
-     */
-    @Override
-    public void loop() {
-        if (isLooping) {
-            clip.loop(0); // stop looping
-            isLooping = false;
-        } else {
-            clip.loop(Clip.LOOP_CONTINUOUSLY); // start looping
-            isLooping = true;
-        }
-    }
-
-    /**
-     * Mute and unmute the song
-     */
-    @Override
-    public void mute() {
-        if (isMuted) {
-            setVolume(soundLevelBeforeMute);
-            isMuted = false;
-        } else {
-            soundLevelBeforeMute = soundLevel;
-            setVolume(0.0);
-            isMuted = true;
-        }
     }
 
     /**

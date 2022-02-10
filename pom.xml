@@ -6,7 +6,7 @@
 
     <groupId>com.anas.jconsoleaudioplayer</groupId>
     <artifactId>JConsoleAudioPlayer</artifactId>
-    <version>0.2-DEV</version>
+    <version>0.3-DEV</version>
     <dependencies>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
