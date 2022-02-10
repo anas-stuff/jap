@@ -117,11 +117,18 @@ public class PlayerInterface extends Screen {
         System.out.println();
         try {
             super.getMainController().getPlayList().print();
+            printMoods();
             printPlayingTrack(super.getMainController().getPlayList().getCurrentIndex());
         } catch (IndexOutOfBoundsException ignored) {
         }
         printTheOptions();
         tackAction(takeInput(), rePrintAffterAction);
+    }
+
+    private void printMoods() {
+        System.out.print(super.getMainController().getPlayList().isShuffling() ? "Shuffling\t" : "");
+        System.out.print(super.getMainController().getPlayList().isLooping() ? "Looping on play list\t" : "");
+        System.out.print(super.getMainController().getPlayersAdaptor().getLoopOnTrack().name() + "\n");
     }
 
     private Action getTheStaticAction(String input) {
