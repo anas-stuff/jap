@@ -1,6 +1,7 @@
 package com.anas.jconsoleaudioplayer.player;
 
 import com.anas.jconsoleaudioplayer.player.players.WAVPlayer;
+import com.anas.jconsoleaudioplayer.playlist.EndPlayListException;
 import com.anas.jconsoleaudioplayer.playlist.PlayList;
 import com.anas.jconsoleaudioplayer.userinterface.player.PlayerInterface;
 
@@ -42,7 +43,7 @@ public class PlayersAdaptor implements SuPlayer {
         setTheCurrentPlayersToThePestPlayerForTheCurrentTrack();
         new Thread(() -> {
             try {
-                currentPlayer.play(playList.getCurrentTrack().getFile());
+                currentPlayer.play(playList.playCurrentTrack());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -101,9 +102,14 @@ public class PlayersAdaptor implements SuPlayer {
     public void next() {
         if (currentPlayer.isRunning())
             currentPlayer.stop();
-        playList.next();
-        if (!isPaused())
-            this.play();
+        playList.played();
+        try {
+            playList.next();
+            if (!isPaused())
+                this.play();
+        } catch (EndPlayListException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public boolean isPaused() {
@@ -116,9 +122,14 @@ public class PlayersAdaptor implements SuPlayer {
     public void previous() {
         if (currentPlayer.isRunning())
             currentPlayer.stop();
-        playList.previous();
-        if (!isPaused())
-            this.play();
+        playList.played();
+        try {
+            playList.previous();
+            if (!isPaused())
+                this.play();
+        } catch (EndPlayListException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
