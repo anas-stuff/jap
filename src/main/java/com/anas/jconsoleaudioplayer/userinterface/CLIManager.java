@@ -7,20 +7,24 @@ import com.anas.jconsoleaudioplayer.playlist.Track;
 import com.anas.jconsoleaudioplayer.playlist.PlayList;
 import com.anas.jconsoleaudioplayer.userinterface.fileBrowser.FileBrowser;
 import com.anas.jconsoleaudioplayer.userinterface.player.PlayerInterface;
+import com.anas.jconsoleaudioplayer.userinterface.playlistsmanger.PlaylistsMangerInterface;
 
 public class CLIManager {
     private FileBrowser fileBrowser;
     private PlayerInterface playerInterface;
+    private PlaylistsMangerInterface playlistsMangerInterface;
 
     public CLIManager(MainController mainController) {
         init();
         fileBrowser.setMainController(mainController);
         playerInterface.setMainController(mainController);
+        playlistsMangerInterface.setMainController(mainController);
     }
 
     private void init() {
         this.fileBrowser = FileBrowser.getInstance();
         this.playerInterface = PlayerInterface.getInstance();
+        this.playlistsMangerInterface = PlaylistsMangerInterface.getInstance();
     }
 
     public Track[] openFileBrowser(String startingDirectory) {

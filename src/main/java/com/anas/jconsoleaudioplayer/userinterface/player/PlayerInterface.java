@@ -173,7 +173,7 @@ public class PlayerInterface extends Screen {
     private void printTheOptions() {
         System.out.println("(p)lay, (pa)use, (re)sume, (s)top, (n)ext, (pr)evious, (loop) loop on current track, (loop1) loop on current track one time, (lp)loop play list, (sh)uffle\n" +
                 "(m)ute, (vl) show volume level,(v:) set volume, (v+) volume up(+10), (v-)volume down(-10)" +
-                ", (open) Open file browser, (:) Search, (exit) Exit from program");
+                ", (open) Open file browser,(playlists) open the playlists manger, (:) Search, (exit) Exit from program");
         System.out.print("> ");
     }
 
