@@ -80,7 +80,7 @@ public class PlayerInterface extends Screen {
     }
 
     private Action takeInput() {
-        String input = "";
+        String input;
         Action action = Action.UNKNOWN;
 
         input = super.getScanner().nextLine();
