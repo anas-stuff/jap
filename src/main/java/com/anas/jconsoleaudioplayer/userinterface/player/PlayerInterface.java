@@ -117,7 +117,6 @@ public class PlayerInterface extends Screen {
         System.out.println();
         try {
             super.getMainController().getPlayList().print();
-            printModes();
             printPlayingTrack(super.getMainController().getPlayList().getCurrentIndex());
         } catch (IndexOutOfBoundsException ignored) {
         }
@@ -125,10 +124,10 @@ public class PlayerInterface extends Screen {
         tackAction(takeInput(), rePrintAffterAction);
     }
 
-    private void printModes() {
-        System.out.print(super.getMainController().getPlayList().isShuffling() ? "Shuffling\t" : "");
-        System.out.print(super.getMainController().getPlayList().isLooping() ? "Looping on play list\t" : "");
-        System.out.print(super.getMainController().getPlayersAdaptor().getLoopOnTrack().name() + "\n");
+    private String getModes() {
+        return ((super.getMainController().getPlayList().isShuffling() ? "S " : "") +
+                (super.getMainController().getPlayList().isLooping() ? "lp" : "") +
+                super.getMainController().getPlayersAdaptor().getLoopOnTrack().name().toLowerCase());
     }
 
     private Action getTheStaticAction(String input) {
@@ -165,7 +164,7 @@ public class PlayerInterface extends Screen {
     private void printPlayingTrack(int currentIndex) {
         String p = "Playing: " +
                 (currentIndex != -1 ? super.getMainController().getPlayList().getItems()[currentIndex].toString() :
-                        "null");
+                        "null") + " " + getModes();
         String s = "-".repeat(p.length());
         System.out.println(s);
         System.out.println(p);
