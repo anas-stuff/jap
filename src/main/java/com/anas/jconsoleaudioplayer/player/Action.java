@@ -10,5 +10,5 @@ public enum Action {
     SEARCH,
     OPEN_FILE_BROWSER,
     UNKNOWN,
-    EXIT, SET_VOLUME,
+    EXIT, SET_VOLUME, LOOP_ON_ONE_CLIP_ONE_TIME,
 }

@@ -23,19 +23,18 @@ public class MainController {
 
     private void init() {
         this.cliManager = new CLIManager(this);
-        this.cacheManger = new CacheManger(".");
+        this.cacheManger = new CacheManger("./.cache");
         this.playList = cacheManger.getResentPlayList();
         this.playersAdaptor = PlayersAdaptor.getInstance();
         this.resentPath = cacheManger.getResentPath();
         this.scanner = new Scanner(System.in);
-
-        // set volume
-        playersAdaptor.setVolume(cacheManger.getResentVolumeLevel());
     }
 
     private void start() {
+        // set volume
+        playersAdaptor.setVolume(cacheManger.getResentVolumeLevel());
+        playersAdaptor.setLoopOnTrack(cacheManger.getResentLoopOnTrack());
         playersAdaptor.setPlayList(playList);
-        playList.addAll(PlayListLoader.load());
         cliManager.showPlayerInterface(getPlayersAdaptor());
     }
 
@@ -84,6 +83,7 @@ public class MainController {
         cacheManger.saveResentPath(resentPath);
         cacheManger.savePlayList(playList);
         cacheManger.saveCurrentVolumeLevel(playersAdaptor.getVolume());
+        cacheManger.saveLoopOnTrack(playersAdaptor.getLoopOnTrack());
         cacheManger.saveCache();
     }
 }

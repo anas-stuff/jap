@@ -1,34 +1,36 @@
 package com.anas.jconsoleaudioplayer.player;
 
 import com.anas.jconsoleaudioplayer.player.players.WAVPlayer;
+import com.anas.jconsoleaudioplayer.playlist.EndPlayListException;
 import com.anas.jconsoleaudioplayer.playlist.PlayList;
 import com.anas.jconsoleaudioplayer.userinterface.player.PlayerInterface;
 
 import javax.sound.sampled.LineEvent;
-import java.io.File;
 import java.util.Arrays;
 
 public class PlayersAdaptor implements SuPlayer {
+    // Singleton
+    private static PlayersAdaptor playersAdaptor;
     private Player[] players;
     private Player currentPlayer;
     private PlayList playList;
+    private Loop loopOnTrack;
     private double soundVolume, soundVolumeBeforeMute;
-
-    // Singleton
-    private static PlayersAdaptor playersAdaptor;
-
-    public static PlayersAdaptor getInstance() {
-        if (playersAdaptor == null) {
-            playersAdaptor = new PlayersAdaptor();
-        }
-        return playersAdaptor;
-    }
+    private boolean paused, muted;
 
     private PlayersAdaptor() {
         players = new Player[0]; // No players
         this.soundVolume = 0.5;
         addPlayers(WAVPlayer.getInstance()); // Add the players here
         currentPlayer = players[0];
+        loopOnTrack = Loop.NO_LOOP;
+    }
+
+    public static PlayersAdaptor getInstance() {
+        if (playersAdaptor == null) {
+            playersAdaptor = new PlayersAdaptor();
+        }
+        return playersAdaptor;
     }
 
     private void setAdapterOfAllPlayers() {
@@ -38,6 +40,17 @@ public class PlayersAdaptor implements SuPlayer {
     }
 
     public void play() {
+        setTheCurrentPlayersToThePestPlayerForTheCurrentTrack();
+        new Thread(() -> {
+            try {
+                currentPlayer.play(playList.playCurrentTrack());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
+
+    private void setTheCurrentPlayersToThePestPlayerForTheCurrentTrack() {
         if (players.length == 0) {
             throw new IllegalStateException("No players");
         }
@@ -49,17 +62,6 @@ public class PlayersAdaptor implements SuPlayer {
                 }
             }
         }
-        try {
-            new Thread(() -> {
-                try {
-                    currentPlayer.play(playList.getCurrentTrack().getFile());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }).start();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public void stop() {
@@ -68,17 +70,16 @@ public class PlayersAdaptor implements SuPlayer {
 
     @Override
     public void pause() {
-        currentPlayer.pause();
+        if (currentPlayer.isRunning())
+            currentPlayer.pause();
+        paused = true;
     }
 
     @Override
     public void resume() {
-        currentPlayer.resume();
-    }
-
-    @Override
-    public void loop() {
-        currentPlayer.loop();
+        if (currentPlayer.isRunning())
+            currentPlayer.resume();
+        paused = false;
     }
 
     /**
@@ -98,26 +99,44 @@ public class PlayersAdaptor implements SuPlayer {
     /**
      * Change to the next song in the playlist
      */
-    public void next() {
-        currentPlayer.stop();
+    public void next() throws EndPlayListException {
+        if (currentPlayer.isRunning())
+            currentPlayer.stop();
+        playList.played();
         playList.next();
-        this.play();
+        if (!isPaused())
+            this.play();
+    }
+
+    public boolean isPaused() {
+        return paused;
     }
 
     /**
      * Change to the previous song in the playlist
      */
-    public void previous() {
-        currentPlayer.stop();
+    public void previous() throws EndPlayListException {
+        if (currentPlayer.isRunning())
+            currentPlayer.stop();
+        playList.played();
         playList.previous();
-        this.play();
+        if (!isPaused())
+            this.play();
     }
 
-    @Override
+    /**
+     * Mute and unmute the song
+     */
     public void mute() {
-        currentPlayer.mute();
-        soundVolumeBeforeMute = soundVolume;
-        soundVolume = 0;
+        if (!muted) {
+            soundVolumeBeforeMute = soundVolume;
+            soundVolume = 0;
+            muted = true;
+        } else {
+            soundVolume = soundVolumeBeforeMute;
+            muted = false;
+        }
+        setVolume(soundVolume);
     }
 
     @Override
@@ -138,6 +157,7 @@ public class PlayersAdaptor implements SuPlayer {
 
     /**
      * Get the play list
+     *
      * @return PlayList
      */
     public PlayList getPlayList() {
@@ -150,19 +170,38 @@ public class PlayersAdaptor implements SuPlayer {
 
     /**
      * Get the current player
+     *
      * @return Player
      */
     public Player getCurrentPlayer() {
         return currentPlayer;
     }
 
-
     public void event(LineEvent event) {
         if (event.getType() == LineEvent.Type.STOP) {
             playList.played();
             playList.getItems()[playList.getCurrentIndex()].setPlaying(false);
-            next();
+            checkLoopOfTrack();
             PlayerInterface.getInstance().rePrint();
+        }
+    }
+
+    private void checkLoopOfTrack() {
+        switch (loopOnTrack) {
+            case LOOP_ONE_TIME -> {
+                this.stop();
+                this.play();
+                loopOnTrack = Loop.NO_LOOP;
+            }
+            case LOOP -> {
+                this.stop();
+                this.play();
+            }
+            case NO_LOOP -> {
+                try {
+                    next();
+                } catch (EndPlayListException ignored) {}
+            }
         }
     }
 
@@ -178,5 +217,17 @@ public class PlayersAdaptor implements SuPlayer {
             System.arraycopy(player.getSupportedExtensions(), 0, extensions, extensions.length - player.getSupportedExtensions().length, player.getSupportedExtensions().length);
         }
         return extensions;
+    }
+
+    public Loop getLoopOnTrack() {
+        return loopOnTrack;
+    }
+
+    public void setLoopOnTrack(Loop loopOnTrack) {
+        if (this.loopOnTrack == loopOnTrack) {
+            this.loopOnTrack = Loop.NO_LOOP;
+        } else {
+            this.loopOnTrack = loopOnTrack;
+        }
     }
 }

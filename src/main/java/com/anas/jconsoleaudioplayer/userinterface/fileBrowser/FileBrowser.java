@@ -86,7 +86,7 @@ public class FileBrowser extends Screen {
             for (int i = 1; i < userInputArray.length; i++) {
                 for (int j = 0; j < list.size(); j++) {
                     if (list.get(j).getIndex() == Integer.parseInt(userInputArray[i]) - 1) {
-                        list.remove(j);
+                        list.remove(j--);
                     }
                 }
             }
