@@ -44,7 +44,6 @@ public class FileBrowser extends Screen {
                 } catch (Exception e) {
                     continue;
                 }
-
             }
             files = tackeAction(path, files, list, userInput, userInputArray);
             path = files[0].getParent();
