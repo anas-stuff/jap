@@ -33,6 +33,7 @@ public class FileBrowser extends Screen {
         String userInput = "";
         do {
             files = printFilesList(files);
+            System.out.println("Current path: " + path);
             System.out.println(">: Go to, <: Back, +: Add to list, -: Remove from list, Q: Quit from file browser");
             userInput = getUserInput();
             String[] userInputArray = new String[0];
