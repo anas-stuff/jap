@@ -21,7 +21,7 @@ public class PlaylistsMangerInterface extends Screen {
     public void show() {
         do {
             printPlaylists();
-        }
+        } while (true);
     }
 
     private void printPlaylists() {
