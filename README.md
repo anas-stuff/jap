@@ -40,6 +40,6 @@
 | exit       | Exit from program |
 | :          | Search            |
 
-#### Version: 0.3.0 - Dev
+#### Version: 0.3.1 - Dev
 
 ###### License: MIT
