@@ -1,4 +1,4 @@
-package com.anas.jconsoleaudioplayer.userinterface.fileBrowser;
+package com.anas.jconsoleaudioplayer.userinterface.filebrowser;
 
 import com.anas.jconsoleaudioplayer.files.FileManger;
 import com.anas.jconsoleaudioplayer.player.Extension;
@@ -45,7 +45,7 @@ public class FileBrowser extends Screen {
                     continue;
                 }
             }
-            files = tackeAction(path, files, list, userInput, userInputArray);
+            files = takeAction(path, files, list, userInput, userInputArray);
             path = files[0].getParent();
         } while (!userInput.equalsIgnoreCase("q"));
         return list.toArray(new Track[0]);
@@ -63,7 +63,7 @@ public class FileBrowser extends Screen {
         return files;
     }
 
-    private File[] tackeAction(String path, File[] files, List<Track> list, String userInput, String[] userInputArray) {
+    private File[] takeAction(String path, File[] files, List<Track> list, String userInput, String[] userInputArray) {
         switch (userInput) {
             case "<" -> files = FileManger.back(path);
             case "+" -> add(files, list, userInputArray);

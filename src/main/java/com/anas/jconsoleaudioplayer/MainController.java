@@ -3,7 +3,6 @@ package com.anas.jconsoleaudioplayer;
 import com.anas.jconsoleaudioplayer.cache.CacheManger;
 import com.anas.jconsoleaudioplayer.player.PlayersAdaptor;
 import com.anas.jconsoleaudioplayer.playlist.PlayList;
-import com.anas.jconsoleaudioplayer.playlist.PlayListLoader;
 import com.anas.jconsoleaudioplayer.userinterface.CLIManager;
 
 import java.util.Scanner;
@@ -32,8 +31,8 @@ public class MainController {
 
     private void start() {
         // set volume
-        playersAdaptor.setVolume(cacheManger.getResentVolumeLevel());
-        playersAdaptor.setLoopOnTrack(cacheManger.getResentLoopOnTrack());
+        playersAdaptor.setVolume(cacheManger.getRecentVolumeLevel());
+        playersAdaptor.setLoopOnTrack(cacheManger.getRecentLoopOnTrack());
         playersAdaptor.setPlayList(playList);
         cliManager.showPlayerInterface(getPlayersAdaptor());
     }

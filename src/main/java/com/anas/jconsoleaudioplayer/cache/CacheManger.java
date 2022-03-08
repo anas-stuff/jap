@@ -100,10 +100,6 @@ public class CacheManger {
         }
     }
 
-    public Settings getCache() {
-        return settings;
-    }
-
     public PlayList getResentPlayList() {
         if (resentPlayList.getRecentPlayList() != null) {
             return resentPlayList.getRecentPlayList();
@@ -115,11 +111,11 @@ public class CacheManger {
         return settings.getResentPath();
     }
 
-    public double getResentVolumeLevel() {
+    public double getRecentVolumeLevel() {
         return settings.getResentVolume() == -1 ? 0.5 : settings.getResentVolume();
     }
 
-    public Loop getResentLoopOnTrack() {
+    public Loop getRecentLoopOnTrack() {
         return settings.getLoopOnTrack();
     }
 
