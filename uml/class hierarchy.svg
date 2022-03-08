@@ -1,0 +1,855 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1251.2px" preserveAspectRatio="none" style="width:1148px;height:1251px;background:#FFFFFF;" version="1.1" viewBox="0 0 1148 1251" width="1148px" zoomAndPan="magnify"><defs><filter height="300%" id="f2zv8gzl59tjt" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="0.8000000000000002"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="1.6000000000000003" dy="1.6000000000000003" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[1c739d2ff8abde6e96c6a090c3b9491c]
+cluster com.anas.jconsoleaudioplayer--><polygon fill="#FFFFFF" filter="url(#f2zv8gzl59tjt)" points="6.4,2.6408,92.4,2.6408,95.2,12.668,1036.8,12.668,1036.8,1248.6408,6.4,1248.6408,6.4,2.6408" style="stroke:#000000;stroke-width:0.6000000000000001;"/><line style="stroke:#000000;stroke-width:0.6000000000000001;" x1="6.4" x2="95.2" y1="12.668" y2="12.668"/><text fill="#000000" font-family="sans-serif" font-size="5.6" font-weight="bold" lengthAdjust="spacing" textLength="83.6" x="8" y="9.4272">com.anas.jconsoleaudioplayer</text><!--MD5=[6e2bc53f2b489a463b0855903b315b97]
+cluster cache--><polygon fill="#FFFFFF" filter="url(#f2zv8gzl59tjt)" points="332.8,710.2408,350.8,710.2408,353.6,720.268,546,720.268,546,1042.6408,332.8,1042.6408,332.8,710.2408" style="stroke:#000000;stroke-width:0.6000000000000001;"/><line style="stroke:#000000;stroke-width:0.6000000000000001;" x1="332.8" x2="353.6" y1="720.268" y2="720.268"/><text fill="#000000" font-family="sans-serif" font-size="5.6" font-weight="bold" lengthAdjust="spacing" textLength="15.6" x="334.4" y="717.0272">cache</text><!--MD5=[22e39c158ccd515e083392dc1f6fdf64]
+cluster files--><polygon fill="#FFFFFF" filter="url(#f2zv8gzl59tjt)" points="817.6,68.8408,831.2,68.8408,834,78.868,973.6,78.868,973.6,151.6408,817.6,151.6408,817.6,68.8408" style="stroke:#000000;stroke-width:0.6000000000000001;"/><line style="stroke:#000000;stroke-width:0.6000000000000001;" x1="817.6" x2="834" y1="78.868" y2="78.868"/><text fill="#000000" font-family="sans-serif" font-size="5.6" font-weight="bold" lengthAdjust="spacing" textLength="11.2" x="819.2" y="75.6272">files</text><!--MD5=[42603eecb267091c13893a16d8c379fb]
+cluster player--><polygon fill="#FFFFFF" filter="url(#f2zv8gzl59tjt)" points="555.6,21.0408,575.2,21.0408,578,31.068,754.4,31.068,754.4,885.8408,555.6,885.8408,555.6,21.0408" style="stroke:#000000;stroke-width:0.6000000000000001;"/><line style="stroke:#000000;stroke-width:0.6000000000000001;" x1="555.6" x2="578" y1="31.068" y2="31.068"/><text fill="#000000" font-family="sans-serif" font-size="5.6" font-weight="bold" lengthAdjust="spacing" textLength="17.2" x="557.2" y="27.8272">player</text><!--MD5=[20fd793008f89acd043009991cee5c03]
+cluster players--><polygon fill="#FFFFFF" filter="url(#f2zv8gzl59tjt)" points="640,430.6408,662.4,430.6408,665.2,440.668,744.8,440.668,744.8,585.0408,640,585.0408,640,430.6408" style="stroke:#000000;stroke-width:0.6000000000000001;"/><line style="stroke:#000000;stroke-width:0.6000000000000001;" x1="640" x2="665.2" y1="440.668" y2="440.668"/><text fill="#000000" font-family="sans-serif" font-size="5.6" font-weight="bold" lengthAdjust="spacing" textLength="20" x="641.6" y="437.4272">players</text><!--MD5=[c3fa0f75e68f1b6cb7235f6570e39754]
+cluster playlist--><polygon fill="#FFFFFF" filter="url(#f2zv8gzl59tjt)" points="764,201.8408,786.4,201.8408,789.2,211.868,1027.2,211.868,1027.2,633.0408,764,633.0408,764,201.8408" style="stroke:#000000;stroke-width:0.6000000000000001;"/><line style="stroke:#000000;stroke-width:0.6000000000000001;" x1="764" x2="789.2" y1="211.868" y2="211.868"/><text fill="#000000" font-family="sans-serif" font-size="5.6" font-weight="bold" lengthAdjust="spacing" textLength="20" x="765.6" y="208.6272">playlist</text><!--MD5=[32126119ad1a4778e36979367c4c19bb]
+cluster userinterface--><polygon fill="#FFFFFF" filter="url(#f2zv8gzl59tjt)" points="16,475.4408,54.8,475.4408,57.6,485.468,323.2,485.468,323.2,1009.8408,16,1009.8408,16,475.4408" style="stroke:#000000;stroke-width:0.6000000000000001;"/><line style="stroke:#000000;stroke-width:0.6000000000000001;" x1="16" x2="57.6" y1="485.468" y2="485.468"/><text fill="#000000" font-family="sans-serif" font-size="5.6" font-weight="bold" lengthAdjust="spacing" textLength="36.4" x="17.6" y="482.2272">userinterface</text><!--MD5=[74a104badcf0ebd48950a2343bb090a4]
+cluster filebrowser--><polygon fill="#FFFFFF" filter="url(#f2zv8gzl59tjt)" points="25.6,707.2408,59.2,707.2408,62,717.268,171.2,717.268,171.2,814.0408,25.6,814.0408,25.6,707.2408" style="stroke:#000000;stroke-width:0.6000000000000001;"/><line style="stroke:#000000;stroke-width:0.6000000000000001;" x1="25.6" x2="62" y1="717.268" y2="717.268"/><text fill="#000000" font-family="sans-serif" font-size="5.6" font-weight="bold" lengthAdjust="spacing" textLength="31.2" x="27.2" y="714.0272">filebrowser</text><!--MD5=[863e4c737654f95bfd1c0184778dd98f]
+cluster playerinterface--><polygon fill="#FFFFFF" filter="url(#f2zv8gzl59tjt)" points="180.8,680.4408,224.8,680.4408,227.6,690.468,313.6,690.468,313.6,840.8408,180.8,840.8408,180.8,680.4408" style="stroke:#000000;stroke-width:0.6000000000000001;"/><line style="stroke:#000000;stroke-width:0.6000000000000001;" x1="180.8" x2="227.6" y1="690.468" y2="690.468"/><text fill="#000000" font-family="sans-serif" font-size="5.6" font-weight="bold" lengthAdjust="spacing" textLength="41.6" x="182.4" y="687.2272">playerinterface</text><!--MD5=[aa8f7b917213fcc1c2766e2d59b49067]
+cluster java.lang--><polygon fill="#FFFFFF" filter="url(#f2zv8gzl59tjt)" points="1046.4,89.8408,1073.6,89.8408,1076.4,99.868,1141.2,99.868,1141.2,130.6408,1046.4,130.6408,1046.4,89.8408" style="stroke:#000000;stroke-width:0.6000000000000001;"/><line style="stroke:#000000;stroke-width:0.6000000000000001;" x1="1046.4" x2="1076.4" y1="99.868" y2="99.868"/><text fill="#000000" font-family="sans-serif" font-size="5.6" font-weight="bold" lengthAdjust="spacing" textLength="24.8" x="1048" y="96.6272">java.lang</text><!--MD5=[0278646e5a3f51edb25d463fe8c5bfab]
+class MainController--><rect codeLine="5" fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="132.9019" id="MainController" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="88" x="496" y="1060.2408"/><ellipse cx="521.5" cy="1066.6408" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M521.2875,1069.2408 Q520.5875,1069.2408 520.1313,1068.9345 Q519.6813,1068.622 519.4563,1068.0595 Q519.2375,1067.4908 519.2375,1066.7408 Q519.2375,1065.897 519.5,1065.297 Q519.7625,1064.6908 520.275,1064.3658 Q520.7875,1064.0408 521.5375,1064.0408 Q521.8938,1064.0408 522.1625,1064.1158 Q522.4313,1064.1908 522.7063,1064.3345 L522.3813,1065.1845 Q522.1313,1065.0533 521.9125,1065.0033 Q521.7,1064.9533 521.5063,1064.9533 Q521.0375,1064.9533 520.7563,1065.172 Q520.475,1065.3845 520.3563,1065.7783 Q520.2375,1066.172 520.2375,1066.697 Q520.2375,1067.5283 520.525,1067.9283 Q520.8125,1068.322 521.45,1068.322 Q521.6875,1068.322 521.9375,1068.2595 Q522.1875,1068.197 522.5188,1068.0408 L522.5188,1068.972 Q522.225,1069.1095 521.9063,1069.1783 Q521.5938,1069.2408 521.2875,1069.2408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" lengthAdjust="spacing" textLength="33.6" x="529.7" y="1068.5056">MainController</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="496.4" x2="583.6" y1="1073.0408" y2="1073.0408"/><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="499.2" y="1076.2408"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="49.6" x="504" y="1079.3377">cliManager: CliManager</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="499.2" y="1082.2251"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="64" x="504" y="1085.322">cacheManager: CacheManager</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="499.2" y="1088.2094"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="35.6" x="504" y="1091.3064">playList : PlayList</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="499.2" y="1094.1937"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="68.4" x="504" y="1097.2907">playersAdaptor : PlayersAdaptor</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="499.2" y="1100.178"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="39.2" x="504" y="1103.275">resentPath : String</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="499.2" y="1106.1624"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="36.8" x="504" y="1109.2593">scanner : Scanner</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="496.4" x2="583.6" y1="1112.1467" y2="1112.1467"/><ellipse cx="500.4" cy="1116.5467" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="34.4" x="504" y="1118.4436">MainController()</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="499.2" y="1121.331"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="9.2" x="504" y="1124.4279">init()</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="499.2" y="1127.3153"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="12" x="504" y="1130.4122">start()</text><ellipse cx="500.4" cy="1134.4996" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="38" x="504" y="1136.3965">openFileBrowser()</text><ellipse cx="500.4" cy="1140.4839" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="60.8" x="504" y="1142.3809">getCliManager() : CliManager</text><ellipse cx="500.4" cy="1146.4682" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="77.6" x="504" y="1148.3652">getPlayersAdaptor() : PlayersAdaptor</text><ellipse cx="500.4" cy="1152.4525" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="44.8" x="504" y="1154.3495">getPlayList() : PlayList</text><ellipse cx="500.4" cy="1158.4369" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="49.2" x="504" y="1160.3338">getResentPath() : String</text><ellipse cx="500.4" cy="1164.4212" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="46.4" x="504" y="1166.3181">getScanner() : Scanner</text><ellipse cx="500.4" cy="1170.4055" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="56.8" x="504" y="1172.3024">setResentPath(path: String)</text><ellipse cx="500.4" cy="1176.3898" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="10" x="504" y="1178.2867">exit()</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="499.2" y="1181.1741"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="12.8" x="504" y="1184.271">close()</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="499.2" y="1187.1584"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="11.6" x="504" y="1190.2554">save()</text><!--MD5=[84718776d214be480e4c259efcb737fc]
+class Main--><rect codeLine="29" fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="25.1843" id="Main" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="50.8" x="514.6" y="1217.0408"/><ellipse cx="532.7" cy="1223.4408" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M532.4875,1226.0408 Q531.7875,1226.0408 531.3313,1225.7345 Q530.8813,1225.422 530.6563,1224.8595 Q530.4375,1224.2908 530.4375,1223.5408 Q530.4375,1222.697 530.7,1222.097 Q530.9625,1221.4908 531.475,1221.1658 Q531.9875,1220.8408 532.7375,1220.8408 Q533.0938,1220.8408 533.3625,1220.9158 Q533.6313,1220.9908 533.9063,1221.1345 L533.5813,1221.9845 Q533.3313,1221.8533 533.1125,1221.8033 Q532.9,1221.7533 532.7063,1221.7533 Q532.2375,1221.7533 531.9563,1221.972 Q531.675,1222.1845 531.5563,1222.5783 Q531.4375,1222.972 531.4375,1223.497 Q531.4375,1224.3283 531.725,1224.7283 Q532.0125,1225.122 532.65,1225.122 Q532.8875,1225.122 533.1375,1225.0595 Q533.3875,1224.997 533.7188,1224.8408 L533.7188,1225.772 Q533.425,1225.9095 533.1063,1225.9783 Q532.7938,1226.0408 532.4875,1226.0408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" lengthAdjust="spacing" textLength="11.2" x="540.9" y="1225.3056">Main</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="515" x2="565" y1="1229.8408" y2="1229.8408"/><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="515" x2="565" y1="1233.0408" y2="1233.0408"/><ellipse cx="519" cy="1237.4408" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" text-decoration="underline" textLength="40.4" x="522.6" y="1239.3377">main(args: String[])</text><!--MD5=[69b0de123517c7dd32a889d704e65689]
+class CacheManger--><rect codeLine="37" fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="132.9019" id="CacheManger" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="109.2" x="430.2" y="903.4408"/><ellipse cx="467.3" cy="909.8408" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M467.0875,912.4408 Q466.3875,912.4408 465.9313,912.1345 Q465.4813,911.822 465.2563,911.2595 Q465.0375,910.6908 465.0375,909.9408 Q465.0375,909.097 465.3,908.497 Q465.5625,907.8908 466.075,907.5658 Q466.5875,907.2408 467.3375,907.2408 Q467.6938,907.2408 467.9625,907.3158 Q468.2313,907.3908 468.5063,907.5345 L468.1813,908.3845 Q467.9313,908.2533 467.7125,908.2033 Q467.5,908.1533 467.3063,908.1533 Q466.8375,908.1533 466.5563,908.372 Q466.275,908.5845 466.1563,908.9783 Q466.0375,909.372 466.0375,909.897 Q466.0375,910.7283 466.325,911.1283 Q466.6125,911.522 467.25,911.522 Q467.4875,911.522 467.7375,911.4595 Q467.9875,911.397 468.3188,911.2408 L468.3188,912.172 Q468.025,912.3095 467.7063,912.3783 Q467.3938,912.4408 467.0875,912.4408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" lengthAdjust="spacing" textLength="31.6" x="475.5" y="911.7056">CacheManger</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="430.6" x2="539" y1="916.2408" y2="916.2408"/><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="433.4" y="919.4408"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="35.6" x="438.2" y="922.5377">basePath : String</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="433.4" y="925.4251"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="62.8" x="438.2" y="928.522">objectMapper : ObjectMapper</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="433.4" y="931.4094"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="36.4" x="438.2" y="934.5064">settings : settings</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="433.4" y="937.3937"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="62.8" x="438.2" y="940.4907">resentPlayList : ResentPlayList</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="430.6" x2="539" y1="943.378" y2="943.378"/><ellipse cx="434.6" cy="947.778" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="66.8" x="438.2" y="949.675">CacheManger(basePath : String)</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="433.4" y="952.5624"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="98.8" x="438.2" y="955.6593">loadResentPlayListFromCache() : ResentPlayList</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="433.4" y="958.5467"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="72" x="438.2" y="961.6436">loadSettingsFromCache() : settings</text><ellipse cx="434.6" cy="965.731" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="74.4" x="438.2" y="967.6279">saveResentPath(resentPath : String)</text><ellipse cx="434.6" cy="971.7153" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="63.2" x="438.2" y="973.6122">savePlayList(playList : PlayList)</text><ellipse cx="434.6" cy="977.6996" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="78" x="438.2" y="979.5965">saveCurrentVolume(volume : double)</text><ellipse cx="434.6" cy="983.6839" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="24" x="438.2" y="985.5809">saveCache()</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="433.4" y="988.4682"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="58.8" x="438.2" y="991.5652">saveResentPlayList(file : File)</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="433.4" y="994.4525"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="45.6" x="438.2" y="997.5495">saveSettings(file : File)</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="433.4" y="1000.4369"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="52" x="438.2" y="1003.5338">createCacheFile(file : File)</text><ellipse cx="434.6" cy="1007.6212" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="58.8" x="438.2" y="1009.5181">getResentPlayList() : PlayList</text><ellipse cx="434.6" cy="1013.6055" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="49.2" x="438.2" y="1015.5024">getResentPath() : String</text><ellipse cx="434.6" cy="1019.5898" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="68.4" x="438.2" y="1021.4867">getResentVolumeLevel() : double</text><ellipse cx="434.6" cy="1025.5741" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="66" x="438.2" y="1027.471">getRecentLoopOnTrack() : Loop</text><ellipse cx="434.6" cy="1031.5584" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="64" x="438.2" y="1033.4554">saveLoopOnTrack(loop : Loop)</text><!--MD5=[942ccdffe5afccdd552617cded19233b]
+class RecentPlayList--><rect codeLine="60" fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="43.1372" id="RecentPlayList" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="97.6" x="442" y="743.4408"/><ellipse cx="473.1" cy="749.8408" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M472.8875,752.4408 Q472.1875,752.4408 471.7313,752.1345 Q471.2813,751.822 471.0563,751.2595 Q470.8375,750.6908 470.8375,749.9408 Q470.8375,749.097 471.1,748.497 Q471.3625,747.8908 471.875,747.5658 Q472.3875,747.2408 473.1375,747.2408 Q473.4938,747.2408 473.7625,747.3158 Q474.0313,747.3908 474.3063,747.5345 L473.9813,748.3845 Q473.7313,748.2533 473.5125,748.2033 Q473.3,748.1533 473.1063,748.1533 Q472.6375,748.1533 472.3563,748.372 Q472.075,748.5845 471.9563,748.9783 Q471.8375,749.372 471.8375,749.897 Q471.8375,750.7283 472.125,751.1283 Q472.4125,751.522 473.05,751.522 Q473.2875,751.522 473.5375,751.4595 Q473.7875,751.397 474.1188,751.2408 L474.1188,752.172 Q473.825,752.3095 473.5063,752.3783 Q473.1938,752.4408 472.8875,752.4408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" lengthAdjust="spacing" textLength="32" x="481.3" y="751.7056">RecentPlayList</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="442.4" x2="539.2" y1="756.2408" y2="756.2408"/><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="445.2" y="759.4408"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="48.8" x="450" y="762.5377">resentPlayList : PlayList</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="442.4" x2="539.2" y1="765.4251" y2="765.4251"/><ellipse cx="446.4" cy="769.8251" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="32.4" x="450" y="771.722">RecentPlayList()</text><ellipse cx="446.4" cy="775.8094" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="58.8" x="450" y="777.7064">getRecentPlayList() : PlayList</text><ellipse cx="446.4" cy="781.7937" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="87.2" x="450" y="783.6907">setRecentPlayList(recentPlayList : PlayList)</text><!--MD5=[fb0932da17f9982e4848347a102654e2]
+class Settings--><rect codeLine="70" fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="79.0431" id="Settings" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="88.8" x="339.2" y="725.4408"/><ellipse cx="372.9" cy="731.8408" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M372.6875,734.4408 Q371.9875,734.4408 371.5313,734.1345 Q371.0813,733.822 370.8563,733.2595 Q370.6375,732.6908 370.6375,731.9408 Q370.6375,731.097 370.9,730.497 Q371.1625,729.8908 371.675,729.5658 Q372.1875,729.2408 372.9375,729.2408 Q373.2938,729.2408 373.5625,729.3158 Q373.8313,729.3908 374.1063,729.5345 L373.7813,730.3845 Q373.5313,730.2533 373.3125,730.2033 Q373.1,730.1533 372.9063,730.1533 Q372.4375,730.1533 372.1563,730.372 Q371.875,730.5845 371.7563,730.9783 Q371.6375,731.372 371.6375,731.897 Q371.6375,732.7283 371.925,733.1283 Q372.2125,733.522 372.85,733.522 Q373.0875,733.522 373.3375,733.4595 Q373.5875,733.397 373.9188,733.2408 L373.9188,734.172 Q373.625,734.3095 373.3063,734.3783 Q372.9938,734.4408 372.6875,734.4408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" lengthAdjust="spacing" textLength="18" x="381.1" y="733.7056">Settings</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="339.6" x2="427.6" y1="738.2408" y2="738.2408"/><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="342.4" y="741.4408"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="39.2" x="347.2" y="744.5377">resentPath : String</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="342.4" y="747.4251"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="47.6" x="347.2" y="750.522">resentVolume : double</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="342.4" y="753.4094"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="41.6" x="347.2" y="756.5064">loopOnTrack : Loop</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="339.6" x2="427.6" y1="759.3937" y2="759.3937"/><polygon fill="#FFFF44" points="343.6,761.7937,345.2,763.3937,343.6,764.9937,342,763.3937" style="stroke:#B38D22;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="19.2" x="347.2" y="765.6907">Settings()</text><polygon fill="#FFFF44" points="343.6,767.778,345.2,769.378,343.6,770.978,342,769.378" style="stroke:#B38D22;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="49.2" x="347.2" y="771.675">getResentPath() : String</text><polygon fill="#FFFF44" points="343.6,773.7624,345.2,775.3624,343.6,776.9624,342,775.3624" style="stroke:#B38D22;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="68.4" x="347.2" y="777.6593">getResentVolumeLevel() : double</text><polygon fill="#FFFF44" points="343.6,779.7467,345.2,781.3467,343.6,782.9467,342,781.3467" style="stroke:#B38D22;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="52" x="347.2" y="783.6436">getLoopOnTrack() : Loop</text><polygon fill="#FFFF44" points="343.6,785.731,345.2,787.331,343.6,788.931,342,787.331" style="stroke:#B38D22;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="71.2" x="347.2" y="789.6279">setResentPath(resentPath : String)</text><polygon fill="#FFFF44" points="343.6,791.7153,345.2,793.3153,343.6,794.9153,342,793.3153" style="stroke:#B38D22;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="72.4" x="347.2" y="795.6122">setResentVolume(volume : double)</text><polygon fill="#FFFF44" points="343.6,797.6996,345.2,799.2996,343.6,800.8996,342,799.2996" style="stroke:#B38D22;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="78.4" x="347.2" y="801.5965">setLoopOnTrack(loopOnTrack : Loop)</text><!--MD5=[f1912636c9a704360387074e629ab700]
+class FileManger--><rect codeLine="89" fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="61.0902" id="FileManger" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="143.2" x="824" y="84.0408"/><ellipse cx="881.3" cy="90.4408" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M881.0875,93.0408 Q880.3875,93.0408 879.9313,92.7345 Q879.4813,92.422 879.2563,91.8595 Q879.0375,91.2908 879.0375,90.5408 Q879.0375,89.697 879.3,89.097 Q879.5625,88.4908 880.075,88.1658 Q880.5875,87.8408 881.3375,87.8408 Q881.6938,87.8408 881.9625,87.9158 Q882.2313,87.9908 882.5063,88.1345 L882.1813,88.9845 Q881.9313,88.8533 881.7125,88.8033 Q881.5,88.7533 881.3063,88.7533 Q880.8375,88.7533 880.5563,88.972 Q880.275,89.1845 880.1563,89.5783 Q880.0375,89.972 880.0375,90.497 Q880.0375,91.3283 880.325,91.7283 Q880.6125,92.122 881.25,92.122 Q881.4875,92.122 881.7375,92.0595 Q881.9875,91.997 882.3188,91.8408 L882.3188,92.772 Q882.025,92.9095 881.7063,92.9783 Q881.3938,93.0408 881.0875,93.0408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" lengthAdjust="spacing" textLength="25.2" x="889.5" y="92.3056">FileManger</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="824.4" x2="966.8" y1="96.8408" y2="96.8408"/><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="824.4" x2="966.8" y1="100.0408" y2="100.0408"/><ellipse cx="828.4" cy="104.4408" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" text-decoration="underline" textLength="42.4" x="832" y="106.3377">getRootFiles() : File[]</text><ellipse cx="828.4" cy="110.4251" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" text-decoration="underline" textLength="62.4" x="832" y="112.322">getFiles(directory : File) : File[]</text><ellipse cx="828.4" cy="116.4094" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" text-decoration="underline" textLength="132.8" x="832" y="118.3064">getAbsoluteFiles(directory : File, extensions : Extension[]) : File[]</text><ellipse cx="828.4" cy="122.3937" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" text-decoration="underline" textLength="125.2" x="832" y="124.2907">isSupportedFile(file : File, extensions : Extension[]) : boolean</text><ellipse cx="828.4" cy="128.378" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" text-decoration="underline" textLength="52" x="832" y="130.275">back(path : String) : File[]</text><ellipse cx="828.4" cy="134.3624" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" text-decoration="underline" textLength="60" x="832" y="136.2593">isRootDir(file : File) : boolean</text><ellipse cx="828.4" cy="140.3467" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" text-decoration="underline" textLength="110" x="832" y="142.2436">filterFiles(files : File[], extensions : Extension[]) : File[]</text><!--MD5=[f8e7078f77c005d15b486c0c98deb1e6]
+class Action--><rect codeLine="102" fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="156.8392" id="Action" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="72.4" x="673" y="36.2408"/><ellipse cx="700.5" cy="42.6408" fill="#EB937F" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M699.0438,45.2408 L699.0438,40.0408 L702.1063,40.0408 L702.1063,40.9408 L699.9938,40.9408 L699.9938,42.0408 L702,42.0408 L702,42.9408 L699.9938,42.9408 L699.9938,44.3408 L702.1063,44.3408 L702.1063,45.2408 L699.0438,45.2408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" lengthAdjust="spacing" textLength="14" x="708.7" y="44.5056">Action</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="673.4" x2="745" y1="49.0408" y2="49.0408"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="10.4" x="675.4" y="55.3377">PLAY</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="11.2" x="675.4" y="61.322">STOP</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="13.6" x="675.4" y="67.3064">PAUSE</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="17.2" x="675.4" y="73.2907">RESUME</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="10" x="675.4" y="79.275">REST</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="12" x="675.4" y="85.2593">MUTE</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="20.4" x="675.4" y="91.2436">UN_MUTE</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="26.4" x="675.4" y="97.2279">VOLUME_UP</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="34.4" x="675.4" y="103.2122">VOLUME_DOWN</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="48" x="675.4" y="109.1965">SHOW_VOLUME_LEVEL</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="44" x="675.4" y="115.1809">LOOP_ON_ONE_CLIP</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="44.4" x="675.4" y="121.1652">LOOP_ON_PLAY_LIST</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="18.4" x="675.4" y="127.1495">SHUFFLE</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="10.4" x="675.4" y="133.1338">NEXT</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="21.6" x="675.4" y="139.1181">PREVIOUS</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="28" x="675.4" y="145.1024">HOTKEYS_ON</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="29.6" x="675.4" y="151.0867">HOTKEYS_OFF</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="16.4" x="675.4" y="157.071">SEARCH</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="45.6" x="675.4" y="163.0554">OPEN_FILE_BROWSER</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="23.2" x="675.4" y="169.0397">UNKNOWN</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="8.8" x="675.4" y="175.024">EXIT</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="27.6" x="675.4" y="181.0083">SET_VOLUME</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="67.6" x="675.4" y="186.9926">LOOP_ON_ONE_CLIP_ONE_TIME</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="673.4" x2="745" y1="189.88" y2="189.88"/><!--MD5=[168599adde66fac5d6d0e2a770d680c5]
+class Loop--><rect codeLine="128" fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="37.1529" id="Loop" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="40.8" x="562" y="493.6408"/><ellipse cx="575.74" cy="500.0408" fill="#EB937F" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M574.2838,502.6408 L574.2838,497.4408 L577.3463,497.4408 L577.3463,498.3408 L575.2338,498.3408 L575.2338,499.4408 L577.24,499.4408 L577.24,500.3408 L575.2338,500.3408 L575.2338,501.7408 L577.3463,501.7408 L577.3463,502.6408 L574.2838,502.6408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" lengthAdjust="spacing" textLength="10.8" x="583.06" y="501.9056">Loop</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="562.4" x2="602.4" y1="506.4408" y2="506.4408"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="21.2" x="564.4" y="512.7377">NO_LOOP</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="12.4" x="564.4" y="518.722">LOOP</text><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="36" x="564.4" y="524.7064">LOOP_ONE_TIME</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="562.4" x2="602.4" y1="527.5937" y2="527.5937"/><!--MD5=[2cb47ba637a0d19583e6199456f6ad0b]
+class Player--><rect codeLine="137" fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="67.0745" id="Player" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="88" x="640" y="261.8408"/><ellipse cx="675.5" cy="268.2408" fill="#A9DCDF" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M673.5688,270.5408 L674.9063,265.3408 L676.1625,265.3408 L677.5125,270.5408 L676.525,270.5408 L676.2313,269.3408 L674.825,269.3408 L674.525,270.5408 L673.5688,270.5408 Z M675.3313,267.1658 L675.0313,268.4783 L676.0375,268.4783 L675.75,267.1658 Q675.6938,266.9095 675.6438,266.6658 Q675.5938,266.422 675.5375,266.1595 Q675.4938,266.422 675.4375,266.6658 Q675.3813,266.9095 675.3313,267.1658 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" font-style="italic" lengthAdjust="spacing" textLength="13.6" x="683.7" y="270.1056">Player</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="640.4" x2="727.6" y1="274.6408" y2="274.6408"/><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="643.2" y="277.8408"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="68.4" x="648" y="280.9377">playersAdaptor : PlayersAdaptor</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="640.4" x2="727.6" y1="283.8251" y2="283.8251"/><ellipse cx="644.4" cy="288.2251" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="68.4" x="648" y="290.122">Player(adaptor : PlayersAdaptor)</text><ellipse cx="644.4" cy="294.2094" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" font-style="italic" lengthAdjust="spacing" textLength="37.6" x="648" y="296.1064">play(audioFile : File)</text><ellipse cx="644.4" cy="300.1937" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" font-style="italic" lengthAdjust="spacing" textLength="72.8" x="648" y="302.0907">getSupportedExtensions() : Extension[]</text><ellipse cx="644.4" cy="306.178" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="21.6" x="648" y="308.075">final play()</text><ellipse cx="644.4" cy="312.1624" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="59.6" x="648" y="314.0593">sendEvent(event : LineEvent)</text><ellipse cx="644.4" cy="318.1467" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="73.2" x="648" y="320.0436">isSupportedFile(file : File) : boolean</text><ellipse cx="644.4" cy="324.131" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="77.6" x="648" y="326.0279">getPlayersAdaptor() : PlayersAdaptor</text><!--MD5=[5bae94a3c28a5bd489c9b840f69ef4e5]
+class SuPlayer--><rect codeLine="191" fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="61.0902" id="SuPlayer" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="68.8" x="585.2" y="84.0408"/><ellipse cx="608.5" cy="90.4408" fill="#B4A7E5" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M606.9125,93.0408 L606.9125,92.3095 L607.8563,92.197 L607.8563,88.6845 L606.9125,88.572 L606.9125,87.8408 L609.7688,87.8408 L609.7688,88.572 L608.8,88.6845 L608.8,92.197 L609.7688,92.3095 L609.7688,93.0408 L606.9125,93.0408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" font-style="italic" lengthAdjust="spacing" textLength="18.8" x="616.7" y="92.3056">SuPlayer</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="585.6" x2="653.6" y1="96.8408" y2="96.8408"/><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="585.6" x2="653.6" y1="100.0408" y2="100.0408"/><ellipse cx="589.6" cy="104.4408" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="11.2" x="593.2" y="106.3377">play()</text><ellipse cx="589.6" cy="110.4251" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="11.6" x="593.2" y="112.322">stop()</text><ellipse cx="589.6" cy="116.4094" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="14.8" x="593.2" y="118.3064">pause()</text><ellipse cx="589.6" cy="122.3937" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="18" x="593.2" y="124.2907">resume()</text><ellipse cx="589.6" cy="128.378" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="43.6" x="593.2" y="130.275">getVolume() : double</text><ellipse cx="589.6" cy="134.3624" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="58.4" x="593.2" y="136.2593">setVolume(volume : double)</text><ellipse cx="589.6" cy="140.3467" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="10" x="593.2" y="142.2436">exit()</text><!--MD5=[d3040f584f2416bc171b75d035581ef8]
+class PlayersAdaptor--><rect codeLine="152" fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="228.6509" id="PlayersAdaptor" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="135.2" x="568.4" y="650.6408"/><ellipse cx="617.1" cy="657.0408" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M616.8875,659.6408 Q616.1875,659.6408 615.7313,659.3345 Q615.2813,659.022 615.0563,658.4595 Q614.8375,657.8908 614.8375,657.1408 Q614.8375,656.297 615.1,655.697 Q615.3625,655.0908 615.875,654.7658 Q616.3875,654.4408 617.1375,654.4408 Q617.4938,654.4408 617.7625,654.5158 Q618.0313,654.5908 618.3063,654.7345 L617.9813,655.5845 Q617.7313,655.4533 617.5125,655.4033 Q617.3,655.3533 617.1063,655.3533 Q616.6375,655.3533 616.3563,655.572 Q616.075,655.7845 615.9563,656.1783 Q615.8375,656.572 615.8375,657.097 Q615.8375,657.9283 616.125,658.3283 Q616.4125,658.722 617.05,658.722 Q617.2875,658.722 617.5375,658.6595 Q617.7875,658.597 618.1188,658.4408 L618.1188,659.372 Q617.825,659.5095 617.5063,659.5783 Q617.1938,659.6408 616.8875,659.6408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" lengthAdjust="spacing" textLength="34.4" x="625.3" y="658.9056">PlayersAdaptor</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="568.8" x2="703.2" y1="663.4408" y2="663.4408"/><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="571.6" y="666.6408"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" text-decoration="underline" textLength="68.4" x="576.4" y="669.7377">playersAdaptor : PlayersAdaptor</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="571.6" y="672.6251"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="35.2" x="576.4" y="675.722">players : Player[]</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="571.6" y="678.6094"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="45.6" x="576.4" y="681.7064">currentPlayer : Player</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="571.6" y="684.5937"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="35.6" x="576.4" y="687.6907">playList : PlayList</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="571.6" y="690.578"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="41.6" x="576.4" y="693.675">loopOnTrack : Loop</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="571.6" y="696.5624"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="47.6" x="576.4" y="699.6593">soundVolume : double</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="571.6" y="702.5467"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="72.4" x="576.4" y="705.6436">soundVolumeBeforeMute : double</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="571.6" y="708.531"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="36" x="576.4" y="711.6279">paused : boolean</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="571.6" y="714.5153"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="34.4" x="576.4" y="717.6122">muted : boolean</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="568.8" x2="703.2" y1="720.4996" y2="720.4996"/><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="571.6" y="723.6996"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="34.8" x="576.4" y="726.7965">PlayersAdaptor()</text><ellipse cx="572.8" cy="730.8839" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" text-decoration="underline" textLength="62.8" x="576.4" y="732.7809">getInstance() : PlayersAdaptor</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="571.6" y="735.6682"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="51.2" x="576.4" y="738.7652">setAdaptorOfAllPlayers()</text><ellipse cx="572.8" cy="742.8525" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="11.2" x="576.4" y="744.7495">play()</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="571.6" y="747.6369"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="124.8" x="576.4" y="750.7338">setTheCurrentPlayersToThePestPlayerForTheCurrentTrack()</text><ellipse cx="572.8" cy="754.8212" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="11.6" x="576.4" y="756.7181">stop()</text><ellipse cx="572.8" cy="760.8055" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="14.8" x="576.4" y="762.7024">pause()</text><ellipse cx="572.8" cy="766.7898" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="18" x="576.4" y="768.6867">resume()</text><ellipse cx="572.8" cy="772.7741" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="33.2" x="576.4" y="774.671">loopOfPlayList()</text><ellipse cx="572.8" cy="778.7584" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="16.8" x="576.4" y="780.6554">shuffle()</text><ellipse cx="572.8" cy="784.7427" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="11.6" x="576.4" y="786.6397">next()</text><ellipse cx="572.8" cy="790.727" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="20.8" x="576.4" y="792.624">previous()</text><ellipse cx="572.8" cy="796.7114" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="41.6" x="576.4" y="798.6083">isPaused() : boolean</text><ellipse cx="572.8" cy="802.6957" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="13.2" x="576.4" y="804.5926">mute()</text><ellipse cx="572.8" cy="808.68" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="43.6" x="576.4" y="810.5769">getVolume() : double</text><ellipse cx="572.8" cy="814.6643" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="58.4" x="576.4" y="816.5612">setVolume(volume : double)</text><ellipse cx="572.8" cy="820.6486" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="10" x="576.4" y="822.5455">exit()</text><ellipse cx="572.8" cy="826.6329" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="44.8" x="576.4" y="828.5299">getPlayList() : PlayList</text><ellipse cx="572.8" cy="832.6172" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="60" x="576.4" y="834.5142">setPlayList(playList : PlayList)</text><ellipse cx="572.8" cy="838.6015" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="55.6" x="576.4" y="840.4985">getCurrentPlayer() : Player</text><ellipse cx="572.8" cy="844.5859" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="49.6" x="576.4" y="846.4828">event(event : LineEvent)</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="571.6" y="849.3702"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="41.2" x="576.4" y="852.4671">checkLoopOfTrack()</text><ellipse cx="572.8" cy="856.5545" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="60.8" x="576.4" y="858.4514">addPlayers(players : Player[])</text><ellipse cx="572.8" cy="862.5388" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="81.2" x="576.4" y="864.4357">getSupportedExtensions() : Extension[]</text><ellipse cx="572.8" cy="868.5231" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="52" x="576.4" y="870.42">getLoopOnTrack() : Loop</text><ellipse cx="572.8" cy="874.5074" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="78.4" x="576.4" y="876.4044">setLoopOnTrack(loopOnTrack : Loop)</text><!--MD5=[b3bafa6f968d5dc38be44d1a3bc58c37]
+class WAVPlayer--><rect codeLine="203" fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="132.9019" id="WAVPlayer" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="91.6" x="646.6" y="445.8408"/><ellipse cx="678.5" cy="452.2408" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M678.2875,454.8408 Q677.5875,454.8408 677.1313,454.5345 Q676.6813,454.222 676.4563,453.6595 Q676.2375,453.0908 676.2375,452.3408 Q676.2375,451.497 676.5,450.897 Q676.7625,450.2908 677.275,449.9658 Q677.7875,449.6408 678.5375,449.6408 Q678.8938,449.6408 679.1625,449.7158 Q679.4313,449.7908 679.7063,449.9345 L679.3813,450.7845 Q679.1313,450.6533 678.9125,450.6033 Q678.7,450.5533 678.5063,450.5533 Q678.0375,450.5533 677.7563,450.772 Q677.475,450.9845 677.3563,451.3783 Q677.2375,451.772 677.2375,452.297 Q677.2375,453.1283 677.525,453.5283 Q677.8125,453.922 678.45,453.922 Q678.6875,453.922 678.9375,453.8595 Q679.1875,453.797 679.5188,453.6408 L679.5188,454.572 Q679.225,454.7095 678.9063,454.7783 Q678.5938,454.8408 678.2875,454.8408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" lengthAdjust="spacing" textLength="24.4" x="686.7" y="454.1056">WAVPlayer</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="647" x2="737.8" y1="458.6408" y2="458.6408"/><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="649.8" y="461.8408"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="18.8" x="654.6" y="464.9377">clip : Clip</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="649.8" y="467.8251"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="80.8" x="654.6" y="470.922">audioInputStream : AudioInputStream</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="649.8" y="473.8094"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="36" x="654.6" y="476.9064">paused : boolean</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="649.8" y="479.7937"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="47.6" x="654.6" y="482.8907">userStopped : boolean</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="649.8" y="485.778"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="38" x="654.6" y="488.875">running : boolean</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="649.8" y="491.7624"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="42.4" x="654.6" y="494.8593">soundLevel : double</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="649.8" y="497.7467"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" text-decoration="underline" textLength="43.6" x="654.6" y="500.8436">instance : WAVPlayer</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="647" x2="737.8" y1="503.731" y2="503.731"/><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="649.8" y="506.931"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="25.2" x="654.6" y="510.0279">WAVPlayer()</text><ellipse cx="651" cy="514.1153" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" text-decoration="underline" textLength="53.2" x="654.6" y="516.0122">getInstance() : WAVPlayer</text><ellipse cx="651" cy="520.0996" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="41.2" x="654.6" y="521.9965">play(audioFile : File)</text><ellipse cx="651" cy="526.0839" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="81.2" x="654.6" y="527.9809">getSupportedExtensions() : Extension[]</text><ellipse cx="651" cy="532.0682" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="10" x="654.6" y="533.9652">run()</text><ellipse cx="651" cy="538.0525" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="11.6" x="654.6" y="539.9495">stop()</text><ellipse cx="651" cy="544.0369" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="14.8" x="654.6" y="545.9338">pause()</text><ellipse cx="651" cy="550.0212" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="18" x="654.6" y="551.9181">resume()</text><ellipse cx="651" cy="556.0055" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="43.6" x="654.6" y="557.9024">getVolume() : double</text><ellipse cx="651" cy="561.9898" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="58.4" x="654.6" y="563.8867">setVolume(volume : double)</text><ellipse cx="651" cy="567.9741" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="44.4" x="654.6" y="569.871">isRunning() : boolean</text><ellipse cx="651" cy="573.9584" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="10" x="654.6" y="575.8554">exit()</text><!--MD5=[29f5d36ca92ec2406f717168a0e40892]
+class EndPlayListException--><rect codeLine="232" fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="25.1843" id="EndPlayListException" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="59.6" x="895.8" y="282.8408"/><ellipse cx="901.8" cy="289.2408" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M901.5875,291.8408 Q900.8875,291.8408 900.4313,291.5345 Q899.9813,291.222 899.7563,290.6595 Q899.5375,290.0908 899.5375,289.3408 Q899.5375,288.497 899.8,287.897 Q900.0625,287.2908 900.575,286.9658 Q901.0875,286.6408 901.8375,286.6408 Q902.1938,286.6408 902.4625,286.7158 Q902.7313,286.7908 903.0063,286.9345 L902.6813,287.7845 Q902.4313,287.6533 902.2125,287.6033 Q902,287.5533 901.8063,287.5533 Q901.3375,287.5533 901.0563,287.772 Q900.775,287.9845 900.6563,288.3783 Q900.5375,288.772 900.5375,289.297 Q900.5375,290.1283 900.825,290.5283 Q901.1125,290.922 901.75,290.922 Q901.9875,290.922 902.2375,290.8595 Q902.4875,290.797 902.8188,290.6408 L902.8188,291.572 Q902.525,291.7095 902.2063,291.7783 Q901.8938,291.8408 901.5875,291.8408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" lengthAdjust="spacing" textLength="46.8" x="907.4" y="291.1056">EndPlayListException</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="896.2" x2="955" y1="295.6408" y2="295.6408"/><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="896.2" x2="955" y1="298.8408" y2="298.8408"/><ellipse cx="900.2" cy="303.2408" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="46.8" x="903.8" y="305.1377">EndPlayListException()</text><!--MD5=[56587a2b51432fa7a78c2e642469b9ae]
+class PlayList--><rect codeLine="238" fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="228.6509" id="PlayList" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="116.4" x="770.2" y="397.8408"/><ellipse cx="818.3" cy="404.2408" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M818.0875,406.8408 Q817.3875,406.8408 816.9313,406.5345 Q816.4813,406.222 816.2563,405.6595 Q816.0375,405.0908 816.0375,404.3408 Q816.0375,403.497 816.3,402.897 Q816.5625,402.2908 817.075,401.9658 Q817.5875,401.6408 818.3375,401.6408 Q818.6938,401.6408 818.9625,401.7158 Q819.2313,401.7908 819.5063,401.9345 L819.1813,402.7845 Q818.9313,402.6533 818.7125,402.6033 Q818.5,402.5533 818.3063,402.5533 Q817.8375,402.5533 817.5563,402.772 Q817.275,402.9845 817.1563,403.3783 Q817.0375,403.772 817.0375,404.297 Q817.0375,405.1283 817.325,405.5283 Q817.6125,405.922 818.25,405.922 Q818.4875,405.922 818.7375,405.8595 Q818.9875,405.797 819.3188,405.6408 L819.3188,406.572 Q819.025,406.7095 818.7063,406.7783 Q818.3938,406.8408 818.0875,406.8408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" lengthAdjust="spacing" textLength="16.8" x="826.5" y="406.1056">PlayList</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="770.6" x2="886.2" y1="410.6408" y2="410.6408"/><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="773.4" y="413.8408"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="24" x="778.2" y="416.9377">list : Track[]</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="773.4" y="419.8251"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="36" x="778.2" y="422.922">currentTrack : int</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="773.4" y="425.8094"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="37.2" x="778.2" y="428.9064">looping : boolean</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="773.4" y="431.7937"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="39.6" x="778.2" y="434.8907">shuffling : boolean</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="773.4" y="437.778"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="52.8" x="778.2" y="440.875">longFileNameLength : int</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="770.6" x2="886.2" y1="443.7624" y2="443.7624"/><ellipse cx="774.6" cy="448.1624" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="18.4" x="778.2" y="450.0593">PlayList()</text><ellipse cx="774.6" cy="454.1467" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="34.4" x="778.2" y="456.0436">add(item : Track)</text><ellipse cx="774.6" cy="460.131" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="44.8" x="778.2" y="462.0279">addAll(items : Track[])</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="773.4" y="464.9153"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="71.2" x="778.2" y="468.0122">updateLongFileNameLength() : int</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="773.4" y="470.8996"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="60" x="778.2" y="473.9965">setUpItems(newList : Track[])</text><ellipse cx="774.6" cy="478.0839" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="39.2" x="778.2" y="479.9809">remove(index : int)</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="773.4" y="482.8682"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="67.6" x="778.2" y="485.9652">deleteContains(newList : Track[])</text><ellipse cx="774.6" cy="490.0525" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="44.8" x="778.2" y="491.9495">get(index : int) : Track</text><ellipse cx="774.6" cy="496.0369" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="19.2" x="778.2" y="497.9338">size() : int</text><ellipse cx="774.6" cy="502.0212" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="11.6" x="778.2" y="503.9181">next()</text><ellipse cx="774.6" cy="508.0055" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="20.8" x="778.2" y="509.9024">previous()</text><ellipse cx="774.6" cy="513.9898" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="36.4" x="778.2" y="515.8867">shuffle() : PlayList</text><ellipse cx="774.6" cy="519.9741" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="16.4" x="778.2" y="521.871">played()</text><ellipse cx="774.6" cy="525.9584" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="12.8" x="778.2" y="527.8554">reset()</text><ellipse cx="774.6" cy="531.9427" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="39.6" x="778.2" y="533.8397">isEnded() : boolean</text><ellipse cx="774.6" cy="537.927" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="44" x="778.2" y="539.824">isLooping() : boolean</text><ellipse cx="774.6" cy="543.9114" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="63.2" x="778.2" y="545.8083">setLooping(looping : boolean)</text><ellipse cx="774.6" cy="549.8957" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="12.8" x="778.2" y="551.7926">print()</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="773.4" y="554.68"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="28.8" x="778.2" y="557.7769">printPlayList()</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="773.4" y="560.6643"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="32.8" x="778.2" y="563.7612">printLastItems()</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="773.4" y="566.6486"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="86" x="778.2" y="569.7455">printItem(lineSplat : String, i : int) : String</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="773.4" y="572.6329"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="96" x="778.2" y="575.7299">createLineSplat(formatter : Formatter) : String</text><ellipse cx="774.6" cy="579.8172" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="49.6" x="778.2" y="581.7142">playCurrentTrack() : File</text><ellipse cx="774.6" cy="585.8015" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="45.6" x="778.2" y="587.6985">isShuffling() : boolean</text><ellipse cx="774.6" cy="591.7859" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="53.2" x="778.2" y="593.6828">search(name : String) : int</text><ellipse cx="774.6" cy="597.7702" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="46.8" x="778.2" y="599.6671">getCurrentIndex() : int</text><ellipse cx="774.6" cy="603.7545" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="38.8" x="778.2" y="605.6514">getItems() : Track[]</text><ellipse cx="774.6" cy="609.7388" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="63.2" x="778.2" y="611.6357">getLongFileNameLength() : int</text><ellipse cx="774.6" cy="615.7231" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="106" x="778.2" y="617.62">setLongFileNameLength(longFileNameLength : int)</text><ellipse cx="774.6" cy="621.7074" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="51.6" x="778.2" y="623.6044">getCurrentTrack() : Track</text><!--MD5=[63100453b20fe1dce81500dd05c7b921]
+class PlayListLoader--><rect codeLine="279" fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="25.1843" id="PlayListLoader" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="45.2" x="972.6" y="499.6408"/><ellipse cx="978.6" cy="506.0408" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M978.3875,508.6408 Q977.6875,508.6408 977.2313,508.3345 Q976.7813,508.022 976.5563,507.4595 Q976.3375,506.8908 976.3375,506.1408 Q976.3375,505.297 976.6,504.697 Q976.8625,504.0908 977.375,503.7658 Q977.8875,503.4408 978.6375,503.4408 Q978.9938,503.4408 979.2625,503.5158 Q979.5313,503.5908 979.8063,503.7345 L979.4813,504.5845 Q979.2313,504.4533 979.0125,504.4033 Q978.8,504.3533 978.6063,504.3533 Q978.1375,504.3533 977.8563,504.572 Q977.575,504.7845 977.4563,505.1783 Q977.3375,505.572 977.3375,506.097 Q977.3375,506.9283 977.625,507.3283 Q977.9125,507.722 978.55,507.722 Q978.7875,507.722 979.0375,507.6595 Q979.2875,507.597 979.6188,507.4408 L979.6188,508.372 Q979.325,508.5095 979.0063,508.5783 Q978.6938,508.6408 978.3875,508.6408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" lengthAdjust="spacing" textLength="32.4" x="984.2" y="507.9056">PlayListLoader</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="973" x2="1017.4" y1="512.4408" y2="512.4408"/><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="973" x2="1017.4" y1="515.6408" y2="515.6408"/><ellipse cx="977" cy="520.0408" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" text-decoration="underline" textLength="29.6" x="980.6" y="521.9377">load() : Track[]</text><path d="M969.6,289.8408 L969.6,300.9232 A0,0 0 0 0 969.6,300.9232 L993.6,300.9232 L995.2,499.6288 L996.8,300.9232 L1020.8,300.9232 A0,0 0 0 0 1020.8,300.9232 L1020.8,293.8408 L1016.8,289.8408 L969.6,289.8408 A0,0 0 0 0 969.6,289.8408 " fill="#FBFB77" filter="url(#f2zv8gzl59tjt)" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M1016.8,289.8408 L1016.8,293.8408 L1020.8,293.8408 L1016.8,289.8408 " fill="#FBFB77" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="5.2" lengthAdjust="spacing" textLength="42.8" x="972" y="297.3996">TODO: implement</text><!--MD5=[3b034ebaa87c9ec5e8fb5410143f628f]
+class Track--><rect codeLine="285" fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="156.8392" id="Track" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="111.2" x="770.4" y="217.0408"/><ellipse cx="818.1" cy="223.4408" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M817.8875,226.0408 Q817.1875,226.0408 816.7313,225.7345 Q816.2813,225.422 816.0563,224.8595 Q815.8375,224.2908 815.8375,223.5408 Q815.8375,222.697 816.1,222.097 Q816.3625,221.4908 816.875,221.1658 Q817.3875,220.8408 818.1375,220.8408 Q818.4938,220.8408 818.7625,220.9158 Q819.0313,220.9908 819.3063,221.1345 L818.9813,221.9845 Q818.7313,221.8533 818.5125,221.8033 Q818.3,221.7533 818.1063,221.7533 Q817.6375,221.7533 817.3563,221.972 Q817.075,222.1845 816.9563,222.5783 Q816.8375,222.972 816.8375,223.497 Q816.8375,224.3283 817.125,224.7283 Q817.4125,225.122 818.05,225.122 Q818.2875,225.122 818.5375,225.0595 Q818.7875,224.997 819.1188,224.8408 L819.1188,225.772 Q818.825,225.9095 818.5063,225.9783 Q818.1938,226.0408 817.8875,226.0408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" lengthAdjust="spacing" textLength="12.4" x="826.3" y="225.3056">Track</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="770.8" x2="881.2" y1="229.8408" y2="229.8408"/><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="773.6" y="233.0408"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="20.8" x="778.4" y="236.1377">index : int</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="773.6" y="239.0251"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="17.2" x="778.4" y="242.122">file : File</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="773.6" y="245.0094"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="34.8" x="778.4" y="248.1064">played : boolean</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="773.6" y="250.9937"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="36.4" x="778.4" y="254.0907">playing : boolean</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="773.6" y="256.978"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="50.8" x="778.4" y="260.075">previousTrackIndex : int</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="773.6" y="262.9624"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="41.6" x="778.4" y="266.0593">nextTrackIndex : int</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="770.8" x2="881.2" y1="268.9467" y2="268.9467"/><ellipse cx="774.8" cy="273.3467" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="54" x="778.4" y="275.2436">Track(index : int, file : File)</text><ellipse cx="774.8" cy="279.331" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="13.6" x="778.4" y="281.2279">Track()</text><ellipse cx="774.8" cy="285.3153" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="30.4" x="778.4" y="287.2122">getIndex() : int</text><ellipse cx="774.8" cy="291.2996" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="41.2" x="778.4" y="293.1965">setIndex(index : int)</text><ellipse cx="774.8" cy="297.2839" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="27.2" x="778.4" y="299.1809">getFile() : File</text><ellipse cx="774.8" cy="303.2682" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="32.8" x="778.4" y="305.1652">setFile(file : File)</text><ellipse cx="774.8" cy="309.2525" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="44.8" x="778.4" y="311.1495">getFileName() : String</text><ellipse cx="774.8" cy="315.2369" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="42.4" x="778.4" y="317.1338">getFilePath() : String</text><ellipse cx="774.8" cy="321.2212" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="40.4" x="778.4" y="323.1181">isPlayed() : boolean</text><ellipse cx="774.8" cy="327.2055" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="57.2" x="778.4" y="329.1024">setPlayed(played : boolean)</text><ellipse cx="774.8" cy="333.1898" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="42" x="778.4" y="335.0867">isPlaying() : boolean</text><ellipse cx="774.8" cy="339.1741" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="60.4" x="778.4" y="341.071">setPlaying(playing : boolean)</text><ellipse cx="774.8" cy="345.1584" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="51.2" x="778.4" y="347.0554">getNextTrackIndex() : int</text><ellipse cx="774.8" cy="351.1427" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="82.8" x="778.4" y="353.0397">setNextTrackIndex(nextTrackIndex : int)</text><ellipse cx="774.8" cy="357.127" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="60" x="778.4" y="359.024">getPreviousTrackIndex() : int</text><ellipse cx="774.8" cy="363.1114" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="100.8" x="778.4" y="365.0083">setPreviousTrackIndex(previousTrackIndex : int)</text><ellipse cx="774.8" cy="369.0957" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="36" x="778.4" y="370.9926">toString() : String</text><!--MD5=[463c45b1df3dbfe1c2134e01e0a41cde]
+class Screen--><rect codeLine="318" fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="43.1372" id="Screen" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="118.4" x="170.8" y="490.6408"/><ellipse cx="220.5" cy="497.0408" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M220.2875,499.6408 Q219.5875,499.6408 219.1313,499.3345 Q218.6813,499.022 218.4563,498.4595 Q218.2375,497.8908 218.2375,497.1408 Q218.2375,496.297 218.5,495.697 Q218.7625,495.0908 219.275,494.7658 Q219.7875,494.4408 220.5375,494.4408 Q220.8938,494.4408 221.1625,494.5158 Q221.4313,494.5908 221.7063,494.7345 L221.3813,495.5845 Q221.1313,495.4533 220.9125,495.4033 Q220.7,495.3533 220.5063,495.3533 Q220.0375,495.3533 219.7563,495.572 Q219.475,495.7845 219.3563,496.1783 Q219.2375,496.572 219.2375,497.097 Q219.2375,497.9283 219.525,498.3283 Q219.8125,498.722 220.45,498.722 Q220.6875,498.722 220.9375,498.6595 Q221.1875,498.597 221.5188,498.4408 L221.5188,499.372 Q221.225,499.5095 220.9063,499.5783 Q220.5938,499.6408 220.2875,499.6408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" lengthAdjust="spacing" textLength="15.6" x="228.7" y="498.9056">Screen</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="171.2" x2="288.8" y1="503.4408" y2="503.4408"/><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="174" y="506.6408"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="67.6" x="178.8" y="509.7377">mainController : MainController</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="171.2" x2="288.8" y1="512.6251" y2="512.6251"/><ellipse cx="175.2" cy="517.0251" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="46.4" x="178.8" y="518.922">getScanner() : Scanner</text><ellipse cx="175.2" cy="523.0094" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="76.8" x="178.8" y="524.9064">getMainController() : MainController</text><ellipse cx="175.2" cy="528.9937" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="108" x="178.8" y="530.8907">setMainController(mainController : MainController)</text><!--MD5=[0110cbc56c6e7cf4c6b6d5194c210a81]
+class CLIManger--><rect codeLine="369" fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="67.0745" id="CLIManger" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="124.4" x="185" y="936.2408"/><ellipse cx="233.1" cy="942.6408" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M232.8875,945.2408 Q232.1875,945.2408 231.7313,944.9345 Q231.2813,944.622 231.0563,944.0595 Q230.8375,943.4908 230.8375,942.7408 Q230.8375,941.897 231.1,941.297 Q231.3625,940.6908 231.875,940.3658 Q232.3875,940.0408 233.1375,940.0408 Q233.4938,940.0408 233.7625,940.1158 Q234.0313,940.1908 234.3063,940.3345 L233.9813,941.1845 Q233.7313,941.0533 233.5125,941.0033 Q233.3,940.9533 233.1063,940.9533 Q232.6375,940.9533 232.3563,941.172 Q232.075,941.3845 231.9563,941.7783 Q231.8375,942.172 231.8375,942.697 Q231.8375,943.5283 232.125,943.9283 Q232.4125,944.322 233.05,944.322 Q233.2875,944.322 233.5375,944.2595 Q233.7875,944.197 234.1188,944.0408 L234.1188,944.972 Q233.825,945.1095 233.5063,945.1783 Q233.1938,945.2408 232.8875,945.2408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" lengthAdjust="spacing" textLength="24.8" x="241.3" y="944.5056">CLIManger</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="185.4" x2="309" y1="949.0408" y2="949.0408"/><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="188.2" y="952.2408"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="52.4" x="193" y="955.3377">fileBrowser : FileBrowser</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="188.2" y="958.2251"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="67.6" x="193" y="961.322">playerInterface : PlayerInterface</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="185.4" x2="309" y1="964.2094" y2="964.2094"/><ellipse cx="189.4" cy="968.6094" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="93.2" x="193" y="970.5064">CLIManger(mainController : MainController)</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="188.2" y="973.3937"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="9.2" x="193" y="976.4907">init()</text><ellipse cx="189.4" cy="980.578" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="108.4" x="193" y="982.475">openFileBrowser(startingDirectory : String) : Track[]</text><ellipse cx="189.4" cy="986.5624" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="64.4" x="193" y="988.4593">printPlayList(playList : PlayList)</text><ellipse cx="189.4" cy="992.5467" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="114" x="193" y="994.4436">showPlayerInterface(playersAdaptor : PlayersAdaptor)</text><ellipse cx="189.4" cy="998.531" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="62.4" x="193" y="1000.4279">getFileBrowser() : FileBrowser</text><!--MD5=[6f4dbc8d22864e1896f70e1b5ad5a8f2]
+class Utility--><rect codeLine="385" fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="25.1843" id="Utility" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="83.2" x="56.8" y="499.6408"/><ellipse cx="90.3" cy="506.0408" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M90.0875,508.6408 Q89.3875,508.6408 88.9313,508.3345 Q88.4813,508.022 88.2563,507.4595 Q88.0375,506.8908 88.0375,506.1408 Q88.0375,505.297 88.3,504.697 Q88.5625,504.0908 89.075,503.7658 Q89.5875,503.4408 90.3375,503.4408 Q90.6938,503.4408 90.9625,503.5158 Q91.2313,503.5908 91.5063,503.7345 L91.1813,504.5845 Q90.9313,504.4533 90.7125,504.4033 Q90.5,504.3533 90.3063,504.3533 Q89.8375,504.3533 89.5563,504.572 Q89.275,504.7845 89.1563,505.1783 Q89.0375,505.572 89.0375,506.097 Q89.0375,506.9283 89.325,507.3283 Q89.6125,507.722 90.25,507.722 Q90.4875,507.722 90.7375,507.6595 Q90.9875,507.597 91.3188,507.4408 L91.3188,508.372 Q91.025,508.5095 90.7063,508.5783 Q90.3938,508.6408 90.0875,508.6408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" lengthAdjust="spacing" textLength="12.8" x="98.5" y="507.9056">Utility</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="57.2" x2="139.6" y1="512.4408" y2="512.4408"/><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="57.2" x2="139.6" y1="515.6408" y2="515.6408"/><ellipse cx="61.2" cy="520.0408" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" text-decoration="underline" textLength="72.8" x="64.8" y="521.9377">parseInput(input : String) : String[]</text><!--MD5=[1294e42d985f573d58126342050cc73c]
+class FileBrowser--><rect codeLine="327" fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="85.0274" id="FileBrowser" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="132.8" x="32" y="722.4408"/><ellipse cx="83.5" cy="728.8408" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M83.2875,731.4408 Q82.5875,731.4408 82.1313,731.1345 Q81.6813,730.822 81.4563,730.2595 Q81.2375,729.6908 81.2375,728.9408 Q81.2375,728.097 81.5,727.497 Q81.7625,726.8908 82.275,726.5658 Q82.7875,726.2408 83.5375,726.2408 Q83.8938,726.2408 84.1625,726.3158 Q84.4313,726.3908 84.7063,726.5345 L84.3813,727.3845 Q84.1313,727.2533 83.9125,727.2033 Q83.7,727.1533 83.5063,727.1533 Q83.0375,727.1533 82.7563,727.372 Q82.475,727.5845 82.3563,727.9783 Q82.2375,728.372 82.2375,728.897 Q82.2375,729.7283 82.525,730.1283 Q82.8125,730.522 83.45,730.522 Q83.6875,730.522 83.9375,730.4595 Q84.1875,730.397 84.5188,730.2408 L84.5188,731.172 Q84.225,731.3095 83.9063,731.3783 Q83.5938,731.4408 83.2875,731.4408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" lengthAdjust="spacing" textLength="26.4" x="91.7" y="730.7056">FileBrowser</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="32.4" x2="164.4" y1="735.2408" y2="735.2408"/><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="35.2" y="738.4408"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" text-decoration="underline" textLength="45.6" x="40" y="741.5377">instance : FileBrowser</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="35.2" y="744.4251"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="49.6" x="40" y="747.522">extensions : Extension[]</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="32.4" x2="164.4" y1="750.4094" y2="750.4094"/><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="35.2" y="753.6094"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="27.2" x="40" y="756.7064">FileBrowser()</text><ellipse cx="36.4" cy="760.7937" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" text-decoration="underline" textLength="55.2" x="40" y="762.6907">getInstance() : FileBrowser</text><ellipse cx="36.4" cy="766.778" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="74.8" x="40" y="768.675">openBrowser(path : String) : Track[]</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="35.2" y="771.5624"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="51.6" x="40" y="774.6593">printFilesList(files : File[])</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="35.2" y="777.5467"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="110.4" x="40" y="780.6436">takeAction(path : String, files : File[], list : List&lt;Track&gt;)</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="35.2" y="783.531"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="105.6" x="40" y="786.6279">remove(list : List&lt;Track&gt;, userInputArray : String[])</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="35.2" y="789.5153"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="122.4" x="40" y="792.6122">add(files : File[], list : List&lt;Track&gt;, userInputArray : String[])</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="35.2" y="795.4996"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="46.8" x="40" y="798.5965">getUserInput() : String</text><ellipse cx="36.4" cy="802.6839" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="80.4" x="40" y="804.5809">setExtensions(extensions : Extension[])</text><!--MD5=[b9cccb98efa56ab9331d410af4574acc]
+class PlayerInterface--><rect codeLine="344" fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="138.8862" id="PlayerInterface" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="119.6" x="187.4" y="695.6408"/><ellipse cx="228.3" cy="702.0408" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M228.0875,704.6408 Q227.3875,704.6408 226.9313,704.3345 Q226.4813,704.022 226.2563,703.4595 Q226.0375,702.8908 226.0375,702.1408 Q226.0375,701.297 226.3,700.697 Q226.5625,700.0908 227.075,699.7658 Q227.5875,699.4408 228.3375,699.4408 Q228.6938,699.4408 228.9625,699.5158 Q229.2313,699.5908 229.5063,699.7345 L229.1813,700.5845 Q228.9313,700.4533 228.7125,700.4033 Q228.5,700.3533 228.3063,700.3533 Q227.8375,700.3533 227.5563,700.572 Q227.275,700.7845 227.1563,701.1783 Q227.0375,701.572 227.0375,702.097 Q227.0375,702.9283 227.325,703.3283 Q227.6125,703.722 228.25,703.722 Q228.4875,703.722 228.7375,703.6595 Q228.9875,703.597 229.3188,703.4408 L229.3188,704.372 Q229.025,704.5095 228.7063,704.5783 Q228.3938,704.6408 228.0875,704.6408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" lengthAdjust="spacing" textLength="34.4" x="236.5" y="703.9056">PlayerInterface</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="187.8" x2="306.6" y1="708.4408" y2="708.4408"/><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="190.6" y="711.6408"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" text-decoration="underline" textLength="52.8" x="195.4" y="714.7377">instance : PlayerInterface</text><rect fill="none" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="190.6" y="717.6251"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="68.4" x="195.4" y="720.722">playersAdaptor : PlayersAdaptor</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="187.8" x2="306.6" y1="723.6094" y2="723.6094"/><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="190.6" y="726.8094"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="34.4" x="195.4" y="729.9064">PlayerInterface()</text><ellipse cx="191.8" cy="733.9937" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" text-decoration="underline" textLength="62.4" x="195.4" y="735.8907">getInstance() : PlayerInterface</text><ellipse cx="191.8" cy="739.978" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="109.2" x="195.4" y="741.875">setPlayersAdaptor(playersAdaptor : PlayersAdaptor)</text><ellipse cx="191.8" cy="745.9624" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="80.4" x="195.4" y="747.8593">start(playersAdaptor : PlayersAdaptor)</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="190.6" y="750.7467"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="12.8" x="195.4" y="753.8436">print()</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="190.6" y="756.731"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="101.6" x="195.4" y="759.8279">takeAction(userAction : Action, rePrint : boolean)</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="190.6" y="762.7153"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="77.6" x="195.4" y="765.8122">nextAndPrevious(userAction : Action)</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="190.6" y="768.6996"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="54.8" x="195.4" y="771.7965">takeNewVolume() : double</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="190.6" y="774.6839"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="69.2" x="195.4" y="777.7809">showVolumeLevel(volume : float)</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="190.6" y="780.6682"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="39.6" x="195.4" y="783.7652">takeInput() : Action</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="190.6" y="786.6525"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="52.4" x="195.4" y="789.7495">search(substring : String)</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="190.6" y="792.6369"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="17.2" x="195.4" y="795.7338">rePrint()</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="190.6" y="798.6212"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="89.6" x="195.4" y="801.7181">rePrintPlayer(rePrintAfterAction : boolean)</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="190.6" y="804.6055"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="39.6" x="195.4" y="807.7024">getModes() : String</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="190.6" y="810.5898"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="85.6" x="195.4" y="813.6867">getTheStaticAction(input : String) : Action</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="190.6" y="816.5741"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="37.2" x="195.4" y="819.671">printTheOptions()</text><rect fill="#F24D5C" height="2.4" style="stroke:#C82930;stroke-width:0.4000000000000001;" width="2.4" x="190.6" y="822.5584"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="76.4" x="195.4" y="825.6554">printPlayingTrack(currentIndex : int)</text><ellipse cx="191.8" cy="829.7427" fill="#84BE84" rx="1.2" ry="1.2" style="stroke:#038048;stroke-width:0.4000000000000001;"/><text fill="#000000" font-family="sans-serif" font-size="4.4" lengthAdjust="spacing" textLength="66.8" x="195.4" y="831.6397">askForRestartPlaylist() : boolean</text><!--MD5=[8dac795f9edbf65a524ac462449c98fb]
+class java.lang.Runnable--><rect fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="19.2" id="java.lang.Runnable" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="33.2" x="1053" y="105.0408"/><ellipse cx="1059" cy="111.4408" fill="#B4A7E5" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M1057.4125,114.0408 L1057.4125,113.3095 L1058.3563,113.197 L1058.3563,109.6845 L1057.4125,109.572 L1057.4125,108.8408 L1060.2688,108.8408 L1060.2688,109.572 L1059.3,109.6845 L1059.3,113.197 L1060.2688,113.3095 L1060.2688,114.0408 L1057.4125,114.0408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" font-style="italic" lengthAdjust="spacing" textLength="20.4" x="1064.6" y="113.3056">Runnable</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="1053.4" x2="1085.8" y1="117.8408" y2="117.8408"/><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="1053.4" x2="1085.8" y1="121.0408" y2="121.0408"/><!--MD5=[46c05dfe24a0851e179497c4631d3ff2]
+class java.lang.Exception--><rect fill="#FEFECE" filter="url(#f2zv8gzl59tjt)" height="19.2" id="java.lang.Exception" style="stroke:#A80036;stroke-width:0.6000000000000001;" width="34.4" x="1100.4" y="105.0408"/><ellipse cx="1106.4" cy="111.4408" fill="#ADD1B2" rx="4.4" ry="4.4" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><path d="M1106.1875,114.0408 Q1105.4875,114.0408 1105.0313,113.7345 Q1104.5813,113.422 1104.3563,112.8595 Q1104.1375,112.2908 1104.1375,111.5408 Q1104.1375,110.697 1104.4,110.097 Q1104.6625,109.4908 1105.175,109.1658 Q1105.6875,108.8408 1106.4375,108.8408 Q1106.7938,108.8408 1107.0625,108.9158 Q1107.3313,108.9908 1107.6063,109.1345 L1107.2813,109.9845 Q1107.0313,109.8533 1106.8125,109.8033 Q1106.6,109.7533 1106.4063,109.7533 Q1105.9375,109.7533 1105.6563,109.972 Q1105.375,110.1845 1105.2563,110.5783 Q1105.1375,110.972 1105.1375,111.497 Q1105.1375,112.3283 1105.425,112.7283 Q1105.7125,113.122 1106.35,113.122 Q1106.5875,113.122 1106.8375,113.0595 Q1107.0875,112.997 1107.4188,112.8408 L1107.4188,113.772 Q1107.125,113.9095 1106.8063,113.9783 Q1106.4938,114.0408 1106.1875,114.0408 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="4.8" lengthAdjust="spacing" textLength="21.6" x="1112" y="113.3056">Exception</text><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="1100.8" x2="1134.4" y1="117.8408" y2="117.8408"/><line style="stroke:#A80036;stroke-width:0.6000000000000001;" x1="1100.8" x2="1134.4" y1="121.0408" y2="121.0408"/><!--MD5=[7ceb6e270fe7fd42b8a9a8b8fae7a074]
+link MainController to Main--><path codeLine="33" d="M540,1193.0648 C540,1199.8088 540,1206.1728 540,1211.6248 " fill="none" id="MainController-to-Main" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><polygon fill="#A80036" points="540,1216.9568,541.6,1214.5568,540,1212.1568,538.4,1214.5568,540,1216.9568" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[688b2daeccc1e7d0fab9f37b95d048f8]
+link RecentPlayList to CacheManger--><path codeLine="68" d="M490.176,786.6968 C489.404,812.9168 488.052,858.8488 486.9,898.1048 " fill="none" id="RecentPlayList-to-CacheManger" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><polygon fill="#A80036" points="486.744,903.3488,488.4145,900.9973,486.8864,898.5509,485.2159,900.9024,486.744,903.3488" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[a90dc51e5ddb60c64d39db30f0bb8258]
+link Settings to CacheManger--><path codeLine="84" d="M397.98,804.7328 C407.468,829.3968 420.712,861.6128 434.8,889.0408 C436.448,892.2448 438.176,895.4928 439.968,898.7488 " fill="none" id="Settings-to-CacheManger" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><polygon fill="#A80036" points="442.532,903.3528,442.7614,900.4775,440.1955,899.1598,439.9661,902.0351,442.532,903.3528" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[5cc114044675fd9576e9f3968f23bf1e]
+link Loop to Settings--><path codeLine="134" d="M561.964,527.4488 C531.028,550.7288 471.976,598.6288 434.8,650.6408 C419.612,671.8928 407.384,698.3688 398.692,720.4568 " fill="none" id="Loop-to-Settings" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><polygon fill="#A80036" points="396.784,725.3848,399.1431,723.7251,398.5184,720.9091,396.1593,722.5688,396.784,725.3848" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[0f6b15854b1e635fb2d57ab80044718f]
+link Loop to CacheManger--><path codeLine="135" d="M579.14,530.8808 C574.548,557.2288 566.216,607.5168 561.6,650.6408 C555.948,703.4248 565.036,839.3328 546.4,889.0408 C544.472,894.1848 542.096,899.2728 539.408,904.2408 " fill="none" id="Loop-CacheManger" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[dc32b35928bb30b06972600b19ccfcac]
+reverse link SuPlayer to Player--><path d="M633.124,152.8448 C644.656,185.0728 661.068,230.9488 672.104,261.7928 " fill="none" id="SuPlayer-backto-Player" style="stroke:#A80036;stroke-width:0.4000000000000001;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="630.476,153.7448,630.416,145.2688,635.748,151.8608,630.476,153.7448" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[33338884dfc629447022242dc1cd73cc]
+reverse link java.lang.Runnable to Player--><path d="M1056.752,130.3728 C1039.904,149.1848 1008.368,180.1728 973.6,193.0408 C951.752,201.1288 784.952,188.4568 764,198.6408 C736.616,211.9488 715.256,239.5328 701.524,261.7968 " fill="none" id="java.lang.Runnable-backto-Player" style="stroke:#A80036;stroke-width:0.4000000000000001;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="1054.708,128.4528,1062.08,124.2728,1058.924,132.1408,1054.708,128.4528" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[a73f41d6c6b40b8bc48a343dff319a4b]
+link Player to PlayersAdaptor--><path codeLine="149" d="M665.672,329.0728 C655.996,348.4928 645.092,373.8328 640,397.8408 C622.744,479.1688 622.048,572.9408 625.508,645.3128 " fill="none" id="Player-to-PlayersAdaptor" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><polygon fill="#A80036" points="625.772,650.5928,627.2514,648.1166,625.5347,645.7987,624.0553,648.2748,625.772,650.5928" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[85e44355c963bbc8add3d6ec54b68b07]
+link Loop to PlayersAdaptor--><path codeLine="150" d="M586.276,530.8648 C591.488,555.3608 601.192,600.9808 610.652,645.4688 " fill="none" id="Loop-to-PlayersAdaptor" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><polygon fill="#A80036" points="611.744,650.6048,612.8106,647.9248,610.7469,645.9095,609.6804,648.5895,611.744,650.6048" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[060b2793c958614ce15ad963dd17d2c4]
+reverse link SuPlayer to PlayersAdaptor--><path d="M618.096,153.4008 C615.052,239.7408 609.344,455.8728 620.4,636.2408 C620.688,640.9488 621.036,645.7448 621.428,650.5888 " fill="none" id="SuPlayer-backto-PlayersAdaptor" style="stroke:#A80036;stroke-width:0.4000000000000001;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="615.3,153.2328,618.384,145.3368,620.896,153.4328,615.3,153.2328" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[c87c5e96a4656f609a01aba55c2f1031]
+reverse link Player to WAVPlayer--><path d="M685.612,337.2488 C686.804,367.9368 688.456,410.3968 689.832,445.7568 " fill="none" id="Player-backto-WAVPlayer" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><polygon fill="none" points="682.808,337.2208,685.296,329.1168,688.404,337.0008,682.808,337.2208" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[c8ba8a86368f81f8d836c5b194c82969]
+link WAVPlayer to PlayersAdaptor--><path codeLine="226" d="M677.62,578.6848 C673.028,599.1928 667.82,622.4608 662.68,645.4288 " fill="none" id="WAVPlayer-to-PlayersAdaptor" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><polygon fill="#A80036" points="661.516,650.6328,663.6,648.6385,662.5606,645.9478,660.4767,647.9421,661.516,650.6328" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[2f07c029cbc39ff4768e338dc7dfad7a]
+reverse link java.lang.Exception to EndPlayListException--><path d="M1117.572,132.3368 C1116.508,150.6408 1111.716,178.8128 1093.2,193.0408 C1081.7,201.8768 974.58,190.1808 962.8,198.6408 C935.26,218.4168 928.108,261.5368 926.252,282.7528 " fill="none" id="java.lang.Exception-backto-EndPlayListException" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><polygon fill="none" points="1114.776,132.1488,1117.836,124.2488,1120.372,132.3328,1114.776,132.1488" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[95728d6f84f051a5658c1616b5e3e4e7]
+link EndPlayListException to PlayList--><path codeLine="236" d="M920.096,308.0728 C912.36,325.2648 897.464,358.3688 881.892,392.9728 " fill="none" id="EndPlayListException-to-PlayList" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><polygon fill="#A80036" points="879.74,397.7528,882.1847,396.222,881.7119,393.3766,879.2672,394.9074,879.74,397.7528" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[59230bfe32537ca4bf075df8a0ebcfd7]
+link PlayList to PlayersAdaptor--><path codeLine="277" d="M770.112,611.8168 C762.344,620.7888 753.888,629.1488 744.8,636.2408 C731.416,646.6808 721.66,640.2688 708.076,648.7288 " fill="none" id="PlayList-to-PlayersAdaptor" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><polygon fill="#A80036" points="703.732,651.8648,706.6144,651.7567,707.6233,649.0544,704.7408,649.1625,703.732,651.8648" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[70bb0f23507af57ed47cf769c5f66641]
+link Track to PlayList--><path codeLine="312" d="M826.868,373.9728 C826.936,380.0128 827.004,386.1888 827.072,392.4128 " fill="none" id="Track-to-PlayList" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><polygon fill="#A80036" points="827.132,397.6528,828.7055,395.2354,827.0793,392.8531,825.5057,395.2705,827.132,397.6528" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[c54575b3d4c4a61d97c4aa334d5fc793]
+reverse link Screen to FileBrowser--><path d="M215.176,541.0288 C192.068,585.2728 147.336,670.9328 120.44,722.4328 " fill="none" id="Screen-backto-FileBrowser" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><polygon fill="none" points="212.708,539.7048,218.892,533.9088,217.672,542.2968,212.708,539.7048" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[e5f1617bd0930d85aa8708ab9e164121]
+reverse link Screen to PlayerInterface--><path d="M232.004,541.9928 C234.556,579.3688 239.044,645.1368 242.484,695.5328 " fill="none" id="Screen-backto-PlayerInterface" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><polygon fill="none" points="229.204,542.0808,231.452,533.9088,234.788,541.7008,229.204,542.0808" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[c1c1a9eea23de3f1514bd7956cd0d0dd]
+link FileBrowser to CLIManger--><path codeLine="381" d="M125.016,807.6568 C140.668,831.8888 161.184,862.6488 180.8,889.0408 C191.516,903.4608 203.9,918.7808 215.052,932.1368 " fill="none" id="FileBrowser-to-CLIManger" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><polygon fill="#A80036" points="218.468,936.2168,218.1506,933.3499,215.3822,932.5402,215.6995,935.4071,218.468,936.2168" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[b152de4c0cad22545eac40ad6e8a82bb]
+link PlayerInterface to CLIManger--><path codeLine="382" d="M247.2,834.5048 C247.2,866.6888 247.2,903.7768 247.2,930.9128 " fill="none" id="PlayerInterface-to-CLIManger" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><polygon fill="#A80036" points="247.2,936.2048,248.8,933.8048,247.2,931.4048,245.6,933.8048,247.2,936.2048" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[3d2801f23f5a1577d19ab6ec5de1193b]
+link MainController to CLIManger--><path codeLine="383" d="M495.9,1112.3808 C453.96,1099.0368 390.18,1076.3848 340,1045.8408 C320.736,1034.1128 301.688,1017.8808 285.84,1003.4648 " fill="none" id="MainController-CLIManger" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[2c243d5638b9e14b3039c1f750c60422]
+link CLIManger to MainController--><path codeLine="392" d="M273.164,1003.5608 C287.772,1017.9528 306.776,1034.1408 326,1045.8408 C378.444,1077.7648 445.744,1101.0648 490.8,1114.1288 " fill="none" id="CLIManger-to-MainController" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><polygon fill="#A80036" points="495.908,1115.5928,494.0422,1113.3931,491.2941,1114.2693,493.1599,1116.469,495.908,1115.5928" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[c3bcff83555809bdec21160ecee17245]
+link Utility to FileBrowser--><path codeLine="389" d="M98.4,524.9648 C98.4,560.3688 98.4,663.5688 98.4,722.3608 " fill="none" id="Utility-FileBrowser" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[9c7beebafb430c7ac818ee2242f8d22e]
+link CacheManger to MainController--><path codeLine="393" d="M508.168,1036.2848 C510.372,1042.5168 512.616,1048.8488 514.836,1055.1208 " fill="none" id="CacheManger-to-MainController" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><polygon fill="#A80036" points="516.608,1060.1368,517.3175,1057.341,515.0096,1055.6107,514.3001,1058.4066,516.608,1060.1368" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[3166cfc8a4f6d08ecf76bf92144de507]
+link PlayList to MainController--><path codeLine="394" d="M821.948,626.6688 C813.828,704.1048 795.536,806.9488 754.4,889.0408 C713.812,970.0368 637.836,1044.1648 588.092,1087.2608 " fill="none" id="PlayList-to-MainController" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><polygon fill="#A80036" points="584.108,1090.6968,586.9707,1090.3436,587.7457,1087.5652,584.883,1087.9184,584.108,1090.6968" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[6144f66b3bb195c347d0de16bf3cbf23]
+link PlayersAdaptor to MainController--><path codeLine="395" d="M605.656,879.4768 C590.348,937.0168 572.252,1005.0248 558.94,1055.0608 " fill="none" id="PlayersAdaptor-to-MainController" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><polygon fill="#A80036" points="557.584,1060.1488,559.7476,1058.2412,558.8188,1055.5103,556.6553,1057.418,557.584,1060.1488" style="stroke:#A80036;stroke-width:0.4000000000000001;"/><!--MD5=[586d2f65086e2acfbde60882802ec91d]
+@startuml
+'https://plantuml.com/class-diagram
+
+package "com.anas.jconsoleaudioplayer" {
+     ' Main controller
+     class MainController {
+        - cliManager: CliManager
+        - cacheManager: CacheManager
+        - playList : PlayList
+        - playersAdaptor : PlayersAdaptor
+        - resentPath : String
+        - scanner : Scanner
+
+        + MainController()
+        - init()
+        - start()
+        + openFileBrowser()
+        + getCliManager() : CliManager
+        + getPlayersAdaptor() : PlayersAdaptor
+        + getPlayList() : PlayList
+        + getResentPath() : String
+        + getScanner() : Scanner
+        + setResentPath(path: String)
+        + exit()
+        - close()
+        - save()
+     }
+
+     ' Main class
+     class Main {
+        + {static} main(args: String[])
+     }
+
+    MainController - -* Main
+
+    ' Cache management package
+    package "cache" {
+        class CacheManger {
+            - basePath : String
+            - objectMapper : ObjectMapper
+            - settings : settings
+            - resentPlayList : ResentPlayList
+
+            + CacheManger(basePath : String)
+            - loadResentPlayListFromCache() : ResentPlayList
+            - loadSettingsFromCache() : settings
+            + saveResentPath(resentPath : String)
+            + savePlayList(playList : PlayList)
+            + saveCurrentVolume(volume : double)
+            + saveCache()
+            - saveResentPlayList(file : File)
+            - saveSettings(file : File)
+            - createCacheFile(file : File)
+            + getResentPlayList() : PlayList
+            + getResentPath() : String
+            + getResentVolumeLevel() : double
+            + getRecentLoopOnTrack() : Loop
+            + saveLoopOnTrack(loop : Loop)
+        }
+
+        class RecentPlayList {
+            - resentPlayList : PlayList
+
+            + RecentPlayList()
+            + getRecentPlayList() : PlayList
+            + setRecentPlayList(recentPlayList : PlayList)
+        }
+
+        RecentPlayList - -* CacheManger
+
+        class Settings {
+            - resentPath : String
+            - resentVolume : double
+            - loopOnTrack : Loop
+
+            # Settings()
+            # getResentPath() : String
+            # getResentVolumeLevel() : double
+            # getLoopOnTrack() : Loop
+            # setResentPath(resentPath : String)
+            # setResentVolume(volume : double)
+            # setLoopOnTrack(loopOnTrack : Loop)
+        }
+
+        Settings - -* CacheManger
+    }
+
+    ' File management package
+    package "files" {
+        class FileManger {
+            + {static} getRootFiles() : File[]
+            + {static} getFiles(directory : File) : File[]
+            + {static} getAbsoluteFiles(directory : File, extensions : Extension[]) : File[]
+            + {static} isSupportedFile(file : File, extensions : Extension[]) : boolean
+            + {static} back(path : String) : File[]
+            + {static} isRootDir(file : File) : boolean
+            + {static} filterFiles(files : File[], extensions : Extension[]) : File[]
+        }
+    }
+
+    ' Player management package
+    package "player" {
+        enum Action {
+            PLAY
+            STOP
+            PAUSE
+            RESUME
+            REST
+            MUTE
+            UN_MUTE
+            VOLUME_UP
+            VOLUME_DOWN
+            SHOW_VOLUME_LEVEL
+            LOOP_ON_ONE_CLIP
+            LOOP_ON_PLAY_LIST
+            SHUFFLE
+            NEXT
+            PREVIOUS
+            HOTKEYS_ON
+            HOTKEYS_OFF
+            SEARCH
+            OPEN_FILE_BROWSER
+            UNKNOWN
+            EXIT
+            SET_VOLUME
+            LOOP_ON_ONE_CLIP_ONE_TIME
+        }
+
+        enum Loop {
+            NO_LOOP
+            LOOP
+            LOOP_ONE_TIME
+        }
+
+        Loop - -* Settings
+        Loop - - CacheManger
+
+        abstract class Player implements SuPlayer, java.lang.Runnable {
+            - playersAdaptor : PlayersAdaptor
+
+            + Player(adaptor : PlayersAdaptor)
+            + {abstract} play(audioFile : File)
+            + {abstract} getSupportedExtensions() : Extension[]
+            + final play()
+            + sendEvent(event : LineEvent)
+            + isSupportedFile(file : File) : boolean
+            + getPlayersAdaptor() : PlayersAdaptor
+        }
+
+        Player - -* PlayersAdaptor
+        Loop - -* PlayersAdaptor
+
+        class PlayersAdaptor implements SuPlayer {
+            - {static} playersAdaptor : PlayersAdaptor
+            - players : Player[]
+            - currentPlayer : Player
+            - playList : PlayList
+            - loopOnTrack : Loop
+            - soundVolume : double
+            - soundVolumeBeforeMute : double
+            - paused : boolean
+            - muted : boolean
+
+            - PlayersAdaptor()
+            + {static} getInstance() : PlayersAdaptor
+            - setAdaptorOfAllPlayers()
+            + play()
+            - setTheCurrentPlayersToThePestPlayerForTheCurrentTrack()
+            + stop()
+            + pause()
+            + resume()
+            + loopOfPlayList()
+            + shuffle()
+            + next()
+            + previous()
+            + isPaused() : boolean
+            + mute()
+            + getVolume() : double
+            + setVolume(volume : double)
+            + exit()
+            + getPlayList() : PlayList
+            + setPlayList(playList : PlayList)
+            + getCurrentPlayer() : Player
+            + event(event : LineEvent)
+            - checkLoopOfTrack()
+            + addPlayers(players : Player[])
+            + getSupportedExtensions() : Extension[]
+            + getLoopOnTrack() : Loop
+            + setLoopOnTrack(loopOnTrack : Loop)
+        }
+
+        interface SuPlayer {
+            + play()
+            + stop()
+            + pause()
+            + resume()
+            + getVolume() : double
+            + setVolume(volume : double)
+            + exit()
+        }
+
+        ' Players package
+        package "players" {
+            class WAVPlayer extends Player {
+                - clip : Clip
+                - audioInputStream : AudioInputStream
+                - paused : boolean
+                - userStopped : boolean
+                - running : boolean
+                - soundLevel : double
+                - {static} instance : WAVPlayer
+
+                - WAVPlayer()
+                + {static} getInstance() : WAVPlayer
+                + play(audioFile : File)
+                + getSupportedExtensions() : Extension[]
+                + run()
+                + stop()
+                + pause()
+                + resume()
+                + getVolume() : double
+                + setVolume(volume : double)
+                + isRunning() : boolean
+                + exit()
+            }
+
+            WAVPlayer - -* PlayersAdaptor
+        }
+    }
+
+    ' Playlist management package
+    package "playlist" {
+        class EndPlayListException extends java.lang.Exception {
+            + EndPlayListException()
+        }
+
+        EndPlayListException - -* PlayList
+
+        class PlayList {
+            - list : Track[]
+            - currentTrack : int
+            - looping : boolean
+            - shuffling : boolean
+            - longFileNameLength : int
+
+            + PlayList()
+            + add(item : Track)
+            + addAll(items : Track[])
+            - updateLongFileNameLength() : int
+            - setUpItems(newList : Track[])
+            + remove(index : int)
+            - deleteContains(newList : Track[])
+            +  get(index : int) : Track
+            + size() : int
+            + next()
+            + previous()
+            + shuffle() : PlayList
+            + played()
+            + reset()
+            + isEnded() : boolean
+            + isLooping() : boolean
+            + setLooping(looping : boolean)
+            + print()
+            - printPlayList()
+            - printLastItems()
+            - printItem(lineSplat : String, i : int) : String
+            - createLineSplat(formatter : Formatter) : String
+            + playCurrentTrack() : File
+            + isShuffling() : boolean
+            + search(name : String) : int
+            + getCurrentIndex() : int
+            + getItems() : Track[]
+            + getLongFileNameLength() : int
+            + setLongFileNameLength(longFileNameLength : int)
+            + getCurrentTrack() : Track
+        }
+
+        PlayList - -* PlayersAdaptor
+
+        class PlayListLoader {
+            + {static} load() : Track[]
+        }
+
+        note top of PlayListLoader : TODO: implement
+
+        class Track {
+            - index : int
+            - file : File
+            - played : boolean
+            - playing : boolean
+            - previousTrackIndex : int
+            - nextTrackIndex : int
+
+            + Track(index : int, file : File)
+            + Track()
+            + getIndex() : int
+            + setIndex(index : int)
+            + getFile() : File
+            + setFile(file : File)
+            + getFileName() : String
+            + getFilePath() : String
+            + isPlayed() : boolean
+            + setPlayed(played : boolean)
+            + isPlaying() : boolean
+            + setPlaying(playing : boolean)
+            + getNextTrackIndex() : int
+            + setNextTrackIndex(nextTrackIndex : int)
+            + getPreviousTrackIndex() : int
+            + setPreviousTrackIndex(previousTrackIndex : int)
+            + toString() : String
+        }
+
+        Track - -* PlayList
+
+    }
+
+    ' User interface package
+    package "userinterface" {
+        class Screen {
+            - mainController : MainController
+            + getScanner() : Scanner
+            + getMainController() : MainController
+            + setMainController(mainController : MainController)
+        }
+
+        ' File chooser package or file browser
+        package "filebrowser" {
+            class FileBrowser extends Screen {
+                - {static} instance : FileBrowser
+                - extensions : Extension[]
+
+                - FileBrowser()
+                + {static} getInstance() : FileBrowser
+                + openBrowser(path : String) : Track[]
+                - printFilesList(files : File[])
+                - takeAction(path : String, files : File[], list : List<Track>)
+                - remove(list : List<Track>, userInputArray : String[])
+                - add(files : File[], list : List<Track>, userInputArray : String[])
+                - getUserInput() : String
+                + setExtensions(extensions : Extension[])
+            }
+        }
+        ' Player interface package
+        package "playerinterface" {
+            class PlayerInterface extends Screen {
+                - {static} instance : PlayerInterface
+                - playersAdaptor : PlayersAdaptor
+
+                - PlayerInterface()
+                + {static} getInstance() : PlayerInterface
+                + setPlayersAdaptor(playersAdaptor : PlayersAdaptor)
+                + start(playersAdaptor : PlayersAdaptor)
+                - print()
+                - takeAction(userAction : Action, rePrint : boolean)
+                - nextAndPrevious(userAction : Action)
+                - takeNewVolume() : double
+                - showVolumeLevel(volume : float)
+                - takeInput() : Action
+                - search(substring : String)
+                - rePrint()
+                - rePrintPlayer(rePrintAfterAction : boolean)
+                - getModes() : String
+                - getTheStaticAction(input : String) : Action
+                - printTheOptions()
+                - printPlayingTrack(currentIndex : int)
+                + askForRestartPlaylist() : boolean
+            }
+        }
+
+        class CLIManger {
+            - fileBrowser : FileBrowser
+            - playerInterface : PlayerInterface
+
+            + CLIManger(mainController : MainController)
+            - init()
+            + openFileBrowser(startingDirectory : String) : Track[]
+            + printPlayList(playList : PlayList)
+            + showPlayerInterface(playersAdaptor : PlayersAdaptor)
+            + getFileBrowser() : FileBrowser
+        }
+
+        FileBrowser - -* CLIManger
+        PlayerInterface - -* CLIManger
+        MainController - - CLIManger
+
+        class Utility {
+            + {static} parseInput(input : String) : String[]
+        }
+
+        Utility - - FileBrowser
+    }
+
+    CLIManger - -* MainController
+    CacheManger - -* MainController
+    PlayList - -* MainController
+    PlayersAdaptor - -* MainController
+}
+@enduml
+
+@startuml
+
+package "com.anas.jconsoleaudioplayer" {
+     class MainController {
+        - cliManager: CliManager
+        - cacheManager: CacheManager
+        - playList : PlayList
+        - playersAdaptor : PlayersAdaptor
+        - resentPath : String
+        - scanner : Scanner
+
+        + MainController()
+        - init()
+        - start()
+        + openFileBrowser()
+        + getCliManager() : CliManager
+        + getPlayersAdaptor() : PlayersAdaptor
+        + getPlayList() : PlayList
+        + getResentPath() : String
+        + getScanner() : Scanner
+        + setResentPath(path: String)
+        + exit()
+        - close()
+        - save()
+     }
+
+     class Main {
+        + {static} main(args: String[])
+     }
+
+    MainController - -* Main
+
+    package "cache" {
+        class CacheManger {
+            - basePath : String
+            - objectMapper : ObjectMapper
+            - settings : settings
+            - resentPlayList : ResentPlayList
+
+            + CacheManger(basePath : String)
+            - loadResentPlayListFromCache() : ResentPlayList
+            - loadSettingsFromCache() : settings
+            + saveResentPath(resentPath : String)
+            + savePlayList(playList : PlayList)
+            + saveCurrentVolume(volume : double)
+            + saveCache()
+            - saveResentPlayList(file : File)
+            - saveSettings(file : File)
+            - createCacheFile(file : File)
+            + getResentPlayList() : PlayList
+            + getResentPath() : String
+            + getResentVolumeLevel() : double
+            + getRecentLoopOnTrack() : Loop
+            + saveLoopOnTrack(loop : Loop)
+        }
+
+        class RecentPlayList {
+            - resentPlayList : PlayList
+
+            + RecentPlayList()
+            + getRecentPlayList() : PlayList
+            + setRecentPlayList(recentPlayList : PlayList)
+        }
+
+        RecentPlayList - -* CacheManger
+
+        class Settings {
+            - resentPath : String
+            - resentVolume : double
+            - loopOnTrack : Loop
+
+            # Settings()
+            # getResentPath() : String
+            # getResentVolumeLevel() : double
+            # getLoopOnTrack() : Loop
+            # setResentPath(resentPath : String)
+            # setResentVolume(volume : double)
+            # setLoopOnTrack(loopOnTrack : Loop)
+        }
+
+        Settings - -* CacheManger
+    }
+
+    package "files" {
+        class FileManger {
+            + {static} getRootFiles() : File[]
+            + {static} getFiles(directory : File) : File[]
+            + {static} getAbsoluteFiles(directory : File, extensions : Extension[]) : File[]
+            + {static} isSupportedFile(file : File, extensions : Extension[]) : boolean
+            + {static} back(path : String) : File[]
+            + {static} isRootDir(file : File) : boolean
+            + {static} filterFiles(files : File[], extensions : Extension[]) : File[]
+        }
+    }
+
+    package "player" {
+        enum Action {
+            PLAY
+            STOP
+            PAUSE
+            RESUME
+            REST
+            MUTE
+            UN_MUTE
+            VOLUME_UP
+            VOLUME_DOWN
+            SHOW_VOLUME_LEVEL
+            LOOP_ON_ONE_CLIP
+            LOOP_ON_PLAY_LIST
+            SHUFFLE
+            NEXT
+            PREVIOUS
+            HOTKEYS_ON
+            HOTKEYS_OFF
+            SEARCH
+            OPEN_FILE_BROWSER
+            UNKNOWN
+            EXIT
+            SET_VOLUME
+            LOOP_ON_ONE_CLIP_ONE_TIME
+        }
+
+        enum Loop {
+            NO_LOOP
+            LOOP
+            LOOP_ONE_TIME
+        }
+
+        Loop - -* Settings
+        Loop - - CacheManger
+
+        abstract class Player implements SuPlayer, java.lang.Runnable {
+            - playersAdaptor : PlayersAdaptor
+
+            + Player(adaptor : PlayersAdaptor)
+            + {abstract} play(audioFile : File)
+            + {abstract} getSupportedExtensions() : Extension[]
+            + final play()
+            + sendEvent(event : LineEvent)
+            + isSupportedFile(file : File) : boolean
+            + getPlayersAdaptor() : PlayersAdaptor
+        }
+
+        Player - -* PlayersAdaptor
+        Loop - -* PlayersAdaptor
+
+        class PlayersAdaptor implements SuPlayer {
+            - {static} playersAdaptor : PlayersAdaptor
+            - players : Player[]
+            - currentPlayer : Player
+            - playList : PlayList
+            - loopOnTrack : Loop
+            - soundVolume : double
+            - soundVolumeBeforeMute : double
+            - paused : boolean
+            - muted : boolean
+
+            - PlayersAdaptor()
+            + {static} getInstance() : PlayersAdaptor
+            - setAdaptorOfAllPlayers()
+            + play()
+            - setTheCurrentPlayersToThePestPlayerForTheCurrentTrack()
+            + stop()
+            + pause()
+            + resume()
+            + loopOfPlayList()
+            + shuffle()
+            + next()
+            + previous()
+            + isPaused() : boolean
+            + mute()
+            + getVolume() : double
+            + setVolume(volume : double)
+            + exit()
+            + getPlayList() : PlayList
+            + setPlayList(playList : PlayList)
+            + getCurrentPlayer() : Player
+            + event(event : LineEvent)
+            - checkLoopOfTrack()
+            + addPlayers(players : Player[])
+            + getSupportedExtensions() : Extension[]
+            + getLoopOnTrack() : Loop
+            + setLoopOnTrack(loopOnTrack : Loop)
+        }
+
+        interface SuPlayer {
+            + play()
+            + stop()
+            + pause()
+            + resume()
+            + getVolume() : double
+            + setVolume(volume : double)
+            + exit()
+        }
+
+        package "players" {
+            class WAVPlayer extends Player {
+                - clip : Clip
+                - audioInputStream : AudioInputStream
+                - paused : boolean
+                - userStopped : boolean
+                - running : boolean
+                - soundLevel : double
+                - {static} instance : WAVPlayer
+
+                - WAVPlayer()
+                + {static} getInstance() : WAVPlayer
+                + play(audioFile : File)
+                + getSupportedExtensions() : Extension[]
+                + run()
+                + stop()
+                + pause()
+                + resume()
+                + getVolume() : double
+                + setVolume(volume : double)
+                + isRunning() : boolean
+                + exit()
+            }
+
+            WAVPlayer - -* PlayersAdaptor
+        }
+    }
+
+    package "playlist" {
+        class EndPlayListException extends java.lang.Exception {
+            + EndPlayListException()
+        }
+
+        EndPlayListException - -* PlayList
+
+        class PlayList {
+            - list : Track[]
+            - currentTrack : int
+            - looping : boolean
+            - shuffling : boolean
+            - longFileNameLength : int
+
+            + PlayList()
+            + add(item : Track)
+            + addAll(items : Track[])
+            - updateLongFileNameLength() : int
+            - setUpItems(newList : Track[])
+            + remove(index : int)
+            - deleteContains(newList : Track[])
+            +  get(index : int) : Track
+            + size() : int
+            + next()
+            + previous()
+            + shuffle() : PlayList
+            + played()
+            + reset()
+            + isEnded() : boolean
+            + isLooping() : boolean
+            + setLooping(looping : boolean)
+            + print()
+            - printPlayList()
+            - printLastItems()
+            - printItem(lineSplat : String, i : int) : String
+            - createLineSplat(formatter : Formatter) : String
+            + playCurrentTrack() : File
+            + isShuffling() : boolean
+            + search(name : String) : int
+            + getCurrentIndex() : int
+            + getItems() : Track[]
+            + getLongFileNameLength() : int
+            + setLongFileNameLength(longFileNameLength : int)
+            + getCurrentTrack() : Track
+        }
+
+        PlayList - -* PlayersAdaptor
+
+        class PlayListLoader {
+            + {static} load() : Track[]
+        }
+
+        note top of PlayListLoader : TODO: implement
+
+        class Track {
+            - index : int
+            - file : File
+            - played : boolean
+            - playing : boolean
+            - previousTrackIndex : int
+            - nextTrackIndex : int
+
+            + Track(index : int, file : File)
+            + Track()
+            + getIndex() : int
+            + setIndex(index : int)
+            + getFile() : File
+            + setFile(file : File)
+            + getFileName() : String
+            + getFilePath() : String
+            + isPlayed() : boolean
+            + setPlayed(played : boolean)
+            + isPlaying() : boolean
+            + setPlaying(playing : boolean)
+            + getNextTrackIndex() : int
+            + setNextTrackIndex(nextTrackIndex : int)
+            + getPreviousTrackIndex() : int
+            + setPreviousTrackIndex(previousTrackIndex : int)
+            + toString() : String
+        }
+
+        Track - -* PlayList
+
+    }
+
+    package "userinterface" {
+        class Screen {
+            - mainController : MainController
+            + getScanner() : Scanner
+            + getMainController() : MainController
+            + setMainController(mainController : MainController)
+        }
+
+        package "filebrowser" {
+            class FileBrowser extends Screen {
+                - {static} instance : FileBrowser
+                - extensions : Extension[]
+
+                - FileBrowser()
+                + {static} getInstance() : FileBrowser
+                + openBrowser(path : String) : Track[]
+                - printFilesList(files : File[])
+                - takeAction(path : String, files : File[], list : List<Track>)
+                - remove(list : List<Track>, userInputArray : String[])
+                - add(files : File[], list : List<Track>, userInputArray : String[])
+                - getUserInput() : String
+                + setExtensions(extensions : Extension[])
+            }
+        }
+        package "playerinterface" {
+            class PlayerInterface extends Screen {
+                - {static} instance : PlayerInterface
+                - playersAdaptor : PlayersAdaptor
+
+                - PlayerInterface()
+                + {static} getInstance() : PlayerInterface
+                + setPlayersAdaptor(playersAdaptor : PlayersAdaptor)
+                + start(playersAdaptor : PlayersAdaptor)
+                - print()
+                - takeAction(userAction : Action, rePrint : boolean)
+                - nextAndPrevious(userAction : Action)
+                - takeNewVolume() : double
+                - showVolumeLevel(volume : float)
+                - takeInput() : Action
+                - search(substring : String)
+                - rePrint()
+                - rePrintPlayer(rePrintAfterAction : boolean)
+                - getModes() : String
+                - getTheStaticAction(input : String) : Action
+                - printTheOptions()
+                - printPlayingTrack(currentIndex : int)
+                + askForRestartPlaylist() : boolean
+            }
+        }
+
+        class CLIManger {
+            - fileBrowser : FileBrowser
+            - playerInterface : PlayerInterface
+
+            + CLIManger(mainController : MainController)
+            - init()
+            + openFileBrowser(startingDirectory : String) : Track[]
+            + printPlayList(playList : PlayList)
+            + showPlayerInterface(playersAdaptor : PlayersAdaptor)
+            + getFileBrowser() : FileBrowser
+        }
+
+        FileBrowser - -* CLIManger
+        PlayerInterface - -* CLIManger
+        MainController - - CLIManger
+
+        class Utility {
+            + {static} parseInput(input : String) : String[]
+        }
+
+        Utility - - FileBrowser
+    }
+
+    CLIManger - -* MainController
+    CacheManger - -* MainController
+    PlayList - -* MainController
+    PlayersAdaptor - -* MainController
+}
+@enduml
+
+PlantUML version 1.2022.1(Tue Feb 01 20:19:58 EET 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
