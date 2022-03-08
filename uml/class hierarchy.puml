@@ -1,0 +1,251 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package "com.anas.jconsoleaudioplayer" {
+    ' Cache management package
+    package "cache" {
+        class CacheManger {
+            - basePath : String
+            - objectMapper : ObjectMapper
+            - settings : settings
+            - resentPlayList : ResentPlayList
+
+            + CacheManger(basePath : String)
+            - loadResentPlayListFromCache() : ResentPlayList
+            - loadSettingsFromCache() : settings
+            + saveResentPath(resentPath : String)
+            + savePlayList(playList : PlayList)
+            + saveCurrentVolume(volume : double)
+            + saveCache()
+            - saveResentPlayList(file : File)
+            - saveSettings(file : File)
+            - createCacheFile(file : File)
+            + getResentPlayList() : PlayList
+            + getResentPath() : String
+            + getResentVolumeLevel() : double
+            + getRecentLoopOnTrack() : Loop
+            + saveLoopOnTrack(loop : Loop)
+        }
+        class RecentPlayList {
+            - resentPlayList : PlayList
+
+            + RecentPlayList()
+            + getRecentPlayList() : PlayList
+            + setRecentPlayList(recentPlayList : PlayList)
+        }
+
+        RecentPlayList --* CacheManger
+
+        class Settings {
+            - resentPath : String
+            - resentVolume : double
+            - loopOnTrack : Loop
+
+            # Settings()
+            # getResentPath() : String
+            # getResentVolumeLevel() : double
+            # getLoopOnTrack() : Loop
+            # setResentPath(resentPath : String)
+            # setResentVolume(volume : double)
+            # setLoopOnTrack(loopOnTrack : Loop)
+        }
+
+        Settings --* CacheManger
+    }
+
+    ' File management package
+    package "files" {
+        class FileManger {
+            + {static} getRootFiles() : File[]
+            + {static} getFiles(directory : File) : File[]
+            + {static} getAbsoluteFiles(directory : File, extensions : Extension[]) : File[]
+            + {static} isSupportedFile(file : File, extensions : Extension[]) : boolean
+            + {static} back(path : String) : File[]
+            + {static} isRootDir(file : File) : boolean
+            + {static} filterFiles(files : File[], extensions : Extension[]) : File[]
+        }
+    }
+
+    ' Player management package
+    package "player" {
+        enum Action {
+            PLAY
+            STOP
+            PAUSE
+            RESUME
+            REST
+            MUTE
+            UN_MUTE
+            VOLUME_UP
+            VOLUME_DOWN
+            SHOW_VOLUME_LEVEL
+            LOOP_ON_ONE_CLIP
+            LOOP_ON_PLAY_LIST
+            SHUFFLE
+            NEXT
+            PREVIOUS
+            HOTKEYS_ON
+            HOTKEYS_OFF
+            SEARCH
+            OPEN_FILE_BROWSER
+            UNKNOWN
+            EXIT
+            SET_VOLUME
+            LOOP_ON_ONE_CLIP_ONE_TIME
+        }
+
+        enum Loop {
+            NO_LOOP
+            LOOP
+            LOOP_ONE_TIME
+        }
+
+        Loop --* Settings
+        Loop -- CacheManger
+
+        abstract class Player implements SuPlayer, java.lang.Runnable {
+            - playersAdaptor : PlayersAdaptor
+
+            + Player(adaptor : PlayersAdaptor)
+            + {abstract} play(audioFile : File)
+            + {abstract} getSupportedExtensions() : Extension[]
+            + final play()
+            + sendEvent(event : LineEvent)
+            + isSupportedFile(file : File) : boolean
+            + getPlayersAdaptor() : PlayersAdaptor
+        }
+
+        Player --* PlayersAdaptor
+        Loop --* PlayersAdaptor
+
+        class PlayersAdaptor implements SuPlayer {
+            - {static} playersAdaptor : PlayersAdaptor
+            - players : Player[]
+            - currentPlayer : Player
+            - playList : PlayList
+            - loopOnTrack : Loop
+            - soundVolume : double
+            - soundVolumeBeforeMute : double
+            - paused : boolean
+            - muted : boolean
+
+            - PlayersAdaptor()
+            + {static} getInstance() : PlayersAdaptor
+            - setAdaptorOfAllPlayers()
+            + play()
+            - setTheCurrentPlayersToThePestPlayerForTheCurrentTrack()
+            + stop()
+            + pause()
+            + resume()
+            + loopOfPlayList()
+            + shuffle()
+            + next()
+            + previous()
+            + isPaused() : boolean
+            + mute()
+            + getVolume() : double
+            + setVolume(volume : double)
+            + exit()
+            + getPlayList() : PlayList
+            + setPlayList(playList : PlayList)
+            + getCurrentPlayer() : Player
+            + event(event : LineEvent)
+            - checkLoopOfTrack()
+            + addPlayers(players : Player[])
+            + getSupportedExtensions() : Extension[]
+            + getLoopOnTrack() : Loop
+            + setLoopOnTrack(loopOnTrack : Loop)
+        }
+
+        interface SuPlayer {
+            + play()
+            + stop()
+            + pause()
+            + resume()
+            + getVolume() : double
+            + setVolume(volume : double)
+            + exit()
+        }
+
+        ' Players package
+        package "players" {
+            class WAVPlayer extends Player {
+                - clip : Clip
+                - audioInputStream : AudioInputStream
+                - paused : boolean
+                - userStopped : boolean
+                - running : boolean
+                - soundLevel : double
+                - {static} instance : WAVPlayer
+
+                - WAVPlayer()
+                + {static} getInstance() : WAVPlayer
+                + play(audioFile : File)
+                + getSupportedExtensions() : Extension[]
+                + run()
+                + stop()
+                + pause()
+                + resume()
+                + getVolume() : double
+                + setVolume(volume : double)
+                + isRunning() : boolean
+                + exit()
+            }
+
+            WAVPlayer --* PlayersAdaptor
+        }
+    }
+
+    ' Playlist management package
+    package "playlist" {
+        class EndPlayListException extends java.lang.Exception {
+            + EndPlayListException()
+        }
+
+        EndPlayListException --* PlayList
+
+        class PlayList {
+            - list : Track[]
+            - currentTrack : int
+            - looping : boolean
+            - shuffling : boolean
+            - longFileNameLength : int
+
+            + PlayList()
+            + add(item : Track)
+            + addAll(items : Track[])
+            - updateLongFileNameLength() : int
+            - setUpItems(newList : Track[])
+            + remove(index : int)
+            - deleteContains(newList : Track[])
+            +  get(index : int) : Track
+            + size() : int
+            + next()
+            + previous()
+            + shuffle() : PlayList
+            + played()
+            + reset()
+            + isEnded() : boolean
+            + isLooping() : boolean
+            + setLooping(looping : boolean)
+            + print()
+            - printPlayList()
+            - printLastItems()
+            - printItem(lineSplat : String, i : int) : String
+            - createLineSplat(formatter : Formatter) : String
+            + playCurrentTrack() : File
+            + isShuffling() : boolean
+            + search(name : String) : int
+            + getCurrentIndex() : int
+            + getItems() : Track[]
+            + getLongFileNameLength() : int
+            + setLongFileNameLength(longFileNameLength : int)
+            + getCurrentTrack() : Track
+        }
+
+        PlayList --* PlayersAdaptor
+
+    }
+
+}
+@enduml
