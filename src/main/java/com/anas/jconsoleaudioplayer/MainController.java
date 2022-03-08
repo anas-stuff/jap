@@ -3,6 +3,7 @@ package com.anas.jconsoleaudioplayer;
 import com.anas.jconsoleaudioplayer.cache.CacheManger;
 import com.anas.jconsoleaudioplayer.player.PlayersAdaptor;
 import com.anas.jconsoleaudioplayer.playlist.PlayList;
+import com.anas.jconsoleaudioplayer.playlist.PlayListsManger;
 import com.anas.jconsoleaudioplayer.userinterface.CLIManager;
 
 import java.util.Scanner;
@@ -10,7 +11,6 @@ import java.util.Scanner;
 public class MainController {
     private CLIManager cliManager;
     private CacheManger cacheManger;
-    private PlayList playList;
     private PlayersAdaptor playersAdaptor;
     private String resentPath;
     private Scanner scanner;
@@ -23,7 +23,7 @@ public class MainController {
     private void init() {
         this.cliManager = new CLIManager(this);
         this.cacheManger = new CacheManger("./.cache");
-        this.playList = cacheManger.getResentPlayList();
+        PlayListsManger.getInstance().setCurrentPlayList(cacheManger.getResentPlayList());
         this.playersAdaptor = PlayersAdaptor.getInstance();
         this.resentPath = cacheManger.getResentPath();
         this.scanner = new Scanner(System.in);
@@ -33,13 +33,13 @@ public class MainController {
         // set volume
         playersAdaptor.setVolume(cacheManger.getRecentVolumeLevel());
         playersAdaptor.setLoopOnTrack(cacheManger.getRecentLoopOnTrack());
-        playersAdaptor.setPlayList(playList);
+        playersAdaptor.setPlayList(PlayListsManger.getInstance().getCurrentPlayList());
         cliManager.showPlayerInterface(getPlayersAdaptor());
     }
 
     public void openFileBrowser() {
         cliManager.getFileBrowser().setExtensions(playersAdaptor.getSupportedExtensions());
-        playList.addAll(cliManager.openFileBrowser(resentPath));
+        PlayListsManger.getInstance().getCurrentPlayList().addAll(cliManager.openFileBrowser(resentPath));
     }
 
     public CLIManager getCliManager() {
@@ -48,10 +48,6 @@ public class MainController {
 
     public PlayersAdaptor getPlayersAdaptor() {
         return playersAdaptor;
-    }
-
-    public PlayList getPlayList() {
-        return playList;
     }
 
     public String getResentPath() {
@@ -80,7 +76,7 @@ public class MainController {
 
     private void save() {
         cacheManger.saveResentPath(resentPath);
-        cacheManger.savePlayList(playList);
+        cacheManger.savePlayList(PlayListsManger.getInstance().getCurrentPlayList());
         cacheManger.saveCurrentVolumeLevel(playersAdaptor.getVolume());
         cacheManger.saveLoopOnTrack(playersAdaptor.getLoopOnTrack());
         cacheManger.saveCache();

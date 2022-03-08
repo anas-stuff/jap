@@ -8,13 +8,17 @@ import java.util.Formatter;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PlayList {
+    private String name;
+    private int namePrefix;
     private Track[] list;
     private int currentIndex;
     private boolean looping, shuffling;
     private int longFileNameLength;
 
 
-    public PlayList() {
+    protected PlayList(String name, int namePrefix) {
+        this.name = name;
+        this.namePrefix = namePrefix;
         list = new Track[0];
         currentIndex = 0;
         looping = false;
@@ -311,5 +315,37 @@ public class PlayList {
 
     public Track getCurrentTrack() {
         return list[currentIndex];
+    }
+
+    public String getName() {
+        return name + (namePrefix == 0? "" : "_" + namePrefix);
+    }
+
+    protected void setName(String name) {
+        this.name = name;
+    }
+
+    public int getNamePrefix() {
+        return namePrefix;
+    }
+
+    public void setNamePrefix(int namePrefix) {
+        this.namePrefix = namePrefix;
+    }
+
+    public void setNameAndPrefix(String name, int namePrefix) {
+        setName(name);
+        setNamePrefix(namePrefix);
+    }
+
+    public String getPlayListInfo() {
+        Formatter formatter = new Formatter();
+        formatter.format("%s %d track", getName(), getItems().length);
+        return formatter.toString();
+    }
+
+    @Override
+    public String toString() {
+        return getPlayListInfo();
     }
 }

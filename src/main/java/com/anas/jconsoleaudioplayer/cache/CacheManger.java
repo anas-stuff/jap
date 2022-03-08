@@ -101,10 +101,7 @@ public class CacheManger {
     }
 
     public PlayList getResentPlayList() {
-        if (resentPlayList.getRecentPlayList() != null) {
-            return resentPlayList.getRecentPlayList();
-        }
-        return new PlayList();
+        return resentPlayList.getRecentPlayList();
     }
 
     public String getResentPath() {
