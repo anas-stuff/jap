@@ -1,4 +1,4 @@
-package com.anas.jconsoleaudioplayer.userinterface.player;
+package com.anas.jconsoleaudioplayer.userinterface.playerinterface;
 
 import com.anas.jconsoleaudioplayer.player.Action;
 import com.anas.jconsoleaudioplayer.player.Loop;
@@ -34,9 +34,9 @@ public class PlayerInterface extends Screen {
         rePrintPayer(true);
     }
 
-    private void tackAction(Action takeInput, boolean rePrint) {
+    private void tackAction(Action userAction, boolean rePrint) {
         try {
-            switch (takeInput) {
+            switch (userAction) {
                 case PLAY -> playersAdaptor.play();
                 case PAUSE -> playersAdaptor.pause();
                 case RESUME -> playersAdaptor.resume();
@@ -129,7 +129,7 @@ public class PlayerInterface extends Screen {
         rePrintPayer(false);
     }
 
-    private void rePrintPayer(boolean rePrintAffterAction) {
+    private void rePrintPayer(boolean rePrintAfterAction) {
         System.out.println();
         try {
             super.getMainController().getPlayList().print();
@@ -137,7 +137,7 @@ public class PlayerInterface extends Screen {
         } catch (IndexOutOfBoundsException ignored) {
         }
         printTheOptions();
-        tackAction(takeInput(), rePrintAffterAction);
+        tackAction(takeInput(), rePrintAfterAction);
     }
 
     private String getModes() {

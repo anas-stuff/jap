@@ -2,6 +2,37 @@
 'https://plantuml.com/class-diagram
 
 package "com.anas.jconsoleaudioplayer" {
+     ' Main controller
+     class MainController {
+        - cliManager: CliManager
+        - cacheManager: CacheManager
+        - playList : PlayList
+        - playersAdaptor : PlayersAdaptor
+        - resentPath : String
+        - scanner : Scanner
+
+        + MainController()
+        - init()
+        - start()
+        + openFileBrowser()
+        + getCliManager() : CliManager
+        + getPlayersAdaptor() : PlayersAdaptor
+        + getPlayList() : PlayList
+        + getResentPath() : String
+        + getScanner() : Scanner
+        + setResentPath(path: String)
+        + exit()
+        - close()
+        - save()
+     }
+
+     ' Main class
+     class Main {
+        + {static} main(args: String[])
+     }
+
+    MainController --* Main
+
     ' Cache management package
     package "cache" {
         class CacheManger {
@@ -26,6 +57,7 @@ package "com.anas.jconsoleaudioplayer" {
             + getRecentLoopOnTrack() : Loop
             + saveLoopOnTrack(loop : Loop)
         }
+
         class RecentPlayList {
             - resentPlayList : PlayList
 
@@ -245,7 +277,122 @@ package "com.anas.jconsoleaudioplayer" {
 
         PlayList --* PlayersAdaptor
 
+        class PlayListLoader {
+            + {static} load() : Track[]
+        }
+
+        note top of PlayListLoader : TODO: implement
+
+        class Track {
+            - index : int
+            - file : File
+            - played : boolean
+            - playing : boolean
+            - previousTrackIndex : int
+            - nextTrackIndex : int
+
+            + Track(index : int, file : File)
+            + Track()
+            + getIndex() : int
+            + setIndex(index : int)
+            + getFile() : File
+            + setFile(file : File)
+            + getFileName() : String
+            + getFilePath() : String
+            + isPlayed() : boolean
+            + setPlayed(played : boolean)
+            + isPlaying() : boolean
+            + setPlaying(playing : boolean)
+            + getNextTrackIndex() : int
+            + setNextTrackIndex(nextTrackIndex : int)
+            + getPreviousTrackIndex() : int
+            + setPreviousTrackIndex(previousTrackIndex : int)
+            + toString() : String
+        }
+
+        Track --* PlayList
+
     }
 
+    ' User interface package
+    package "userinterface" {
+        class Screen {
+            - mainController : MainController
+            + getScanner() : Scanner
+            + getMainController() : MainController
+            + setMainController(mainController : MainController)
+        }
+
+        ' File chooser package or file browser
+        package "filebrowser" {
+            class FileBrowser extends Screen {
+                - {static} instance : FileBrowser
+                - extensions : Extension[]
+
+                - FileBrowser()
+                + {static} getInstance() : FileBrowser
+                + openBrowser(path : String) : Track[]
+                - printFilesList(files : File[])
+                - takeAction(path : String, files : File[], list : List<Track>)
+                - remove(list : List<Track>, userInputArray : String[])
+                - add(files : File[], list : List<Track>, userInputArray : String[])
+                - getUserInput() : String
+                + setExtensions(extensions : Extension[])
+            }
+        }
+        ' Player interface package
+        package "playerinterface" {
+            class PlayerInterface extends Screen {
+                - {static} instance : PlayerInterface
+                - playersAdaptor : PlayersAdaptor
+
+                - PlayerInterface()
+                + {static} getInstance() : PlayerInterface
+                + setPlayersAdaptor(playersAdaptor : PlayersAdaptor)
+                + start(playersAdaptor : PlayersAdaptor)
+                - print()
+                - takeAction(userAction : Action, rePrint : boolean)
+                - nextAndPrevious(userAction : Action)
+                - takeNewVolume() : double
+                - showVolumeLevel(volume : float)
+                - takeInput() : Action
+                - search(substring : String)
+                - rePrint()
+                - rePrintPlayer(rePrintAfterAction : boolean)
+                - getModes() : String
+                - getTheStaticAction(input : String) : Action
+                - printTheOptions()
+                - printPlayingTrack(currentIndex : int)
+                + askForRestartPlaylist() : boolean
+            }
+        }
+
+        class CLIManger {
+            - fileBrowser : FileBrowser
+            - playerInterface : PlayerInterface
+
+            + CLIManger(mainController : MainController)
+            - init()
+            + openFileBrowser(startingDirectory : String) : Track[]
+            + printPlayList(playList : PlayList)
+            + showPlayerInterface(playersAdaptor : PlayersAdaptor)
+            + getFileBrowser() : FileBrowser
+        }
+
+        FileBrowser --* CLIManger
+        PlayerInterface --* CLIManger
+        MainController -- CLIManger
+
+        class Utility {
+            + {static} parseInput(input : String) : String[]
+        }
+
+        Utility -- FileBrowser
+    }
+
+    CLIManger --* MainController
+    CacheManger --* MainController
+    PlayList --* MainController
+    PlayersAdaptor --* MainController
 }
 @enduml

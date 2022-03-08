@@ -3,7 +3,7 @@ package com.anas.jconsoleaudioplayer.player;
 import com.anas.jconsoleaudioplayer.player.players.WAVPlayer;
 import com.anas.jconsoleaudioplayer.playlist.EndPlayListException;
 import com.anas.jconsoleaudioplayer.playlist.PlayList;
-import com.anas.jconsoleaudioplayer.userinterface.player.PlayerInterface;
+import com.anas.jconsoleaudioplayer.userinterface.playerinterface.PlayerInterface;
 
 import javax.sound.sampled.LineEvent;
 import java.util.Arrays;

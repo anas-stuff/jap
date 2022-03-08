@@ -5,8 +5,8 @@ import com.anas.jconsoleaudioplayer.MainController;
 import com.anas.jconsoleaudioplayer.player.PlayersAdaptor;
 import com.anas.jconsoleaudioplayer.playlist.Track;
 import com.anas.jconsoleaudioplayer.playlist.PlayList;
-import com.anas.jconsoleaudioplayer.userinterface.fileBrowser.FileBrowser;
-import com.anas.jconsoleaudioplayer.userinterface.player.PlayerInterface;
+import com.anas.jconsoleaudioplayer.userinterface.filebrowser.FileBrowser;
+import com.anas.jconsoleaudioplayer.userinterface.playerinterface.PlayerInterface;
 
 public class CLIManager {
     private FileBrowser fileBrowser;
