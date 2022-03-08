@@ -1,5 +1,6 @@
 package com.anas.jconsoleaudioplayer.player;
 
+// TODO: Move this enum from this packge to com.anas.jconsoleaudioplayer.userinterface
 public enum Action {
     PLAY, STOP, PAUSE, RESUME, REST,
     MUTE, UN_MUTE, VOLUME_UP, VOLUME_DOWN, SHOW_VOLUME_LEVEL,
