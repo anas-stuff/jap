@@ -23,6 +23,13 @@
 | new        | create new playlist      |
 | del        | Delete playlist          |
 | q          | Quit                     |
+#### Playlist editor:
+| Controller | Function                     |
+|------------|------------------------------|
+| +          | Add track/s to playlist      |
+| -          | Remove track/s from playlist |
+| rename     | Rename playlist              |
+| q          | Quit                         |
 #### Player:
 | Controller | Function                |
 |------------|-------------------------|
