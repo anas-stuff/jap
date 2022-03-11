@@ -167,7 +167,7 @@ public class PlayerInterface extends Screen {
             case "v+" -> Action.VOLUME_UP;
             case "v-" -> Action.VOLUME_DOWN;
             case "open" -> Action.OPEN_FILE_BROWSER;
-            case "playlist" -> Action.OPEN_PLAYLIST_MANAGER;
+            case "playlists" -> Action.OPEN_PLAYLIST_MANAGER;
             case "exit" -> Action.EXIT;
             default -> Action.UNKNOWN;
         };
