@@ -3,6 +3,7 @@ package com.anas.jconsoleaudioplayer;
 import com.anas.jconsoleaudioplayer.cache.CacheManger;
 import com.anas.jconsoleaudioplayer.player.PlayersAdaptor;
 import com.anas.jconsoleaudioplayer.playlist.PlayList;
+import com.anas.jconsoleaudioplayer.playlist.PlayListHelper;
 import com.anas.jconsoleaudioplayer.playlist.PlayListsManger;
 import com.anas.jconsoleaudioplayer.userinterface.CLIManager;
 
@@ -38,8 +39,10 @@ public class MainController {
     }
 
     public void openFileBrowser() {
-        cliManager.getFileBrowser().setExtensions(playersAdaptor.getSupportedExtensions());
-        PlayListsManger.getInstance().getCurrentPlayList().addAll(cliManager.openFileBrowser(resentPath));
+        PlayListHelper.addAllToPlayList(
+                PlayListsManger.getInstance().getCurrentPlayList(),
+                cliManager.openFileBrowser(playersAdaptor.getSupportedExtensions(), resentPath)
+        );
     }
 
     public CLIManager getCliManager() {

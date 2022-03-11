@@ -1,6 +1,6 @@
 package com.anas.jconsoleaudioplayer.player.players;
 
-import com.anas.jconsoleaudioplayer.player.Extension;
+import com.anas.jconsoleaudioplayer.Extension;
 import com.anas.jconsoleaudioplayer.player.Player;
 
 import javax.sound.sampled.*;

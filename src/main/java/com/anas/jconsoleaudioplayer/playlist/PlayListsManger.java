@@ -1,5 +1,6 @@
 package com.anas.jconsoleaudioplayer.playlist;
 
+import java.io.File;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ public class PlayListsManger implements Serializable {
     private static final long serialVersionUID = 1L;
     private ArrayList<PlayList> playLists;
     private PlayList currentPlayList;
+    private int currentPlayListIndex;
     private static PlayListsManger instance;
 
     private PlayListsManger() {
@@ -25,6 +27,8 @@ public class PlayListsManger implements Serializable {
     private void init() {
         playLists = new ArrayList<>();
         currentPlayList = new PlayList("Default", 0);
+        playLists.add(currentPlayList);
+        currentPlayListIndex = 0;
     }
 
     public ArrayList<PlayList> getPlayLists() {
@@ -35,8 +39,9 @@ public class PlayListsManger implements Serializable {
         playLists.add(playList);
     }
 
-    public void removePlayList(PlayList playList) {
-        playLists.remove(playList);
+
+    public boolean removePlayList(PlayList playList) {
+        return playLists.remove(playList);
     }
 
     public PlayList getPlayList(String name) {
@@ -66,8 +71,11 @@ public class PlayListsManger implements Serializable {
     public void setCurrentPlayList(PlayList playList) {
         if (playList == null)
             return;
-        playLists.add(playList);
+        if (!playLists.contains(playList)) {
+            playLists.add(playList);
+        }
         currentPlayList = playList;
+        currentPlayListIndex = playLists.indexOf(playList);
     }
 
     public void removePlayList(int index) {
@@ -82,5 +90,23 @@ public class PlayListsManger implements Serializable {
             }
         }
         playLists.get(index).setNameAndPrefix(name, preFix);
+    }
+
+    public void newPlayList(String name) {
+        playLists.add(new PlayList(name, 0));
+        this.setCurrentPlayList(playLists.get(playLists.size() - 1));
+        this.setPlayListName(this.getCurrentPlayListIndex(), name);
+    }
+
+    public int getCurrentPlayListIndex() {
+        return currentPlayListIndex;
+    }
+
+    public void updatePlayList(PlayList playList) {
+        if (playLists.contains(playList)) {
+            playLists.set(playLists.indexOf(playList), playList);
+        } else {
+            playLists.add(playList);
+        }
     }
 }

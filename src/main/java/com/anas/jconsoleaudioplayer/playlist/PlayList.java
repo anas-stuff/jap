@@ -15,6 +15,9 @@ public class PlayList {
     private boolean looping, shuffling;
     private int longFileNameLength;
 
+    private PlayList() {
+        this("", 0);
+    }
 
     protected PlayList(String name, int namePrefix) {
         this.name = name;

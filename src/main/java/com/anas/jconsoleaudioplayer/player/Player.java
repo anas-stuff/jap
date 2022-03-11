@@ -1,5 +1,7 @@
 package com.anas.jconsoleaudioplayer.player;
 
+import com.anas.jconsoleaudioplayer.Extension;
+
 import javax.sound.sampled.LineEvent;
 import java.io.File;
 
