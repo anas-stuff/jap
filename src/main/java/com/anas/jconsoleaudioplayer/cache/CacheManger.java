@@ -28,7 +28,7 @@ public class CacheManger {
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
             PlayListsManger.setInstance((PlayListsManger) objectInputStream.readObject());
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            PlayListsManger.getInstance(); // create new instance if ser file not found
         }
     }
 

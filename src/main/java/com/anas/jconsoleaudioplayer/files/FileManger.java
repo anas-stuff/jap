@@ -30,8 +30,11 @@ public class FileManger {
      * @param extensions - the extensions to search for
      * @return - a list of files with the given extension
      */
-    public static File[] getAbsoluteFiles(File directory, Extension[] extensions) {
-        ArrayList<File> files = new ArrayList<>(List.of(Objects.requireNonNull(directory.listFiles())));
+    public static ArrayList<File> getAbsoluteFiles(File directory, Extension[] extensions) {
+        ArrayList<File> files = new ArrayList<>();
+        try {
+            files.addAll(List.of(Objects.requireNonNull(directory.listFiles())));
+        } catch (NullPointerException ignored) { }
         for (int i = 0; i < files.size(); i++) {
             if (files.get(i).isDirectory()) {
                 // Remove the directory from the list if is empty
@@ -39,14 +42,14 @@ public class FileManger {
                     files.remove(i); // Remove the empty directory from the list
                 } else {
                     File dir = files.remove(i);
-                    files.addAll(List.of(getAbsoluteFiles(dir, extensions)));
+                    files.addAll(getAbsoluteFiles(dir, extensions));
                 }
                 i--; // Decrement i to compensate for the removed element
             } else if (!isSupportedFile(files.get(i), extensions)) {
                 files.remove(i--); // remove file and decrement i to compensate for the removed element
             }
         }
-        return files.toArray(new File[0]);
+        return files;
     }
 
     public static boolean isSupportedFile(File file, Extension[] extensions) {

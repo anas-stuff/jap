@@ -97,9 +97,14 @@ public class FileBrowser extends Screen {
         try {
             if (userInputArray.length > 1) {
                 for (int i = 1; i < userInputArray.length; i++) {
-                    File[] filesToAdd = FileManger.getAbsoluteFiles(
-                            new File(files[Integer.parseInt(userInputArray[i]) - 1].getPath()),
-                            extensions);
+                    ArrayList<File> filesToAdd = new ArrayList<>();
+                    if (files[Integer.parseInt(userInputArray[i]) - 1].isDirectory()) {
+                        filesToAdd = FileManger.getAbsoluteFiles(
+                                files[Integer.parseInt(userInputArray[i]) - 1],
+                                extensions);
+                    } else {
+                        filesToAdd.add(files[Integer.parseInt(userInputArray[i]) - 1]);
+                    }
                     for (File file : filesToAdd) {
                         list.add(new CustomFile(file.getPath(), Integer.parseInt(userInputArray[i]) - 1));
                     }
