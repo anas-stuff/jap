@@ -6,6 +6,7 @@
 - [ ] Handle the exceptions.
 - [x] Create the UML diagram.
 - [ ] Create the documentation.
+- [ ] Add the TUI.
 
 ## After the stable release:
 - [ ] Support the `.mp3` audio format.
