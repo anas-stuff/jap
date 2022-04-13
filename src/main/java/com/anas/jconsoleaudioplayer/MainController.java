@@ -24,7 +24,6 @@ public class MainController {
     private void init() {
         this.cliManager = new CLIManager(this);
         this.cacheManger = new CacheManger("./.cache");
-        PlayListsManger.getInstance().setCurrentPlayList(cacheManger.getResentPlayList());
         this.playersAdaptor = PlayersAdaptor.getInstance();
         this.resentPath = cacheManger.getResentPath();
         this.scanner = new Scanner(System.in);
@@ -78,8 +77,8 @@ public class MainController {
     }
 
     private void save() {
+
         cacheManger.saveResentPath(resentPath);
-        cacheManger.savePlayList(PlayListsManger.getInstance().getCurrentPlayList());
         cacheManger.saveCurrentVolumeLevel(playersAdaptor.getVolume());
         cacheManger.saveLoopOnTrack(playersAdaptor.getLoopOnTrack());
         cacheManger.saveCache();

@@ -1,6 +1,5 @@
 package com.anas.jconsoleaudioplayer.playlist;
 
-import java.io.File;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,7 +8,6 @@ public class PlayListsManger implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
     private ArrayList<PlayList> playLists;
-    private PlayList currentPlayList;
     private int currentPlayListIndex;
     private static PlayListsManger instance;
 
@@ -24,10 +22,13 @@ public class PlayListsManger implements Serializable {
         return instance;
     }
 
+    public static void setInstance(PlayListsManger instance) {
+        PlayListsManger.instance = instance;
+    }
+
     private void init() {
         playLists = new ArrayList<>();
-        currentPlayList = new PlayList("Default", 0);
-        playLists.add(currentPlayList);
+        playLists.add(new PlayList("Default", 0));
         currentPlayListIndex = 0;
     }
 
@@ -58,13 +59,13 @@ public class PlayListsManger implements Serializable {
     }
 
     public PlayList getCurrentPlayList() {
-        return currentPlayList;
+        return playLists.get(currentPlayListIndex);
     }
 
     public void setCurrentPlayList(String name) {
         PlayList playList = getPlayList(name);
         if (playList != null) {
-            currentPlayList = playList;
+            currentPlayListIndex = playLists.indexOf(playList);
         }
     }
 
@@ -74,7 +75,6 @@ public class PlayListsManger implements Serializable {
         if (!playLists.contains(playList)) {
             playLists.add(playList);
         }
-        currentPlayList = playList;
         currentPlayListIndex = playLists.indexOf(playList);
     }
 

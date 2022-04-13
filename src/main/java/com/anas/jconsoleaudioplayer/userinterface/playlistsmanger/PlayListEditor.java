@@ -91,8 +91,9 @@ public class PlayListEditor extends Screen {
     }
 
     private void add() {
-        PlayListHelper.addAllToPlayList(playList, super.getMainController().getCliManager().
-                                    openFileBrowser(super.getMainController().getPlayersAdaptor().getSupportedExtensions(),
+        PlayListHelper.addAllToPlayList(playList,
+                super.getMainController().getCliManager().
+                        openFileBrowser(super.getMainController().getPlayersAdaptor().getSupportedExtensions(),
                         super.getMainController().getResentPath()));
     }
 

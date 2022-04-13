@@ -3,9 +3,10 @@ package com.anas.jconsoleaudioplayer.playlist;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.io.File;
+import java.io.Serializable;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Track {
+public class Track implements Serializable {
     private int index;
     private File file;
     private boolean played, playing;

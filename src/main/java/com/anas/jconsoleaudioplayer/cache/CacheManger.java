@@ -2,37 +2,34 @@ package com.anas.jconsoleaudioplayer.cache;
 
 import com.anas.jconsoleaudioplayer.player.Loop;
 import com.anas.jconsoleaudioplayer.playlist.PlayList;
+import com.anas.jconsoleaudioplayer.playlist.PlayListsManger;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 public class CacheManger {
     private final String basePath;
     private final ObjectMapper objectMapper;
     private final Settings settings;
-    private final ResentPlayList resentPlayList;
 
     public CacheManger(String basePath) {
         this.basePath = basePath;
         objectMapper = new ObjectMapper();
         objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
         settings = loadSettingsFromCache();
-        resentPlayList = loadResentPlayListFromCache();
+        loadPlayListsManager();
     }
 
-    private ResentPlayList loadResentPlayListFromCache() {
-        File file = new File(basePath + "/resent_playlist.json");
-        if (file.exists()) {
-            try {
-                return objectMapper.readValue(file, ResentPlayList.class);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    private void loadPlayListsManager() {
+        try {
+            FileInputStream fileInputStream = new FileInputStream(basePath + "/play_lists_manger.ser");
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            PlayListsManger.setInstance((PlayListsManger) objectInputStream.readObject());
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
         }
-        return new ResentPlayList();
     }
 
     private Settings loadSettingsFromCache() {
@@ -47,34 +44,21 @@ public class CacheManger {
         return new Settings();
     }
 
-    public void saveResentPath(String resentPath) {
-        settings.setResentPath(resentPath);
-    }
 
-    public void savePlayList(PlayList playList) {
-        if (playList != null && playList.getItems() != null) {
-            if (playList.getItems().length > 0) {
-                resentPlayList.setRecentPlayList(playList);
-                return;
-            }
-        }
-        resentPlayList.setRecentPlayList(null);
-    }
-
-        public void saveCurrentVolumeLevel(double volume) {
+    public void saveCurrentVolumeLevel(double volume) {
         settings.setResentVolume(volume);
     }
 
     public void saveCache() {
         File[] files = { new File(basePath + "/settings.json"),
-                        new File(basePath + "/resent_playlist.json") };
+                        new File(basePath + "/play_lists_manger.ser") };
         for (File file : files) {
             if (!file.exists())
                 createCacheFile(file);
             try {
                 switch (file.getName()) {
                     case "settings.json" -> saveSettings(file);
-                    case "resent_playlist.json" -> saveResentPlayList(file);
+                    case "play_lists_manger.ser" -> savePlayListsManger(file);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -82,9 +66,18 @@ public class CacheManger {
         }
     }
 
-    private void saveResentPlayList(File file) throws IOException {
-        objectMapper.writeValue(file, resentPlayList);
+    private void savePlayListsManger(File file) {
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(PlayListsManger.getInstance());
+            objectOutputStream.close();
+            fileOutputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 
     private void saveSettings(File file) throws IOException {
         objectMapper.writeValue(file, settings);
@@ -98,10 +91,6 @@ public class CacheManger {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public PlayList getResentPlayList() {
-        return resentPlayList.getRecentPlayList();
     }
 
     public String getResentPath() {
@@ -118,5 +107,9 @@ public class CacheManger {
 
     public void saveLoopOnTrack(Loop loop) {
         settings.setLoopOnTrack(loop);
+    }
+
+    public void saveResentPath(String resentPath) {
+        settings.setResentPath(resentPath);
     }
 }
