@@ -49,6 +49,7 @@ public class MainAudioPlayer extends Player implements StreamPlayerListener {
     @Override
     public void stop() {
         streamPlayer.stop();
+        streamPlayer.reset();
     }
 
     @Override
@@ -97,7 +98,7 @@ public class MainAudioPlayer extends Player implements StreamPlayerListener {
 
     @Override
     public void exit() {
-        streamPlayer.stop();
+        this.stop();
     }
 
     @Override
