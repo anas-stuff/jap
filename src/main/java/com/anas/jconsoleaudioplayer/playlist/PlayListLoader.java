@@ -24,7 +24,7 @@ public class PlayListLoader {
             return mapper.readValue(playlistFile, PlayList.class);
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
         }
+        return null;
     }
 }

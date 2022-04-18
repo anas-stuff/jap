@@ -2,7 +2,6 @@ package com.anas.jconsoleaudioplayer;
 
 import com.anas.jconsoleaudioplayer.cache.CacheManger;
 import com.anas.jconsoleaudioplayer.player.PlayersAdaptor;
-import com.anas.jconsoleaudioplayer.playlist.PlayList;
 import com.anas.jconsoleaudioplayer.playlist.PlayListHelper;
 import com.anas.jconsoleaudioplayer.playlist.PlayListsManger;
 import com.anas.jconsoleaudioplayer.userinterface.CLIManager;
