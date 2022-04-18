@@ -10,8 +10,7 @@ public interface SuPlayer {
      */
      void play();
 
-
-    /**
+     /**
      * Stops the song
      */
      void stop();
@@ -37,6 +36,24 @@ public interface SuPlayer {
      * @param volume the volume of the song
      */
     void setVolume(double volume);
+
+    /**
+     * Add a position listener to the player
+     * @param positionListener  the position listener to be notified
+     */
+    void addPositionListener(PositionListener positionListener);
+
+    /**
+     * Remove a position listener from the player
+     * @param positionListener  the position listener to be removed
+     */
+    void removePositionListener(PositionListener positionListener);
+
+    /**
+     * Notify the position listeners of the current position
+     * @param position the position
+     */
+    void notifyPositionListeners(AudioPosition position);
 
     /**
      * Stop and close the player

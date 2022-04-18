@@ -2,12 +2,14 @@ package com.anas.jconsoleaudioplayer.player;
 
 import javax.sound.sampled.LineEvent;
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * This is the super class for all players.
  */
 public abstract class Player implements SuPlayer, Runnable {
     private PlayersAdaptor adaptor;
+    private ArrayList<PositionListener> positionListeners;
 
     /**
      * The constructor
@@ -15,6 +17,7 @@ public abstract class Player implements SuPlayer, Runnable {
      */
     public Player(PlayersAdaptor adaptor) {
         this.adaptor = adaptor;
+        positionListeners = new ArrayList<>();
     }
 
     /**
@@ -63,6 +66,26 @@ public abstract class Player implements SuPlayer, Runnable {
      */
     public void setPlayersAdaptor(PlayersAdaptor adaptor) {
         this.adaptor = adaptor;
+    }
+
+    @Override
+    public void addPositionListener(PositionListener listener) {
+        positionListeners.add(listener);
+    }
+
+    @Override
+    public void removePositionListener(PositionListener listener) {
+        positionListeners.remove(listener);
+    }
+
+    /**
+     * Notify the position listeners
+     * @param position the position
+     */
+    public void notifyPositionListeners(AudioPosition position) {
+        for (PositionListener listener : positionListeners) {
+            listener.onPositionChanged(position);
+        }
     }
 
     /**

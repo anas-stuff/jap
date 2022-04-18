@@ -214,7 +214,9 @@ public class PlayersAdaptor implements SuPlayer {
         Extension[] extensions = new Extension[0];
         for (Player player : players) {
             extensions = Arrays.copyOf(extensions, extensions.length + player.getSupportedExtensions().length);
-            System.arraycopy(player.getSupportedExtensions(), 0, extensions, extensions.length - player.getSupportedExtensions().length, player.getSupportedExtensions().length);
+            System.arraycopy(player.getSupportedExtensions(), 0, extensions,
+                    extensions.length - player.getSupportedExtensions().length,
+                    player.getSupportedExtensions().length);
         }
         return extensions;
     }
