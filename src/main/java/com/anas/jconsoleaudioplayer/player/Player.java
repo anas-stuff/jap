@@ -36,7 +36,7 @@ public abstract class Player implements SuPlayer, Runnable {
      * Send event to the players adaptor to notify that the player is ended playing
      * @param event the event
      */
-    public void sendEvent(LineEvent event) {
+    public void sendEvent(PlayerEvent event) {
         adaptor.event(event);
     }
 
@@ -82,7 +82,7 @@ public abstract class Player implements SuPlayer, Runnable {
      * Notify the position listeners
      * @param position the position
      */
-    public void notifyPositionListeners(AudioPosition position) {
+    protected void notifyPositionListeners(AudioPosition position) {
         for (PositionListener listener : positionListeners) {
             listener.onPositionChanged(position);
         }

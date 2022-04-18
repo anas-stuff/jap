@@ -50,12 +50,6 @@ public interface SuPlayer {
     void removePositionListener(PositionListener positionListener);
 
     /**
-     * Notify the position listeners of the current position
-     * @param position the position
-     */
-    void notifyPositionListeners(AudioPosition position);
-
-    /**
      * Stop and close the player
      */
     void exit();

@@ -3,40 +3,24 @@ package com.anas.jconsoleaudioplayer.player.players;
 import com.anas.jconsoleaudioplayer.player.AudioPosition;
 import com.anas.jconsoleaudioplayer.player.Extension;
 import com.anas.jconsoleaudioplayer.player.Player;
+import com.anas.jconsoleaudioplayer.player.PlayerEvent;
 import com.goxr3plus.streamplayer.stream.StreamPlayer;
 import com.goxr3plus.streamplayer.stream.StreamPlayerEvent;
 import com.goxr3plus.streamplayer.stream.StreamPlayerListener;
 
 import java.io.File;
 import java.util.Map;
+import java.util.logging.LogManager;
 
-public class MainAudioPlayer extends Player {
+public class MainAudioPlayer extends Player implements StreamPlayerListener {
     private final StreamPlayer streamPlayer;
     private static MainAudioPlayer instance;
 
     private MainAudioPlayer() {
         super(null);
         streamPlayer = new StreamPlayer();
-        this.addStreamPlayerListener();
-    }
-
-    private void addStreamPlayerListener() {
-        streamPlayer.addStreamPlayerListener(new StreamPlayerListener() {
-            @Override
-            public void opened(Object dataSource, Map<String, Object> properties) {
-
-            }
-
-            @Override
-            public void progress(int nEncodedBytes, long microsecondPosition, byte[] pcmData, Map<String, Object> properties) {
-                notifyPositionListeners(new AudioPosition(streamPlayer.getDurationInSeconds(), microsecondPosition));
-            }
-
-            @Override
-            public void statusUpdated(StreamPlayerEvent event) {
-
-            }
-        });
+        LogManager.getLogManager().reset(); // to remove the default console handler
+        this.streamPlayer.addStreamPlayerListener(this);
     }
 
     public static MainAudioPlayer getInstance() {
@@ -59,7 +43,7 @@ public class MainAudioPlayer extends Player {
 
     @Override
     public boolean isRunning() {
-        return streamPlayer.isOpened() && streamPlayer.isPlaying();
+        return streamPlayer.isPlaying();
     }
 
     @Override
@@ -79,7 +63,7 @@ public class MainAudioPlayer extends Player {
 
     @Override
     public double getVolume() {
-        return streamPlayer.getGainValue() / 100;
+        return streamPlayer.getGainValue();
     }
 
     @Override
@@ -88,6 +72,28 @@ public class MainAudioPlayer extends Player {
     }
 
 
+    @Override
+    public void opened(Object dataSource, Map<String, Object> properties) {
+
+    }
+
+    @Override
+    public void progress(int nEncodedBytes, long microsecondPosition, byte[] pcmData, Map<String, Object> properties) {
+        notifyPositionListeners(new AudioPosition(streamPlayer.getDurationInSeconds(), microsecondPosition));
+    }
+
+    @Override
+    public void statusUpdated(StreamPlayerEvent event) {
+        switch (event.getPlayerStatus()) {
+            case PLAYING -> super.sendEvent(PlayerEvent.PLAYING);
+            case PAUSED -> super.sendEvent(PlayerEvent.PAUSED);
+            case STOPPED -> super.sendEvent(PlayerEvent.STOPPED);
+            case SEEKED -> super.sendEvent(PlayerEvent.SEEKED);
+            case RESUMED -> super.sendEvent(PlayerEvent.RESUMED);
+            case EOM -> super.sendEvent(PlayerEvent.END_OF_MEDIA);
+            default -> super.sendEvent(PlayerEvent.UNKNOWN);
+        }
+    }
 
     @Override
     public void exit() {
@@ -95,5 +101,11 @@ public class MainAudioPlayer extends Player {
     }
 
     @Override
-    public void run() { }
+    public void run() {
+        /*try {
+            streamPlayer.play();
+        } catch (StreamPlayerException e) {
+            throw new RuntimeException(e);
+        }*/
+    }
 }

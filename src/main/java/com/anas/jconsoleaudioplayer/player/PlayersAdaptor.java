@@ -1,5 +1,6 @@
 package com.anas.jconsoleaudioplayer.player;
 
+import com.anas.jconsoleaudioplayer.player.players.MainAudioPlayer;
 import com.anas.jconsoleaudioplayer.playlist.EndPlayListException;
 import com.anas.jconsoleaudioplayer.playlist.PlayList;
 import com.anas.jconsoleaudioplayer.userinterface.playerinterface.PlayerInterface;
@@ -20,7 +21,7 @@ public class PlayersAdaptor implements SuPlayer {
     private PlayersAdaptor() {
         players = new Player[0]; // No players
         this.soundVolume = 0.5;
-        addPlayers(WAVPlayer.getInstance()); // Add the players here
+        addPlayers(MainAudioPlayer.getInstance()); // Add the players here
         currentPlayer = players[0];
         loopOnTrack = Loop.NO_LOOP;
     }
@@ -42,11 +43,14 @@ public class PlayersAdaptor implements SuPlayer {
         setTheCurrentPlayersToThePestPlayerForTheCurrentTrack();
         new Thread(() -> {
             try {
-                currentPlayer.play(playList.playCurrentTrack());
+                if (!currentPlayer.isRunning()) {
+                    currentPlayer.play(playList.playCurrentTrack());
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }).start();
+        setVolume(soundVolume);
     }
 
     private void setTheCurrentPlayersToThePestPlayerForTheCurrentTrack() {
@@ -60,6 +64,7 @@ public class PlayersAdaptor implements SuPlayer {
                     break;
                 }
             }
+            throw new IllegalStateException("No player for the current file");
         }
     }
 
@@ -76,8 +81,10 @@ public class PlayersAdaptor implements SuPlayer {
 
     @Override
     public void resume() {
-        if (currentPlayer.isRunning())
+        if (currentPlayer.isRunning()) {
+            setVolume(soundVolume);
             currentPlayer.resume();
+        }
         paused = false;
     }
 
@@ -145,8 +152,24 @@ public class PlayersAdaptor implements SuPlayer {
 
     @Override
     public void setVolume(double volume) {
-        this.soundVolume = volume;
-        currentPlayer.setVolume(soundVolume);
+        if (!(volume < 0.0 || volume > 1.0)) {
+            this.soundVolume = volume;
+            currentPlayer.setVolume(soundVolume);
+        }
+    }
+
+    @Override
+    public void addPositionListener(PositionListener positionListener) {
+        for (Player player : players) {
+            player.addPositionListener(positionListener);
+        }
+    }
+
+    @Override
+    public void removePositionListener(PositionListener positionListener) {
+        for (Player player : players) {
+            player.removePositionListener(positionListener);
+        }
     }
 
     @Override
@@ -176,8 +199,8 @@ public class PlayersAdaptor implements SuPlayer {
         return currentPlayer;
     }
 
-    public void event(LineEvent event) {
-        if (event.getType() == LineEvent.Type.STOP) {
+    public void event(PlayerEvent event) {
+        if (event ==  PlayerEvent.END_OF_MEDIA) {
             playList.played();
             playList.getItems()[playList.getCurrentIndex()].setPlaying(false);
             checkLoopOfTrack();
