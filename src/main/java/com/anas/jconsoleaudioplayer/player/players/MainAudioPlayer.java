@@ -47,6 +47,20 @@ public class MainAudioPlayer extends Player implements StreamPlayerListener {
     }
 
     @Override
+    public void seekTo(int seekSeconds) throws Exception {
+        streamPlayer.seekSeconds(seekSeconds);
+    }
+
+    /**
+     * @param seekSeconds the amount to seek in seconds
+     * @throws Exception if the seek fails
+     */
+    @Override
+    public void seekToSeconds(int seekSeconds) throws Exception {
+        streamPlayer.seekSeconds(seekSeconds);
+    }
+
+    @Override
     public void stop() {
         streamPlayer.stop();
         streamPlayer.reset();
