@@ -69,7 +69,9 @@ public class MainAudioPlayer extends Player implements StreamPlayerListener {
 
     @Override
     public void setVolume(double volume) {
-        streamPlayer.setGain(volume);
+        if (isRunning()) {
+            streamPlayer.setGain(volume);
+        }
     }
 
 
