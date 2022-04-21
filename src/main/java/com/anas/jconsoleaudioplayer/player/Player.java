@@ -1,6 +1,5 @@
 package com.anas.jconsoleaudioplayer.player;
 
-import javax.sound.sampled.LineEvent;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -93,4 +92,18 @@ public abstract class Player implements SuPlayer, Runnable {
      * @return true if running false otherwise
      */
     public abstract boolean isRunning();
+
+    /**
+     * Seek to the position
+     * @param seekSeconds the amount to seek in seconds, can not be negative
+     * @throws Exception if you can't seek
+     */
+    public abstract void seekTo(int seekSeconds) throws Exception;
+
+    /**
+     * Seek to the position in the current track in seconds, can be negative
+     * @param seekSeconds the amount to seek in seconds
+     * @throws Exception if you can't seek
+     */
+    public abstract void seekToSeconds(int seekSeconds) throws Exception;
 }

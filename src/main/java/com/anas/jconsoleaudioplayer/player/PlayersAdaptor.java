@@ -254,4 +254,31 @@ public class PlayersAdaptor implements SuPlayer {
             this.loopOnTrack = loopOnTrack;
         }
     }
+
+    /**
+     * Skip 10 seconds forward in the current track
+     */
+    public void skip10SecondsForward() {
+        this.seekTo(10);
+    }
+
+    /**
+     * Skip 10 seconds backward in the current track
+     */
+
+    public void skip10SecondsBackward() {
+        this.seekTo(-10);
+    }
+
+    public void seekTo(int seconds) {
+        try {
+            if (seconds > 0) {
+                this.currentPlayer.seekTo(seconds);
+            } else {
+                this.currentPlayer.seekToSeconds(seconds);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
