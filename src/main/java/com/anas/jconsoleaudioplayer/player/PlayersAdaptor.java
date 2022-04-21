@@ -3,12 +3,11 @@ package com.anas.jconsoleaudioplayer.player;
 import com.anas.jconsoleaudioplayer.player.players.MainAudioPlayer;
 import com.anas.jconsoleaudioplayer.playlist.EndPlayListException;
 import com.anas.jconsoleaudioplayer.playlist.PlayList;
-import com.anas.jconsoleaudioplayer.userinterface.playerinterface.PlayerInterface;
 
-import javax.sound.sampled.LineEvent;
+import java.util.ArrayList;
 import java.util.Arrays;
 
-public class PlayersAdaptor implements SuPlayer {
+public class PlayersAdaptor implements SuPlayer, PlayerListener {
     // Singleton
     private static PlayersAdaptor playersAdaptor;
     private Player[] players;
@@ -17,6 +16,7 @@ public class PlayersAdaptor implements SuPlayer {
     private Loop loopOnTrack;
     private double soundVolume, soundVolumeBeforeMute;
     private boolean paused, muted;
+    private final ArrayList<PlayerListener> playerListeners;
 
     private PlayersAdaptor() {
         players = new Player[0]; // No players
@@ -24,6 +24,7 @@ public class PlayersAdaptor implements SuPlayer {
         addPlayers(MainAudioPlayer.getInstance()); // Add the players here
         currentPlayer = players[0];
         loopOnTrack = Loop.NO_LOOP;
+        playerListeners = new ArrayList<>();
     }
 
     public static PlayersAdaptor getInstance() {
@@ -33,9 +34,9 @@ public class PlayersAdaptor implements SuPlayer {
         return playersAdaptor;
     }
 
-    private void setAdapterOfAllPlayers() {
+    private void addListenersToAllPlayers() {
         for (Player player : players) {
-            player.setPlayersAdaptor(this);
+            player.addPlayerListener(this);
         }
     }
 
@@ -199,37 +200,9 @@ public class PlayersAdaptor implements SuPlayer {
         return currentPlayer;
     }
 
-    public void event(PlayerEvent event) {
-        if (event ==  PlayerEvent.END_OF_MEDIA) {
-            playList.played();
-            playList.getItems()[playList.getCurrentIndex()].setPlaying(false);
-            checkLoopOfTrack();
-            PlayerInterface.getInstance().rePrint();
-        }
-    }
-
-    private void checkLoopOfTrack() {
-        switch (loopOnTrack) {
-            case LOOP_ONE_TIME -> {
-                this.stop();
-                this.play();
-                loopOnTrack = Loop.NO_LOOP;
-            }
-            case LOOP -> {
-                this.stop();
-                this.play();
-            }
-            case NO_LOOP -> {
-                try {
-                    next();
-                } catch (EndPlayListException ignored) {}
-            }
-        }
-    }
-
     public final void addPlayers(Player... players) {
         this.players = players;
-        setAdapterOfAllPlayers();
+        addListenersToAllPlayers();
     }
 
     public Extension[] getSupportedExtensions() {
@@ -265,11 +238,14 @@ public class PlayersAdaptor implements SuPlayer {
     /**
      * Skip 10 seconds backward in the current track
      */
-
     public void skip10SecondsBackward() {
         this.seekTo(-10);
     }
 
+    /**
+     * Seek n seconds in the current track
+     * @param seconds seconds to seek, negative to seek backward
+     */
     public void seekTo(int seconds) {
         try {
             if (seconds > 0) {
@@ -279,6 +255,53 @@ public class PlayersAdaptor implements SuPlayer {
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void addPlayerListener(PlayerListener playerListener) {
+        playerListeners.add(playerListener);
+    }
+
+    public void removePlayerListener(PlayerListener playerListener) {
+        playerListeners.remove(playerListener);
+    }
+
+    @Override
+    public void onPlayerEvent(PlayerEvent event) {
+        this.event(event);
+    }
+
+    private void event(PlayerEvent event) {
+        if (event ==  PlayerEvent.END_OF_MEDIA) {
+            playList.played();
+            playList.getItems()[playList.getCurrentIndex()].setPlaying(false);
+            checkLoopOfTrack();
+            notifyPlayerListeners(event);
+        }
+    }
+
+    private void notifyPlayerListeners(PlayerEvent event) {
+        for (PlayerListener playerListener : playerListeners) {
+            playerListener.onPlayerEvent(event);
+        }
+    }
+
+    private void checkLoopOfTrack() {
+        switch (loopOnTrack) {
+            case LOOP_ONE_TIME -> {
+                this.stop();
+                this.play();
+                loopOnTrack = Loop.NO_LOOP;
+            }
+            case LOOP -> {
+                this.stop();
+                this.play();
+            }
+            case NO_LOOP -> {
+                try {
+                    next();
+                } catch (EndPlayListException ignored) {}
+            }
         }
     }
 }

@@ -7,16 +7,15 @@ import java.util.ArrayList;
  * This is the super class for all players.
  */
 public abstract class Player implements SuPlayer, Runnable {
-    private PlayersAdaptor adaptor;
-    private ArrayList<PositionListener> positionListeners;
+    private final ArrayList<PositionListener> positionListeners;
+    private final ArrayList<PlayerListener> playerListeners;
 
     /**
-     * The constructor
-     * @param adaptor the players adaptor
+     * The default constructor
      */
-    public Player(PlayersAdaptor adaptor) {
-        this.adaptor = adaptor;
+    public Player() {
         positionListeners = new ArrayList<>();
+        playerListeners = new ArrayList<>();
     }
 
     /**
@@ -35,8 +34,18 @@ public abstract class Player implements SuPlayer, Runnable {
      * Send event to the players adaptor to notify that the player is ended playing
      * @param event the event
      */
-    public void sendEvent(PlayerEvent event) {
-        adaptor.event(event);
+    public void notifyPlayerListeners(PlayerEvent event) {
+        for (PlayerListener listener : playerListeners) {
+            listener.onPlayerEvent(event);
+        }
+    }
+
+    public void addPlayerListener(PlayerListener listener) {
+        playerListeners.add(listener);
+    }
+
+    public void removePlayerListener(PlayerListener listener) {
+        playerListeners.remove(listener);
     }
 
 
@@ -52,19 +61,6 @@ public abstract class Player implements SuPlayer, Runnable {
             }
         }
         return false;
-    }
-
-    public PlayersAdaptor getPlayersAdaptor() {
-        return adaptor;
-    }
-
-
-    /**
-     * Set the players adaptor
-     * @param adaptor the players adaptor
-     */
-    public void setPlayersAdaptor(PlayersAdaptor adaptor) {
-        this.adaptor = adaptor;
     }
 
     @Override

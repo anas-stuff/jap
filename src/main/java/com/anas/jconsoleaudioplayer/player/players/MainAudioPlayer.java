@@ -17,7 +17,7 @@ public class MainAudioPlayer extends Player implements StreamPlayerListener {
     private static MainAudioPlayer instance;
 
     private MainAudioPlayer() {
-        super(null);
+        super();
         streamPlayer = new StreamPlayer();
         LogManager.getLogManager().reset(); // to remove the default console handler
         this.streamPlayer.addStreamPlayerListener(this);
@@ -102,13 +102,13 @@ public class MainAudioPlayer extends Player implements StreamPlayerListener {
     @Override
     public void statusUpdated(StreamPlayerEvent event) {
         switch (event.getPlayerStatus()) {
-            case PLAYING -> super.sendEvent(PlayerEvent.PLAYING);
-            case PAUSED -> super.sendEvent(PlayerEvent.PAUSED);
-            case STOPPED -> super.sendEvent(PlayerEvent.STOPPED);
-            case SEEKED -> super.sendEvent(PlayerEvent.SEEKED);
-            case RESUMED -> super.sendEvent(PlayerEvent.RESUMED);
-            case EOM -> super.sendEvent(PlayerEvent.END_OF_MEDIA);
-            default -> super.sendEvent(PlayerEvent.UNKNOWN);
+            case PLAYING -> super.notifyPlayerListeners(PlayerEvent.PLAYING);
+            case PAUSED -> super.notifyPlayerListeners(PlayerEvent.PAUSED);
+            case STOPPED -> super.notifyPlayerListeners(PlayerEvent.STOPPED);
+            case SEEKED -> super.notifyPlayerListeners(PlayerEvent.SEEKED);
+            case RESUMED -> super.notifyPlayerListeners(PlayerEvent.RESUMED);
+            case EOM -> super.notifyPlayerListeners(PlayerEvent.END_OF_MEDIA);
+            default -> super.notifyPlayerListeners(PlayerEvent.UNKNOWN);
         }
     }
 
