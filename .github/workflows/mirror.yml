@@ -35,7 +35,7 @@ jobs:
           fetch-depth: 0
        - uses: yesolutions/mirror-action@master
          with:
-            REMOTE: 'https://code.onedev.io/projects/389.git'
+            REMOTE: 'https://code.onedev.io/projects/389'
             REMOTE_NAME: onedev
             GIT_USERNAME: anas-elgarhy
             GIT_PASSWORD: ${{ secrets.ONEDEV_PASSWORD }}
