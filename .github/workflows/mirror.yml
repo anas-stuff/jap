@@ -5,9 +5,8 @@ on: [push]
  
  
 jobs:
-  build:
+  mirror:
     runs-on: ubuntu-latest
-
     steps:
        - name: mirror in gitlab 
          uses: actions/checkout@v3
@@ -29,3 +28,14 @@ jobs:
             REMOTE_NAME: bitbucket
             GIT_USERNAME: anas_elgarhy
             GIT_PASSWORD: ${{ secrets.BITBUCKET_PASSWORD }}
+            
+       - name: mirror in onedev
+         uses: actions/checkout@v3
+         with: 
+          fetch-depth: 0
+       - uses: yesolutions/mirror-action@master
+         with:
+            REMOTE: 'https://code.onedev.io/projects/389.git'
+            REMOTE_NAME: onedev
+            GIT_USERNAME: anas-elgarhy
+            GIT_PASSWORD: ${{ secrets.ONEDEV_PASSWORD }}
