@@ -25,6 +25,6 @@ jobs:
           fetch-depth: 0
        - uses: yesolutions/mirror-action@master
          with:
-            REMOTE: 'https://anas_elgarhy@bitbucket.org/anas_elgarhy/jconsoleaudioplayer.gi'
+            REMOTE: 'https://anas_elgarhy@bitbucket.org/anas_elgarhy/jconsoleaudioplayer.git'
             GIT_USERNAME: anas_elgarhy
             GIT_PASSWORD: ${{ secrets.BITBUCKET_PASSWORD }}
