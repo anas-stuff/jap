@@ -29,13 +29,13 @@ jobs:
             GIT_USERNAME: anas_elgarhy
             GIT_PASSWORD: ${{ secrets.BITBUCKET_PASSWORD }}
             
-       - name: mirror in onedev
+       - name: mirror in codeberg
          uses: actions/checkout@v3
          with: 
           fetch-depth: 0
        - uses: yesolutions/mirror-action@master
          with:
-            REMOTE: 'https://code.onedev.io/anas-elgarhy/jconsoleaudioplayer'
-            REMOTE_NAME: onedev
+            REMOTE: 'https://codeberg.org/anas-elgarhy/JConsoleAudioPlayer.git'
+            REMOTE_NAME: codeberg
             GIT_USERNAME: anas-elgarhy
-            GIT_PASSWORD: ${{ secrets.ONEDEV_PASSWORD }}
+            GIT_PASSWORD: ${{ secrets.CODEBERG_PASSWORD }}
