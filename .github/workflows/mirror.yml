@@ -1,0 +1,20 @@
+# This is a basic workflow that is manually triggered
+
+name: Mirror repo
+on: [push]
+ 
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+       - name: mirror in gitlab 
+         uses: actions/checkout@v3
+         with: 
+          fetch-depth: 0
+       - uses: yesolutions/mirror-action@master
+         with:
+            REMOTE: 'https://gitlab.com/Anas-Elgarhy/jconsoleaudioplayer.git'
+            GIT_USERNAME: Anas-Elgarhy
+            GIT_PASSWORD: ${{ secrets.GITLAP_PASSWORD }}
