@@ -19,7 +19,7 @@ public class MainAudioPlayer extends Player implements StreamPlayerListener {
     private MainAudioPlayer() {
         super();
         streamPlayer = new StreamPlayer();
-        LogManager.getLogManager().reset(); // to remove the default console handler
+        // LogManager.getLogManager().reset(); // to remove the default console handler
         this.streamPlayer.addStreamPlayerListener(this);
     }
 
@@ -43,7 +43,7 @@ public class MainAudioPlayer extends Player implements StreamPlayerListener {
 
     @Override
     public boolean isRunning() {
-        return streamPlayer.isPlaying();
+        return !streamPlayer.isStopped();
     }
 
     @Override
@@ -63,7 +63,6 @@ public class MainAudioPlayer extends Player implements StreamPlayerListener {
     @Override
     public void stop() {
         streamPlayer.stop();
-        streamPlayer.reset();
     }
 
     @Override

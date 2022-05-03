@@ -51,7 +51,7 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
                 e.printStackTrace();
             }
         }).start();
-        setVolume(soundVolume);
+        this.setVolume(soundVolume);
     }
 
     private void setTheCurrentPlayersToThePestPlayerForTheCurrentTrack() {
