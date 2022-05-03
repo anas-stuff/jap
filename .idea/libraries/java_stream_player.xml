@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="java-stream-player">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/java-stream-player.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
