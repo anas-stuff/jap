@@ -116,7 +116,7 @@ public class PlayerInterface extends Screen implements PlayerListener {
 
     private void search(String substring) {
         // Search for the substring in the playlist
-        int result = playersAdaptor.getPlayList().search(substring);
+        int result = PlayListsManger.getInstance().getCurrentPlayList().search(substring);
         if (result != -1) {
             // Print the playlist from the result
             PlayListsManger.getInstance().getCurrentPlayList().print(result);

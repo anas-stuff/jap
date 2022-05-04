@@ -73,9 +73,7 @@ public class PlaylistsMangerInterface extends Screen {
 
     private void select(String[] userInput) {
         try {
-            PlayListsManger.getInstance().setCurrentPlayList(
-                    PlayListsManger.getInstance().getPlayList(Integer.parseInt(userInput[1]) - 1)
-            );
+            PlayListsManger.getInstance().setCurrentPlayList(Integer.parseInt(userInput[1]) - 1);
         } catch (NumberFormatException e) {
             System.out.println("Invalid input");
         }

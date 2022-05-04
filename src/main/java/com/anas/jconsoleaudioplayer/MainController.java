@@ -34,7 +34,6 @@ public class MainController {
         // set volume
         playersAdaptor.setVolume(cacheManger.getRecentVolumeLevel());
         playersAdaptor.setLoopOnTrack(cacheManger.getRecentLoopOnTrack());
-        playersAdaptor.setPlayList(PlayListsManger.getInstance().getCurrentPlayList());
         cliManager.showPlayerInterface(getPlayersAdaptor());
     }
 

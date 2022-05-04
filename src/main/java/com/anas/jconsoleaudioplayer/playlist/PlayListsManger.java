@@ -78,6 +78,13 @@ public class PlayListsManger implements Serializable {
         currentPlayListIndex = playLists.indexOf(playList);
     }
 
+    public void setCurrentPlayList(int index) {
+        if (index < 0 || index >= playLists.size()) {
+            throw new IndexOutOfBoundsException("index out of bounds");
+        }
+        currentPlayListIndex = index;
+    }
+
     public void removePlayList(int index) {
         playLists.remove(index);
     }
