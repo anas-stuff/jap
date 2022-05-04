@@ -43,7 +43,7 @@ public class MainAudioPlayer extends Player implements StreamPlayerListener {
     }
 
     @Override
-    public boolean isRunning() {
+    public boolean isPlaying() {
         return !streamPlayer.isStopped();
     }
 

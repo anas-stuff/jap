@@ -87,7 +87,7 @@ public abstract class Player implements SuPlayer, Runnable {
      *  Player is running
      * @return true if running false otherwise
      */
-    public abstract boolean isRunning();
+    public abstract boolean isPlaying();
 
     /**
      * Seek to the position

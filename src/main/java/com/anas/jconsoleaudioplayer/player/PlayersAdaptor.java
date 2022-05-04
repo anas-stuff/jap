@@ -14,8 +14,12 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
     private Player currentPlayer;
     private PlayList playList;
     private Loop loopOnTrack;
-    private double soundVolume, soundVolumeBeforeMute;
-    private boolean paused, muted;
+    private double soundVolume,
+            soundVolumeBeforeMute;
+    private boolean paused,
+            muted;
+    private boolean isFirstTimeToPlay;
+
     private final ArrayList<PlayerListener> playerListeners;
 
     private PlayersAdaptor() {
@@ -24,6 +28,7 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
         addPlayers(MainAudioPlayer.getInstance()); // Add the players here
         currentPlayer = players[0]; // Set the current player to the first player
         loopOnTrack = Loop.NO_LOOP;
+        isFirstTimeToPlay = true;
         playerListeners = new ArrayList<>();
     }
 
@@ -41,16 +46,17 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
     }
 
     public void play() {
-        setTheCurrentPlayersToThePestPlayerForTheCurrentTrack();
-        new Thread(() -> {
-            try {
-                if (!currentPlayer.isRunning()) {
+        if (!currentPlayer.isPlaying() || this.isFirstTimeToPlay) {
+            setTheCurrentPlayersToThePestPlayerForTheCurrentTrack();
+            new Thread(() -> {
+                try {
                     currentPlayer.play(playList.playCurrentTrack());
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }).start();
+            }).start();
+            this.isFirstTimeToPlay = false;
+        }
     }
 
     private void setTheCurrentPlayersToThePestPlayerForTheCurrentTrack() {
@@ -74,14 +80,14 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
 
     @Override
     public void pause() {
-        if (currentPlayer.isRunning())
+        if (currentPlayer.isPlaying())
             currentPlayer.pause();
         paused = true;
     }
 
     @Override
     public void resume() {
-        if (currentPlayer.isRunning()) {
+        if (currentPlayer.isPlaying()) {
             currentPlayer.resume();
         }
         paused = false;
@@ -105,7 +111,7 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
      * Change to the next song in the playlist
      */
     public void next() throws EndPlayListException {
-        if (currentPlayer.isRunning())
+        if (currentPlayer.isPlaying())
             currentPlayer.stop();
         playList.played();
         playList.next();
@@ -121,7 +127,7 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
      * Change to the previous song in the playlist
      */
     public void previous() throws EndPlayListException {
-        if (currentPlayer.isRunning())
+        if (currentPlayer.isPlaying())
             currentPlayer.stop();
         playList.played();
         playList.previous();
@@ -242,6 +248,7 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
 
     /**
      * Seek n seconds in the current track
+     *
      * @param seconds seconds to seek, negative to seek backward
      */
     public void seekTo(int seconds) {
@@ -270,7 +277,7 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
     }
 
     private void event(PlayerEvent event) {
-        if (event ==  PlayerEvent.END_OF_MEDIA) {
+        if (event == PlayerEvent.END_OF_MEDIA) {
             playList.played();
             playList.getItems()[playList.getCurrentIndex()].setPlaying(false);
             checkLoopOfTrack();
@@ -298,7 +305,8 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
             case NO_LOOP -> {
                 try {
                     next();
-                } catch (EndPlayListException ignored) {}
+                } catch (EndPlayListException ignored) {
+                }
             }
         }
     }
