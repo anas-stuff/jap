@@ -2,7 +2,9 @@ package com.anas.jconsoleaudioplayer.userinterface.playerinterface;
 
 import com.anas.jconsoleaudioplayer.player.*;
 import com.anas.jconsoleaudioplayer.playlist.EndPlayListException;
+import com.anas.jconsoleaudioplayer.playlist.PlayListsManger;
 import com.anas.jconsoleaudioplayer.userinterface.Screen;
+import com.anas.jconsoleaudioplayer.userinterface.playlistsmanger.PlaylistsMangerInterface;
 
 public class PlayerInterface extends Screen implements PlayerListener {
     // Singleton pattern
@@ -52,6 +54,7 @@ public class PlayerInterface extends Screen implements PlayerListener {
                 case VOLUME_UP -> playersAdaptor.setVolume(playersAdaptor.getVolume() + 0.1);
                 case VOLUME_DOWN -> playersAdaptor.setVolume(playersAdaptor.getVolume() - 0.1);
                 case OPEN_FILE_BROWSER -> super.getMainController().openFileBrowser();
+                case OPEN_PLAYLIST_MANAGER -> PlaylistsMangerInterface.getInstance().show();
                 case EXIT ->  super.getMainController().exit();
                 default -> System.out.println("Invalid input");
             }
@@ -71,7 +74,7 @@ public class PlayerInterface extends Screen implements PlayerListener {
         } catch (EndPlayListException e) {
             System.out.println(e.getMessage());
             if (askForRestartPlayList()) {
-                super.getMainController().getPlayList().reset();
+                PlayListsManger.getInstance().getCurrentPlayList().reset();
                 playersAdaptor.play();
             }
         }
@@ -113,10 +116,10 @@ public class PlayerInterface extends Screen implements PlayerListener {
 
     private void search(String substring) {
         // Search for the substring in the playlist
-        int result = playersAdaptor.getPlayList().search(substring);
+        int result = PlayListsManger.getInstance().getCurrentPlayList().search(substring);
         if (result != -1) {
             // Print the playlist from the result
-            super.getMainController().getPlayList().print(result);
+            PlayListsManger.getInstance().getCurrentPlayList().print(result);
         } else {
             System.out.println("No result found");
             rePrintPayer(true);
@@ -131,8 +134,8 @@ public class PlayerInterface extends Screen implements PlayerListener {
     private void rePrintPayer(boolean rePrintAfterAction) {
         System.out.println();
         try {
-            super.getMainController().getPlayList().print();
-            printPlayingTrack(super.getMainController().getPlayList().getCurrentIndex());
+            PlayListsManger.getInstance().getCurrentPlayList().print();
+            printPlayingTrack(PlayListsManger.getInstance().getCurrentPlayList().getCurrentIndex());
         } catch (IndexOutOfBoundsException ignored) {
         }
         printTheOptions();
@@ -140,8 +143,8 @@ public class PlayerInterface extends Screen implements PlayerListener {
     }
 
     private String getModes() {
-        return ("| " + (super.getMainController().getPlayList().isShuffling() ? "S " : "") +
-                (super.getMainController().getPlayList().isLooping() ? "lp " : "") +
+        return ("| " + (PlayListsManger.getInstance().getCurrentPlayList().isShuffling() ? "S " : "") +
+                (PlayListsManger.getInstance().getCurrentPlayList().isLooping() ? "lp " : "") +
                 super.getMainController().getPlayersAdaptor().getLoopOnTrack().name().toLowerCase());
     }
 
@@ -163,22 +166,48 @@ public class PlayerInterface extends Screen implements PlayerListener {
             case "v+" -> Action.VOLUME_UP;
             case "v-" -> Action.VOLUME_DOWN;
             case "open" -> Action.OPEN_FILE_BROWSER;
+            case "playlists" -> Action.OPEN_PLAYLIST_MANAGER;
             case "exit" -> Action.EXIT;
             default -> Action.UNKNOWN;
         };
+    }
+
+    @Override
+    protected void quit() {
+
+    }
+
+    @Override
+    protected boolean takeActions(String[] parseInput) {
+        return false;
+    }
+
+    @Override
+    protected void printTheOptionsMenu() {
+
     }
 
     // TODO: Refactor this method to be more readable
     private void printTheOptions() {
         System.out.println("(p)lay, (pa)use, (re)sume, (s)top, (n)ext, (pr)evious, (loop) loop on current track, (loop1) loop on current track one time, (lp)loop play list, (sh)uffle\n" +
                 "(m)ute, (vl) show volume level,(v:) set volume, (v+) volume up(+10), (v-)volume down(-10)" +
-                ", (open) Open file browser, (:) Search, (exit) Exit from program");
+                ", (open) Open file browser,(playlists) open the playlists manger, (:) Search, (exit) Exit from program");
         System.out.print("> ");
+    }
+
+    @Override
+    protected void setArgs(Object... args) {
+
+    }
+
+    @Override
+    protected void printInterface() {
+
     }
 
     private void printPlayingTrack(int currentIndex) {
         String p = "Playing: " +
-                (currentIndex != -1 ? super.getMainController().getPlayList().getItems()[currentIndex].toString() :
+                (currentIndex != -1 ? PlayListsManger.getInstance().getCurrentPlayList().getItems()[currentIndex].toString() :
                         "null") + " " + getModes();
         String s = "-".repeat(p.length());
         System.out.println(s);

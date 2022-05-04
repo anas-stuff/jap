@@ -1,4 +1,4 @@
-package com.anas.jconsoleaudioplayer.player;
+package com.anas.jconsoleaudioplayer;
 
 public enum Extension {
     WAV,
@@ -28,7 +28,12 @@ public enum Extension {
      * It is based on the CELP speech coding algorithm.
      * <a href="https://en.wikipedia.org/wiki/Speex">More info</a>
      */
-    SPX;
+    SPX,
+
+    /**
+     * Play list
+     */
+    JSON;
 
     public String getExtension() {
         return "." + this.name().toLowerCase();

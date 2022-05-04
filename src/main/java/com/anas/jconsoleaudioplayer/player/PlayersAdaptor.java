@@ -1,8 +1,10 @@
 package com.anas.jconsoleaudioplayer.player;
 
+import com.anas.jconsoleaudioplayer.Extension;
 import com.anas.jconsoleaudioplayer.player.players.MainAudioPlayer;
 import com.anas.jconsoleaudioplayer.playlist.EndPlayListException;
 import com.anas.jconsoleaudioplayer.playlist.PlayList;
+import com.anas.jconsoleaudioplayer.playlist.PlayListsManger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,7 +14,6 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
     private static PlayersAdaptor playersAdaptor;
     private Player[] players;
     private Player currentPlayer;
-    private PlayList playList;
     private Loop loopOnTrack;
     private double soundVolume,
             soundVolumeBeforeMute;
@@ -50,7 +51,7 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
             setTheCurrentPlayersToThePestPlayerForTheCurrentTrack();
             new Thread(() -> {
                 try {
-                    currentPlayer.play(playList.playCurrentTrack());
+                    currentPlayer.play(PlayListsManger.getInstance().getCurrentPlayList().playCurrentTrack());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -65,7 +66,7 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
         }
         if (players.length > 1) { // if there are more than one player
             for (Player player : players) { // Get the supported player for the current file
-                if (player.isSupportedFile(playList.getItems()[playList.getCurrentIndex()].getFile())) {
+                if (player.isSupportedFile(PlayListsManger.getInstance().getCurrentPlayList().getItems()[PlayListsManger.getInstance().getCurrentPlayList().getCurrentIndex()].getFile())) {
                     currentPlayer = player;
                     break;
                 }
@@ -97,14 +98,14 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
      * Enable and disable looping of the play list
      */
     public void loopOfPlayList() {
-        playList.setLooping(!playList.isLooping()); // toggle looping
+        PlayListsManger.getInstance().getCurrentPlayList().setLooping(!PlayListsManger.getInstance().getCurrentPlayList().isLooping()); // toggle looping
     }
 
     /**
      * Enable and disable looping of the current player
      */
     public void shuffle() {
-        playList.setShuffling(!playList.isShuffling()); // toggle shuffling
+        PlayListsManger.getInstance().getCurrentPlayList().setShuffling(!PlayListsManger.getInstance().getCurrentPlayList().isShuffling()); // toggle shuffling
     }
 
     /**
@@ -113,8 +114,8 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
     public void next() throws EndPlayListException {
         if (currentPlayer.isPlaying())
             currentPlayer.stop();
-        playList.played();
-        playList.next();
+        PlayListsManger.getInstance().getCurrentPlayList().played();
+        PlayListsManger.getInstance().getCurrentPlayList().next();
         if (isNotPaused())
             this.play();
     }
@@ -129,8 +130,8 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
     public void previous() throws EndPlayListException {
         if (currentPlayer.isPlaying())
             currentPlayer.stop();
-        playList.played();
-        playList.previous();
+        PlayListsManger.getInstance().getCurrentPlayList().played();
+        PlayListsManger.getInstance().getCurrentPlayList().previous();
         if (isNotPaused())
             this.play();
     }
@@ -180,19 +181,6 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
     @Override
     public void exit() {
         currentPlayer.exit();
-    }
-
-    /**
-     * Get the play list
-     *
-     * @return PlayList
-     */
-    public PlayList getPlayList() {
-        return playList;
-    }
-
-    public void setPlayList(PlayList playList) {
-        this.playList = playList;
     }
 
     /**
@@ -278,8 +266,8 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
 
     private void event(PlayerEvent event) {
         if (event == PlayerEvent.END_OF_MEDIA) {
-            playList.played();
-            playList.getItems()[playList.getCurrentIndex()].setPlaying(false);
+            PlayListsManger.getInstance().getCurrentPlayList().played();
+            PlayListsManger.getInstance().getCurrentPlayList().getItems()[PlayListsManger.getInstance().getCurrentPlayList().getCurrentIndex()].setPlaying(false);
             checkLoopOfTrack();
             notifyPlayerListeners(event);
         }
@@ -304,9 +292,8 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
             }
             case NO_LOOP -> {
                 try {
-                    next();
-                } catch (EndPlayListException ignored) {
-                }
+                    this.next();
+                } catch (EndPlayListException ignored) { }
             }
         }
     }

@@ -1,7 +1,7 @@
 package com.anas.jconsoleaudioplayer.player.players;
 
+import com.anas.jconsoleaudioplayer.Extension;
 import com.anas.jconsoleaudioplayer.player.AudioPosition;
-import com.anas.jconsoleaudioplayer.player.Extension;
 import com.anas.jconsoleaudioplayer.player.Player;
 import com.anas.jconsoleaudioplayer.player.PlayerEvent;
 import com.goxr3plus.streamplayer.stream.StreamPlayer;

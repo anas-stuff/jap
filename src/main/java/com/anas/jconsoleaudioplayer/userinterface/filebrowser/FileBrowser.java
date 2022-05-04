@@ -1,7 +1,8 @@
 package com.anas.jconsoleaudioplayer.userinterface.filebrowser;
 
+import com.anas.jconsoleaudioplayer.files.CustomFile;
 import com.anas.jconsoleaudioplayer.files.FileManger;
-import com.anas.jconsoleaudioplayer.player.Extension;
+import com.anas.jconsoleaudioplayer.Extension;
 import com.anas.jconsoleaudioplayer.playlist.Track;
 import com.anas.jconsoleaudioplayer.userinterface.Screen;
 import com.anas.jconsoleaudioplayer.userinterface.Utility;
@@ -24,12 +25,12 @@ public class FileBrowser extends Screen {
         }
         return instance;
     }
-    public Track[] openBrowser(String path) {
+    public File[] openBrowser(String path) {
         if (path == null) {
             path = System.getProperty("user.home");
         }
         File[] files = new File(path).listFiles();
-        List<Track> list = new ArrayList<>();
+        List<CustomFile> list = new ArrayList<>();
         String userInput = "";
         do {
             files = printFilesList(files);
@@ -48,7 +49,7 @@ public class FileBrowser extends Screen {
             files = takeAction(path, files, list, userInput, userInputArray);
             path = files[0].getParent();
         } while (!userInput.equalsIgnoreCase("q"));
-        return list.toArray(new Track[0]);
+        return list.toArray(new File[0]);
     }
 
     private File[] printFilesList(File[] files) {
@@ -63,7 +64,7 @@ public class FileBrowser extends Screen {
         return files;
     }
 
-    private File[] takeAction(String path, File[] files, List<Track> list, String userInput, String[] userInputArray) {
+    private File[] takeAction(String path, File[] files, List<CustomFile> list, String userInput, String[] userInputArray) {
         switch (userInput) {
             case "<" -> files = FileManger.back(path);
             case "+" -> add(files, list, userInputArray);
@@ -80,7 +81,7 @@ public class FileBrowser extends Screen {
         return files;
     }
 
-    private void remove(List<Track> list, String[] userInputArray) {
+    private void remove(List<CustomFile> list, String[] userInputArray) {
         if (userInputArray.length > 1) {
             for (int i = 1; i < userInputArray.length; i++) {
                 for (int j = 0; j < list.size(); j++) {
@@ -92,15 +93,20 @@ public class FileBrowser extends Screen {
         }
     }
 
-    private void add(File[] files, List<Track> list, String[] userInputArray) {
+    private void add(File[] files, List<CustomFile> list, String[] userInputArray) {
         try {
             if (userInputArray.length > 1) {
                 for (int i = 1; i < userInputArray.length; i++) {
-                    File[] filesToAdd = FileManger.getAbsoluteFiles(
-                            new File(files[Integer.parseInt(userInputArray[i]) - 1].getPath()),
-                            extensions);
+                    ArrayList<File> filesToAdd = new ArrayList<>();
+                    if (files[Integer.parseInt(userInputArray[i]) - 1].isDirectory()) {
+                        filesToAdd = FileManger.getAbsoluteFiles(
+                                files[Integer.parseInt(userInputArray[i]) - 1],
+                                extensions);
+                    } else {
+                        filesToAdd.add(files[Integer.parseInt(userInputArray[i]) - 1]);
+                    }
                     for (File file : filesToAdd) {
-                        list.add(new Track(Integer.parseInt(userInputArray[i]) - 1, file));
+                        list.add(new CustomFile(file.getPath(), Integer.parseInt(userInputArray[i]) - 1));
                     }
                 }
             }
@@ -119,5 +125,31 @@ public class FileBrowser extends Screen {
 
     public void setExtensions(Extension[] extensions) {
         this.extensions = extensions;
+    }
+
+    // TODO: Implement this methods
+    @Override
+    protected void quit() {
+
+    }
+
+    @Override
+    protected boolean takeActions(String[] parseInput) {
+        return false;
+    }
+
+    @Override
+    protected void printTheOptionsMenu() {
+
+    }
+
+    @Override
+    protected void setArgs(Object... args) {
+
+    }
+
+    @Override
+    protected void printInterface() {
+
     }
 }
