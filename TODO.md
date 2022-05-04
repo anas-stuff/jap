@@ -13,6 +13,6 @@
 - [x] Support the `.mp3` audio format.
 - [x] Support the `.flac` audio format.
 - [x] Support the `.ogg` audio format.
-- [ ] Support play audio from video files like `.mp4` and `.avi`.
+- [ ] Support play audio from video files like `.mp4`, `.mkv`.
 - [ ] Create the arch package.
 - [ ] Create the debian package.
