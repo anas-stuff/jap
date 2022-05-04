@@ -1,6 +1,6 @@
 ## Before the stable release:
-- [ ] Create the system to save the play list in the `playlist.json` .
-- [ ] Create the playlist's manager.
+- [x] Create the system to save the play list in the `playlist.json` .
+- [x] Create the playlist's manager.
 - [x] Create the cache system to save the last playlist opened and the last location in the file browser and the last sound volume.
 - [ ] Create the search engine to search for a song in the playlist and the file browser.
 - [ ] Handle the exceptions.
