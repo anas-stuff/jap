@@ -2,21 +2,19 @@ package com.anas.jconsoleaudioplayer.userinterface.playlistsmanger;
 
 import com.anas.jconsoleaudioplayer.Extension;
 import com.anas.jconsoleaudioplayer.playlist.PlayList;
-import com.anas.jconsoleaudioplayer.playlist.PlayListLoader;
+import com.anas.jconsoleaudioplayer.playlist.PlayListHelper;
 import com.anas.jconsoleaudioplayer.playlist.PlayListsManger;
 import com.anas.jconsoleaudioplayer.userinterface.Screen;
 
 import java.io.File;
 
 public class PlaylistsMangerInterface extends Screen {
-    private final PlayListsManger playlistsManger;
 
     // Singleton
     private static PlaylistsMangerInterface instance = null;
 
     private PlaylistsMangerInterface() {
         super();
-        playlistsManger = PlayListsManger.getInstance();
     }
 
     public static PlaylistsMangerInterface getInstance() {
@@ -48,15 +46,15 @@ public class PlaylistsMangerInterface extends Screen {
                         super.getMainController().getResentPath());
         if (files != null) {
             for (File file : files) {
-                playlistsManger.addPlayList(PlayListLoader.getInstance().load(file));
+                PlayListsManger.getInstance().addPlayList(PlayListHelper.load(file));
             }
         }
     }
 
     private void select(String[] userInput) {
         try {
-            playlistsManger.setCurrentPlayList(
-                    playlistsManger.getPlayList(Integer.parseInt(userInput[1]) - 1)
+            PlayListsManger.getInstance().setCurrentPlayList(
+                    PlayListsManger.getInstance().getPlayList(Integer.parseInt(userInput[1]) - 1)
             );
         } catch (NumberFormatException e) {
             System.out.println("Invalid input");
@@ -73,12 +71,12 @@ public class PlaylistsMangerInterface extends Screen {
             PlayList playlist = null;
             if (userInput.length > 1) {
                 try {
-                    playlist = playlistsManger.getPlayList(Integer.parseInt(userInput[1]) - 1);
+                    playlist = PlayListsManger.getInstance().getPlayList(Integer.parseInt(userInput[1]) - 1);
                 } catch (NumberFormatException e) {
-                    playlist = playlistsManger.getPlayList(userInput[1]);
+                    playlist = PlayListsManger.getInstance().getPlayList(userInput[1]);
                 }
             }
-            if (!playlistsManger.removePlayList(playlist))
+            if (!PlayListsManger.getInstance().removePlayList(playlist))
                 throw new NullPointerException();
         } catch (IndexOutOfBoundsException | NullPointerException e) {
             System.out.println("Playlist not found");
@@ -100,7 +98,7 @@ public class PlaylistsMangerInterface extends Screen {
     private void editPlayList(String playListIndex) {
         try {
             super.getMainController().getCliManager().showPlayListEditor(
-                    playlistsManger.getPlayList(Integer.parseInt(playListIndex) - 1));
+                    PlayListsManger.getInstance().getPlayList(Integer.parseInt(playListIndex) - 1));
         } catch (NumberFormatException e) {
             System.out.println("Invalid input");
         } catch (IndexOutOfBoundsException e) {
@@ -127,8 +125,8 @@ public class PlaylistsMangerInterface extends Screen {
 
     @Override
     protected void printInterface() {
-        for (int i = 0; i < playlistsManger.getPlayLists().size(); i++) {
-            System.out.println((i + 1) + ": " + playlistsManger.getPlayLists().get(i).toString());
+        for (int i = 0; i < PlayListsManger.getInstance().getPlayLists().size(); i++) {
+            System.out.println((i + 1) + ": " + PlayListsManger.getInstance().getPlayLists().get(i).toString());
         }
     }
 }
