@@ -20,9 +20,9 @@ public class PlayListHelper {
         return null;
     }
 
-    public static void save(PlayList playlist, File playlistFile) {
+    public static void export(PlayList playlist, String playlistPath) {
         try {
-            mapper.writeValue(playlistFile, playlist);
+            mapper.writeValue(new File(playlistPath + ".json"), playlist);
         } catch (Exception e) {
             e.printStackTrace();
         }

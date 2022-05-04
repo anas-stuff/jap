@@ -32,12 +32,27 @@ public class PlaylistsMangerInterface extends Screen {
             case "*" -> select(userInput);
             case "new" -> newPlayList(userInput);
             case "del" -> deletePlayList(userInput);
+            case "export" -> exportPlayList(userInput);
             case "load" -> loadPlayList();
             default -> {
                 return false;
             }
         }
         return true;
+    }
+
+    private void exportPlayList(String[] userInput) {
+        if (userInput.length > 1) {
+            try {
+                PlayListHelper.export(PlayListsManger.getInstance().getPlayList(Integer.parseInt(userInput[1]) - 1), super.getMainController().getResentPath() + "/playlist");
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input");
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("Playlist not found");
+            }
+        } else {
+            System.out.println("Invalid input");
+        }
     }
 
     private void loadPlayList() {
@@ -119,7 +134,7 @@ public class PlaylistsMangerInterface extends Screen {
 
     @Override
     protected void printTheOptionsMenu() {
-        System.out.println("(>) - Enter to playlist editor, (*) - Select PlayList, (load) - Load PlayList");
+        System.out.println("(>) - Enter to playlist editor, (*) - Select PlayList,(export) - Export play list , (load) - Load PlayList");
         System.out.println("[new] - create new playlist, [del] - delete playlist, [q] Quit to the player, [exit] - exit");
     }
 

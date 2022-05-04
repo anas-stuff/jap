@@ -45,16 +45,16 @@ public class PlayListsManger implements Serializable {
         return playLists.remove(playList);
     }
 
-    public PlayList getPlayList(String name) {
+    public PlayList getPlayList(String name) throws IllegalStateException {
         for (PlayList playList : playLists) {
             if (playList.getName().equals(name)) {
                 return playList;
             }
         }
-        return null;
+        throw new IllegalStateException("PlayList not found");
     }
 
-    public PlayList getPlayList(int index) {
+    public PlayList getPlayList(int index) throws IndexOutOfBoundsException {
         return playLists.get(index);
     }
 
