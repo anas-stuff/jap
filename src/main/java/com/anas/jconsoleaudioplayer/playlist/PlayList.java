@@ -11,10 +11,10 @@ import java.util.Formatter;
 public class PlayList implements Serializable {
     private String name;
     private int namePrefix;
-    private Track[] items;
     private int currentIndex;
     private boolean looping, shuffling;
     private int longFileNameLength;
+    private Track[] items;
 
     private PlayList() {
         this("", 0);
