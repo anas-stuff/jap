@@ -84,6 +84,9 @@ public class MainAudioPlayer extends Player implements StreamPlayerListener {
     @Override
     public void setVolume(double volume) {
         this.volume = volume;
+        if (streamPlayer.isPausedOrPlaying()) {
+            streamPlayer.setGain(volume);
+        }
     }
 
 
