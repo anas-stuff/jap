@@ -7,6 +7,7 @@ import com.anas.jconsoleaudioplayer.playlist.PlayListsManger;
 import com.anas.jconsoleaudioplayer.userinterface.Screen;
 
 import java.io.File;
+import java.io.IOException;
 
 public class PlaylistsMangerInterface extends Screen {
 
@@ -61,7 +62,11 @@ public class PlaylistsMangerInterface extends Screen {
                         super.getMainController().getResentPath());
         if (files != null) {
             for (File file : files) {
-                PlayListsManger.getInstance().addPlayList(PlayListHelper.load(file));
+                try {
+                    PlayListsManger.getInstance().addPlayList(PlayListHelper.load(file));
+                } catch (IOException e) {
+                    System.err.println("Error loading playlist");
+                }
             }
         }
     }

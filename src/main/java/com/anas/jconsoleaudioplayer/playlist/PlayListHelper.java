@@ -3,6 +3,7 @@ package com.anas.jconsoleaudioplayer.playlist;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
+import java.io.IOException;
 
 public class PlayListHelper {
     private static final ObjectMapper mapper;
@@ -11,13 +12,8 @@ public class PlayListHelper {
         mapper = new ObjectMapper();
     }
 
-    public static PlayList load(File playlistFile) {
-        try {
-            return mapper.readValue(playlistFile, PlayList.class);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+    public static PlayList load(File playlistFile) throws IOException {
+        return mapper.readValue(playlistFile, PlayList.class);
     }
 
     public static void export(PlayList playlist, String playlistPath) {
