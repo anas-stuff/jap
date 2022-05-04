@@ -4,7 +4,8 @@ public enum Extension {
     WAV,
     MP3,
     FLAC,
-    MP4, OGG, APE;
+    OGG,
+    APE;
 
     public String getExtension() {
         return "." + this.name().toLowerCase();
