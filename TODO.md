@@ -8,6 +8,7 @@
 - [ ] Create the documentation.
 - [ ] Add the TUI.
 - [ ] Add the cli arguments.
+- [ ] Read the ID3 tags.
 
 ## After the stable release:
 - [x] Support the `.mp3` audio format.
