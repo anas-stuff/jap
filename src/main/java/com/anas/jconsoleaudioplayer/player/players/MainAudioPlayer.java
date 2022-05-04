@@ -10,7 +10,6 @@ import com.goxr3plus.streamplayer.stream.StreamPlayerListener;
 
 import java.io.File;
 import java.util.Map;
-import java.util.logging.LogManager;
 
 public class MainAudioPlayer extends Player implements StreamPlayerListener {
     private final StreamPlayer streamPlayer;
@@ -19,7 +18,6 @@ public class MainAudioPlayer extends Player implements StreamPlayerListener {
     private MainAudioPlayer() {
         super();
         streamPlayer = new StreamPlayer();
-        // LogManager.getLogManager().reset(); // to remove the default console handler
         this.streamPlayer.addStreamPlayerListener(this);
     }
 
