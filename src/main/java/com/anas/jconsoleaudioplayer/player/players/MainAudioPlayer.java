@@ -13,11 +13,13 @@ import java.util.Map;
 
 public class MainAudioPlayer extends Player implements StreamPlayerListener {
     private final StreamPlayer streamPlayer;
+    private double volume;
     private static MainAudioPlayer instance;
 
     private MainAudioPlayer() {
         super();
         streamPlayer = new StreamPlayer();
+        volume = 0.5;
         this.streamPlayer.addStreamPlayerListener(this);
     }
 
@@ -32,6 +34,7 @@ public class MainAudioPlayer extends Player implements StreamPlayerListener {
     public void play(File audioFile) throws Exception {
         streamPlayer.open(audioFile);
         streamPlayer.play();
+        streamPlayer.setGain(volume);
     }
 
     @Override
@@ -80,9 +83,7 @@ public class MainAudioPlayer extends Player implements StreamPlayerListener {
 
     @Override
     public void setVolume(double volume) {
-        if (isRunning()) {
-            streamPlayer.setGain(volume);
-        }
+        this.volume = volume;
     }
 
 

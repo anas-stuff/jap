@@ -22,7 +22,7 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
         players = new Player[0]; // No players
         this.soundVolume = 0.5;
         addPlayers(MainAudioPlayer.getInstance()); // Add the players here
-        currentPlayer = players[0];
+        currentPlayer = players[0]; // Set the current player to the first player
         loopOnTrack = Loop.NO_LOOP;
         playerListeners = new ArrayList<>();
     }
@@ -51,7 +51,6 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
                 e.printStackTrace();
             }
         }).start();
-        this.setVolume(soundVolume);
     }
 
     private void setTheCurrentPlayersToThePestPlayerForTheCurrentTrack() {
@@ -83,7 +82,6 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
     @Override
     public void resume() {
         if (currentPlayer.isRunning()) {
-            setVolume(soundVolume);
             currentPlayer.resume();
         }
         paused = false;
@@ -111,12 +109,12 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
             currentPlayer.stop();
         playList.played();
         playList.next();
-        if (!isPaused())
+        if (isNotPaused())
             this.play();
     }
 
-    public boolean isPaused() {
-        return paused;
+    public boolean isNotPaused() {
+        return !paused;
     }
 
     /**
@@ -127,7 +125,7 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
             currentPlayer.stop();
         playList.played();
         playList.previous();
-        if (!isPaused())
+        if (isNotPaused())
             this.play();
     }
 
