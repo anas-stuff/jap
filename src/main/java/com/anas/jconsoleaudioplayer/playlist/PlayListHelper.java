@@ -30,7 +30,7 @@ public class PlayListHelper {
 
     public static void addAllToPlayList(PlayList targetPlayList, File[] files) {
         for (File file : files) {
-            Track track = new Track(0, file);
+            Track track = new Track(0, file.getPath());
             targetPlayList.add(track);
         }
     }

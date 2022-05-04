@@ -8,13 +8,13 @@ import java.io.Serializable;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Track implements Serializable {
     private int index;
-    private File file;
+    private String filePath;
     private boolean played, playing;
     private int previousTrackIndex, nextTrackIndex;
 
-    public Track(int index, File file) {
+    public Track(int index, String filePath) {
         this.index = index;
-        this.file = file;
+        this.filePath = filePath;
         played = false;
         playing = false;
         previousTrackIndex = -1;
@@ -32,19 +32,15 @@ public class Track implements Serializable {
     }
 
     public File getFile() {
-        return file;
+        return new File(filePath);
     }
 
-    public void setFile(File file) {
-        this.file = file;
-    }
-
-    public String getFileName() {
-        return file.getName();
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
     }
 
     public String getFilePath() {
-        return file.getPath();
+        return filePath;
     }
 
     public boolean isPlayed() {
@@ -80,6 +76,7 @@ public class Track implements Serializable {
     }
     @Override
     public String toString() {
+        File file = new File(filePath);
         return index+1 + "| " + file.getName() + " - " + (file.getUsableSpace() / 1024 / 1024) + " MB";
     }
 }
