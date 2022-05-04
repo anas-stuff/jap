@@ -305,9 +305,8 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
             }
             case NO_LOOP -> {
                 try {
-                    next();
-                } catch (EndPlayListException ignored) {
-                }
+                    this.next();
+                } catch (EndPlayListException ignored) { }
             }
         }
     }
