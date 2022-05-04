@@ -323,7 +323,7 @@ public class PlayList implements Serializable {
     }
 
     public String getName() {
-        return name + (namePrefix == 0? "" : "_" + namePrefix);
+        return name + (namePrefix == 0 ? "" : "_" + namePrefix);
     }
 
     protected void setName(String name) {
