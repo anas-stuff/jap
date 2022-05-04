@@ -7,6 +7,7 @@ import com.anas.jconsoleaudioplayer.playlist.PlayListsManger;
 import com.anas.jconsoleaudioplayer.userinterface.CLIManager;
 
 import java.util.Scanner;
+import java.util.logging.LogManager;
 
 public class MainController {
     private CLIManager cliManager;
@@ -16,6 +17,7 @@ public class MainController {
     private Scanner scanner;
 
     public MainController() {
+        LogManager.getLogManager().reset(); // to remove the default console handler
         init();
         start();
     }

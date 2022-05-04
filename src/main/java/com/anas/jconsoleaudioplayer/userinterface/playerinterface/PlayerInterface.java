@@ -1,14 +1,12 @@
 package com.anas.jconsoleaudioplayer.userinterface.playerinterface;
 
-import com.anas.jconsoleaudioplayer.player.Action;
-import com.anas.jconsoleaudioplayer.player.Loop;
-import com.anas.jconsoleaudioplayer.player.PlayersAdaptor;
+import com.anas.jconsoleaudioplayer.player.*;
 import com.anas.jconsoleaudioplayer.playlist.EndPlayListException;
 import com.anas.jconsoleaudioplayer.playlist.PlayListsManger;
 import com.anas.jconsoleaudioplayer.userinterface.Screen;
 import com.anas.jconsoleaudioplayer.userinterface.playlistsmanger.PlaylistsMangerInterface;
 
-public class PlayerInterface extends Screen {
+public class PlayerInterface extends Screen implements PlayerListener {
     // Singleton pattern
     private static PlayerInterface instance = null;
     private PlayersAdaptor playersAdaptor;
@@ -29,6 +27,7 @@ public class PlayerInterface extends Screen {
 
     public void start(PlayersAdaptor playersAdaptor) {
         setPlayersAdaptor(playersAdaptor);
+        playersAdaptor.addPlayerListener(this); // add the listener to the player
         print();
     }
 
@@ -219,5 +218,12 @@ public class PlayerInterface extends Screen {
     public boolean askForRestartPlayList() {
         System.out.println("Do you want to restart the play list? (y/n)");
         return super.getScanner().nextLine().equalsIgnoreCase("y");
+    }
+
+
+    @Override
+    public void onPlayerEvent(PlayerEvent event) {
+        // Just re print the interface for now
+        rePrint();
     }
 }
