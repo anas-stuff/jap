@@ -1,5 +1,6 @@
 package com.anas.jconsoleaudioplayer.player;
 
+import com.anas.jconsoleaudioplayer.Extension;
 import com.anas.jconsoleaudioplayer.player.players.MainAudioPlayer;
 import com.anas.jconsoleaudioplayer.playlist.EndPlayListException;
 import com.anas.jconsoleaudioplayer.playlist.PlayList;
