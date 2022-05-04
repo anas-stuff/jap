@@ -7,6 +7,7 @@
 - [x] Create the UML diagram.
 - [ ] Create the documentation.
 - [ ] Add the TUI.
+- [ ] Add the cli arguments.
 
 ## After the stable release:
 - [x] Support the `.mp3` audio format.
