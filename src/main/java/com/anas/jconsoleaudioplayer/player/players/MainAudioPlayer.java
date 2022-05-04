@@ -39,7 +39,7 @@ public class MainAudioPlayer extends Player implements StreamPlayerListener {
 
     @Override
     public Extension[] getSupportedExtensions() {
-        return new Extension[]{Extension.MP3, Extension.WAV, Extension.FLAC, Extension.OGG, Extension.APE};
+        return new Extension[]{Extension.MP3, Extension.WAV, Extension.FLAC, Extension.OGG, Extension.APE, Extension.SPX};
     }
 
     @Override
