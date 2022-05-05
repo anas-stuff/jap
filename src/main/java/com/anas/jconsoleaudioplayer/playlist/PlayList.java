@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.io.File;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Formatter;
 
@@ -14,7 +15,8 @@ public class PlayList implements Serializable {
     private int currentIndex;
     private boolean looping, shuffling;
     private int longFileNameLength;
-    private Track[] items;
+    private int length;
+    private final ArrayList<Track> notPlayedTracks, playedTracks;
 
     private PlayList() {
         this("", 0);
@@ -23,31 +25,24 @@ public class PlayList implements Serializable {
     protected PlayList(String name, int namePrefix) {
         this.name = name;
         this.namePrefix = namePrefix;
-        items = new Track[0];
         currentIndex = 0;
         looping = false;
         shuffling = false;
+        length = 0;
+        notPlayedTracks = new ArrayList<>();
+        playedTracks = new ArrayList<>();
         setLongFileNameLength(0);
     }
 
     public void add(Track item) {
-        item.setPlayed(false);
-        item.setIndex(items.length - 1);
-        if (!contains(item)) {
-            Track[] newList = new Track[items.length + 1];
-            System.arraycopy(items, 0, newList, 0, items.length);
-            newList[newList.length - 1] = item;
-            items = newList;
+        if (!this.contains(item)) {
+            notPlayedTracks.add(item);
+            length++;
         }
     }
 
     private boolean contains(Track item) {
-        for (Track track : items) {
-            if (track.equals(item)) {
-                return true;
-            }
-        }
-        return false;
+        return notPlayedTracks.contains(item) || playedTracks.contains(item);
     }
 
     public void addAll(Track[] items) {
@@ -55,13 +50,15 @@ public class PlayList implements Serializable {
             Track[] newList = deleteContains(items);
             if (newList != null && newList.length > 0) {
                 setUpItems(newList);
-                newList = new Track[this.items.length + newList.length];
-                System.arraycopy(this.items, 0, newList, 0, this.items.length);
-                System.arraycopy(items, 0, newList, this.items.length, items.length);
-                this.items = newList;
+                notPlayedTracks.addAll(Arrays.asList(newList));
                 setLongFileNameLength(updateLongFileNameLength(newList));
+                updateLength();
             }
         }
+    }
+
+    private void updateLength() {
+        length = notPlayedTracks.size() + playedTracks.size();
     }
 
     private int updateLongFileNameLength(Track[] newList) {
@@ -77,26 +74,33 @@ public class PlayList implements Serializable {
 
     private void setUpItems(Track[] newList) {
         for (int i = 0; i < newList.length; i++) {
-            newList[i].setIndex(i + items.length); // Set the index of the item
-            newList[i].setPlayed(false); // Set the item as not played
+            newList[i].setIndex(i + this.length); // Set the index of the item
         }
     }
 
     public void remove(int index) {
-        // Remove the item at the specified index
-        Track[] newList = new Track[items.length - 1];
-        System.arraycopy(items, 0, newList, 0, index);
-        System.arraycopy(items, index + 1, newList, index, items.length - index - 1);
-        items = newList;
+        if (index < this.length) {
+            // Remove the item at the specified index
+            getCorrectList(index).remove(index);
+            length--;
+        }
+    }
+
+    private ArrayList<Track> getCorrectList(int index) {
+        if (index > playedTracks.size() - 1) {
+            return notPlayedTracks;
+        } else {
+            return playedTracks;
+        }
     }
 
     private Track[] deleteContains(Track[] newItems) {
         Track[] newList = new Track[0];
-        if (items.length > 0) {
+        if (this.length > 0) {
             for (Track item : newItems) {
                 boolean found = false;
-                for (Track track : items) {
-                    if (track.getFile().equals(item.getFile())) {
+                for (Track track : this.getItems()) {
+                    if (track.getFilePath().equals(item.getFilePath())) {
                         found = true;
                         break;
                     }
@@ -114,51 +118,55 @@ public class PlayList implements Serializable {
     }
 
     public Track get(int index) {
-        return items[index];
+        if (getCorrectList(index).equals(notPlayedTracks)) {
+            return notPlayedTracks.get(index - playedTracks.size());
+        } else {
+            return playedTracks.get(index);
+        }
     }
 
     public int size() {
-        return items.length;
+        return this.length;
     }
 
     public void next() throws EndPlayListException {
-        if (currentIndex == items.length - 1 && looping && !shuffling) {
+        if (currentIndex == this.length - 1 && looping && !shuffling) {
             currentIndex = 0;
             reset(); // Rest the play list
         } else if (shuffling) {
             int index = currentIndex;
-            if (items[currentIndex].getNextTrackIndex() == -1) {
+            if (get(index).getNextTrackIndex() == -1) {
                 shuffle(); // Shuffle if the next track index is -1
-                items[index].setNextTrackIndex(currentIndex); // Set the previous track as the next track
-                items[currentIndex].setPreviousTrackIndex(index); // Set the current track as the previous track
+                get(index).setNextTrackIndex(currentIndex); // Set the previous track as the next track
+                get(index).setPreviousTrackIndex(index); // Set the current track as the previous track
             } else {
-                currentIndex = items[currentIndex].getNextTrackIndex();
+                currentIndex = get(currentIndex).getNextTrackIndex();
             }
-        } else if (currentIndex == items.length - 1 && !looping) {
+        } else if (currentIndex == this.length - 1 && !looping) {
             throw new EndPlayListException();
         } else {
-            if (currentIndex < items.length - 1) {
+            if (currentIndex < this.length - 1) {
                 currentIndex++;
             }
-            if (currentIndex - 1 > items.length - 1) {
-                items[currentIndex - 1].setNextTrackIndex(currentIndex); // Set the previous track as the next track
-                items[currentIndex].setPreviousTrackIndex(currentIndex - 1); // Set the next track as the previous track
+            if (currentIndex - 1 > this.length - 1) {
+                get(currentIndex - 1).setNextTrackIndex(currentIndex); // Set the previous track as the next track
+                get(currentIndex).setPreviousTrackIndex(currentIndex - 1); // Set the next track as the previous track
             }
         }
     }
 
     public void previous() throws EndPlayListException {
         if (currentIndex == 0 && looping && !shuffling) {
-            currentIndex = items.length - 1;
+            currentIndex = this.length - 1;
             reset(); // Reset the play list
         } else if (shuffling) {
             int index = currentIndex;
-            if (items[currentIndex].getPreviousTrackIndex() == -1) {
+            if (get(currentIndex).getPreviousTrackIndex() == -1) {
                 shuffle(); // Shuffle if the previous track is null
-                items[index].setPreviousTrackIndex(currentIndex); // Set the next track as the previous track
-                items[currentIndex].setNextTrackIndex(index); // Set the current track as the next track
+                get(index).setPreviousTrackIndex(currentIndex); // Set the next track as the previous track
+                get(currentIndex).setNextTrackIndex(index); // Set the current track as the next track
             } else {
-                currentIndex = items[currentIndex].getPreviousTrackIndex();
+                currentIndex = get(currentIndex).getPreviousTrackIndex();
             }
         } else if (currentIndex <= 0 && !looping) {
             throw new EndPlayListException();
@@ -166,24 +174,21 @@ public class PlayList implements Serializable {
             if (currentIndex > 0) {
                 currentIndex--;
             }
-            if (currentIndex + 1 < items.length - 1) {
-                items[currentIndex + 1].setPreviousTrackIndex(currentIndex); // Set the next track as the previous track
-                items[currentIndex].setNextTrackIndex(currentIndex + 1); // Set the previous track as the next track
+            if (currentIndex + 1 < this.length - 1) {
+                get(currentIndex + 1).setPreviousTrackIndex(currentIndex); // Set the next track as the previous track
+                get(currentIndex).setNextTrackIndex(currentIndex + 1); // Set the previous track as the next track
             }
         }
     }
 
-    // TODO: Re Implement shuffle
     public PlayList shuffle() throws EndPlayListException {
         int randomIndex = currentIndex;
         while (randomIndex == currentIndex) {
-            randomIndex = (int) (Math.random() * items.length);
+            randomIndex = (int) (Math.random() * notPlayedTracks.size());
         }
-        // Check if the random index is played before
-        boolean end = false;
-        if (items[randomIndex].isPlayed() && !(end = isEnded())) {
-            return shuffle();
-        } else if (end && looping) {
+        // Check if playlist is finished
+        boolean end;
+        if ((end = isEnded()) && looping) {
             reset();
             return shuffle();
         } else if (end) {
@@ -193,29 +198,23 @@ public class PlayList implements Serializable {
         return this;
     }
 
-    public void played() {
-        items[currentIndex].setPlayed(true);
+  /*  public void played() {
         items[currentIndex].setPlaying(false);
-    }
+    }*/
 
     public void reset() {
-        for (Track item : items) {
-            item.setPlayed(false);
-            item.setNextTrackIndex(-1);
-            item.setPreviousTrackIndex(-1);
+        for (int i = 0; i < playedTracks.size(); i++) {
+            playedTracks.get(i).setPlaying(false);
+            playedTracks.get(i).setPreviousTrackIndex(-1);
+            playedTracks.get(i).setNextTrackIndex(-1);
+            notPlayedTracks.add(playedTracks.get(i));
+            playedTracks.remove(i);
         }
         currentIndex = 0;
     }
 
     public boolean isEnded() {
-        boolean ended = true;
-        for (Track item : items) {
-            if (!item.isPlayed()) {
-                ended = false;
-                break;
-            }
-        }
-        return ended;
+        return notPlayedTracks.isEmpty();
     }
 
     public boolean isLooping() {
@@ -233,7 +232,7 @@ public class PlayList implements Serializable {
     public void print(int from) {
         if (from == -1) // Print the play list from current index
             from = currentIndex;
-        if (items.length > 0) {
+        if (this.length > 0) {
             printPlayList(from);
         } else {
             System.out.println("Empty play list");
@@ -258,7 +257,7 @@ public class PlayList implements Serializable {
         if (getItems().length >= 10) {
             len = getItems().length - 10;
         }
-        for (int i = len; i < items.length; i++) {
+        for (int i = len; i < this.length; i++) {
             lineSplat = printItem(lineSplat, i);
         }
     }
@@ -267,7 +266,8 @@ public class PlayList implements Serializable {
         Track item = getItems()[i];
         Formatter formatter = new Formatter();
         formatter.format("| %2s%-3d | %" + -(longFileNameLength + "[Played] ".length()) + "s |\n",
-                (item.isPlaying() ? "> " : ""), i + 1, (item.isPlayed() ? "[Played] " : "") + item.getFile().getName());
+                (item.isPlaying() ? "> " : ""), i + 1,
+                (getCorrectList(i).equals(playedTracks)? "[Played] " : "") + item.getFile().getName());
         if (lineSplat == null)
             lineSplat = createLineSplat(formatter);
         System.out.print(formatter + lineSplat);
@@ -279,8 +279,8 @@ public class PlayList implements Serializable {
     }
 
     public File playCurrentTrack() {
-        items[currentIndex].setPlaying(true);
-        return items[currentIndex].getFile();
+        getCurrentTrack().setPlaying(true);
+        return getCurrentTrack().getFile();
     }
 
     public boolean isShuffling() {
@@ -292,8 +292,8 @@ public class PlayList implements Serializable {
     }
 
     public int search(String name) {
-        for (int i = 0; i < items.length; i++) {
-            if (items[i].getFile().getName().equalsIgnoreCase(name)) {
+        for (int i = 0; i < this.length; i++) {
+            if (get(i).getFile().getName().equalsIgnoreCase(name)) {
                 return i;
             }
         }
@@ -301,13 +301,16 @@ public class PlayList implements Serializable {
     }
 
     public int getCurrentIndex() {
-        if (items.length > 0)
+        if (this.length > 0)
             return currentIndex;
         return -1;
     }
 
     public Track[] getItems() {
-        return items;
+        ArrayList<Track> items = new ArrayList<>();
+        items.addAll(playedTracks);
+        items.addAll(notPlayedTracks);
+        return items.toArray(new Track[0]);
     }
 
     public int getLongFileNameLength() {
@@ -319,7 +322,7 @@ public class PlayList implements Serializable {
     }
 
     public Track getCurrentTrack() {
-        return items[currentIndex];
+        return get(currentIndex);
     }
 
     public String getName() {
@@ -352,5 +355,10 @@ public class PlayList implements Serializable {
     @Override
     public String toString() {
         return getPlayListInfo();
+    }
+
+    public void played() {
+        playedTracks.add(getCurrentTrack());
+        notPlayedTracks.remove(getCurrentTrack());
     }
 }
