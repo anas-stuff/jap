@@ -98,14 +98,16 @@ public class PlayersAdaptor implements SuPlayer, PlayerListener {
      * Enable and disable looping of the play list
      */
     public void loopOfPlayList() {
-        PlayListsManger.getInstance().getCurrentPlayList().setLooping(!PlayListsManger.getInstance().getCurrentPlayList().isLooping()); // toggle looping
+        PlayListsManger.getInstance().getCurrentPlayList()
+                .setLooping(!PlayListsManger.getInstance().getCurrentPlayList().isLooping()); // toggle looping
     }
 
     /**
      * Enable and disable looping of the current player
      */
     public void shuffle() {
-        PlayListsManger.getInstance().getCurrentPlayList().setShuffling(!PlayListsManger.getInstance().getCurrentPlayList().isShuffling()); // toggle shuffling
+        PlayListsManger.getInstance().getCurrentPlayList()
+                .setShuffling(!PlayListsManger.getInstance().getCurrentPlayList().isShuffling()); // toggle shuffling
     }
 
     /**

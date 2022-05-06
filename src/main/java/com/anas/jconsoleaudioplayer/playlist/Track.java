@@ -9,13 +9,13 @@ import java.io.Serializable;
 public class Track implements Serializable {
     private int index;
     private String filePath;
-    private boolean played, playing;
-    private int previousTrackIndex, nextTrackIndex;
+    private boolean playing;
+    private int previousTrackIndex,
+            nextTrackIndex;
 
     public Track(int index, String filePath) {
         this.index = index;
         this.filePath = filePath;
-        played = false;
         playing = false;
         previousTrackIndex = -1;
         nextTrackIndex = -1;
@@ -41,14 +41,6 @@ public class Track implements Serializable {
 
     public String getFilePath() {
         return filePath;
-    }
-
-    public boolean isPlayed() {
-        return played;
-    }
-
-    public void setPlayed(boolean played) {
-        this.played = played;
     }
 
     public boolean isPlaying() {
