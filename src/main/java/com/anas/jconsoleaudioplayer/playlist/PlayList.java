@@ -16,7 +16,8 @@ public class PlayList implements Serializable {
     private boolean looping, shuffling;
     private int longFileNameLength;
     private int length;
-    private final ArrayList<Track> notPlayedTracks, playedTracks;
+    private final ArrayList<Track> notPlayedTracks,
+                                   playedTracks;
 
     private PlayList() {
         this("", 0);
@@ -134,7 +135,7 @@ public class PlayList implements Serializable {
             currentIndex = 0;
             reset(); // Rest the play list
         } else if (shuffling) {
-            int index = currentIndex;
+            int index = currentIndex; // Save the current index before changing it (with shuffle)
             if (get(index).getNextTrackIndex() == -1) {
                 shuffle(); // Shuffle if the next track index is -1
                 get(index).setNextTrackIndex(currentIndex); // Set the previous track as the next track
@@ -182,33 +183,36 @@ public class PlayList implements Serializable {
     }
 
     public PlayList shuffle() throws EndPlayListException {
+        // Check if the play list is ended
+        if (ifEnd()) return shuffle();
+        // Generate a random index
         int randomIndex = currentIndex;
-        while (randomIndex == currentIndex) {
+        while (randomIndex == currentIndex &&
+                notPlayedTracks.size() > 0) { // Shuffle until the current index is different
             randomIndex = (int) (Math.random() * notPlayedTracks.size());
-        }
-        // Check if playlist is finished
-        boolean end;
-        if ((end = isEnded()) && looping) {
-            reset();
-            return shuffle();
-        } else if (end) {
-            throw new EndPlayListException();
         }
         currentIndex = randomIndex;
         return this;
     }
 
-  /*  public void played() {
-        items[currentIndex].setPlaying(false);
-    }*/
+    private boolean ifEnd() throws EndPlayListException {
+        // Check if playlist is finished
+        boolean end;
+        if ((end = isEnded()) && looping) {
+            reset();
+            return true;
+        } else if (end) {
+            throw new EndPlayListException();
+        }
+        return false;
+    }
 
     public void reset() {
         for (int i = 0; i < playedTracks.size(); i++) {
             playedTracks.get(i).setPlaying(false);
             playedTracks.get(i).setPreviousTrackIndex(-1);
             playedTracks.get(i).setNextTrackIndex(-1);
-            notPlayedTracks.add(playedTracks.get(i));
-            playedTracks.remove(i);
+            notPlayedTracks.add(playedTracks.remove(i));
         }
         currentIndex = 0;
     }

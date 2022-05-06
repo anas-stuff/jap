@@ -10,7 +10,8 @@ public class Track implements Serializable {
     private int index;
     private String filePath;
     private boolean playing;
-    private int previousTrackIndex, nextTrackIndex;
+    private int previousTrackIndex,
+            nextTrackIndex;
 
     public Track(int index, String filePath) {
         this.index = index;
