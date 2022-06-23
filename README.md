@@ -1,6 +1,6 @@
-# JConsoleAudioPlayer
+# jap
 
-### About: JConsoleAudioPlayer is a simple audio player using Java for Linux and windows and macOS <br>
+### About: jap is a simple audio player using Java for Linux and windows and macOS <br>
 ### It supports the following audio formats
 - WAV
 - MP3

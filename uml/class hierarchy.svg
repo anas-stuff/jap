@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1251.2px" preserveAspectRatio="none" style="width:1148px;height:1251px;background:#FFFFFF;" version="1.1" viewBox="0 0 1148 1251" width="1148px" zoomAndPan="magnify"><defs><filter height="300%" id="f2zv8gzl59tjt" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="0.8000000000000002"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="1.6000000000000003" dy="1.6000000000000003" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[1c739d2ff8abde6e96c6a090c3b9491c]
-cluster com.anas.jconsoleaudioplayer--><polygon fill="#FFFFFF" filter="url(#f2zv8gzl59tjt)" points="6.4,2.6408,92.4,2.6408,95.2,12.668,1036.8,12.668,1036.8,1248.6408,6.4,1248.6408,6.4,2.6408" style="stroke:#000000;stroke-width:0.6000000000000001;"/><line style="stroke:#000000;stroke-width:0.6000000000000001;" x1="6.4" x2="95.2" y1="12.668" y2="12.668"/><text fill="#000000" font-family="sans-serif" font-size="5.6" font-weight="bold" lengthAdjust="spacing" textLength="83.6" x="8" y="9.4272">com.anas.jconsoleaudioplayer</text><!--MD5=[6e2bc53f2b489a463b0855903b315b97]
+cluster com.anas.jap--><polygon fill="#FFFFFF" filter="url(#f2zv8gzl59tjt)" points="6.4,2.6408,92.4,2.6408,95.2,12.668,1036.8,12.668,1036.8,1248.6408,6.4,1248.6408,6.4,2.6408" style="stroke:#000000;stroke-width:0.6000000000000001;"/><line style="stroke:#000000;stroke-width:0.6000000000000001;" x1="6.4" x2="95.2" y1="12.668" y2="12.668"/><text fill="#000000" font-family="sans-serif" font-size="5.6" font-weight="bold" lengthAdjust="spacing" textLength="83.6" x="8" y="9.4272">com.anas.jap</text><!--MD5=[6e2bc53f2b489a463b0855903b315b97]
 cluster cache--><polygon fill="#FFFFFF" filter="url(#f2zv8gzl59tjt)" points="332.8,710.2408,350.8,710.2408,353.6,720.268,546,720.268,546,1042.6408,332.8,1042.6408,332.8,710.2408" style="stroke:#000000;stroke-width:0.6000000000000001;"/><line style="stroke:#000000;stroke-width:0.6000000000000001;" x1="332.8" x2="353.6" y1="720.268" y2="720.268"/><text fill="#000000" font-family="sans-serif" font-size="5.6" font-weight="bold" lengthAdjust="spacing" textLength="15.6" x="334.4" y="717.0272">cache</text><!--MD5=[22e39c158ccd515e083392dc1f6fdf64]
 cluster files--><polygon fill="#FFFFFF" filter="url(#f2zv8gzl59tjt)" points="817.6,68.8408,831.2,68.8408,834,78.868,973.6,78.868,973.6,151.6408,817.6,151.6408,817.6,68.8408" style="stroke:#000000;stroke-width:0.6000000000000001;"/><line style="stroke:#000000;stroke-width:0.6000000000000001;" x1="817.6" x2="834" y1="78.868" y2="78.868"/><text fill="#000000" font-family="sans-serif" font-size="5.6" font-weight="bold" lengthAdjust="spacing" textLength="11.2" x="819.2" y="75.6272">files</text><!--MD5=[42603eecb267091c13893a16d8c379fb]
 cluster player--><polygon fill="#FFFFFF" filter="url(#f2zv8gzl59tjt)" points="555.6,21.0408,575.2,21.0408,578,31.068,754.4,31.068,754.4,885.8408,555.6,885.8408,555.6,21.0408" style="stroke:#000000;stroke-width:0.6000000000000001;"/><line style="stroke:#000000;stroke-width:0.6000000000000001;" x1="555.6" x2="578" y1="31.068" y2="31.068"/><text fill="#000000" font-family="sans-serif" font-size="5.6" font-weight="bold" lengthAdjust="spacing" textLength="17.2" x="557.2" y="27.8272">player</text><!--MD5=[20fd793008f89acd043009991cee5c03]
@@ -61,7 +61,7 @@ link PlayersAdaptor to MainController--><path codeLine="395" d="M605.656,879.476
 @startuml
 'https://plantuml.com/class-diagram
 
-package "com.anas.jconsoleaudioplayer" {
+package "com.anas.jap" {
      ' Main controller
      class MainController {
         - cliManager: CliManager
@@ -459,7 +459,7 @@ package "com.anas.jconsoleaudioplayer" {
 
 @startuml
 
-package "com.anas.jconsoleaudioplayer" {
+package "com.anas.jap" {
      class MainController {
         - cliManager: CliManager
         - cacheManager: CacheManager
